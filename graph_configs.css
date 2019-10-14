@@ -1,0 +1,93 @@
+body {
+  background-color: white;
+}
+
+table { border-collapse:collapse; 
+		 empty-cells: show;}
+		 
+table.centered {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+td.matrixcell{
+    text-align: center;
+    border: none;
+}
+
+td { 
+    padding: 10px;
+    text-align: right;
+    border: .5px solid;
+}
+th { 
+    padding: 10px;
+    text-align: right;
+    border: .5px solid;
+} 
+th{background-color: lightgray;}
+
+hr.thick {
+  border: 2px solid;
+}
+/* Thick red border */
+hr.thin {
+  border: 1px solid;
+}
+
+.centered {
+text-align: center;
+}
+
+    .matrix {
+        margin-left:auto; 
+        margin-right:auto;
+        position: relative;
+    }
+    .matrix:before, .matrix:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        border: 1px solid #000;
+        width: 4px;
+        height: 100%;
+    }
+    .matrix:before {
+        left: -4px;
+        border-right: 0;
+    }
+    .matrix:after {
+        right: -4px;
+        border-left: 0;
+    }
+
+.row {
+  display: flex; /* equal height of the children */
+}
+
+.vertcenter {
+  display: flex;
+    align-items: center;
+}
+
+.colleft {
+  flex: 1; /* additionally, equal width */
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+}
+.colright {
+  flex: 1; /* additionally, equal width */
+  display:flex;
+  align-items:center;
+  justify-content: flex-start;
+}
+
+
+
+pre > code {
+  display: block;
+  margin-top: -1.5rem;
+  padding-left: 2rem;
+  word-wrap: normal;
+}
