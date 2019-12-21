@@ -16,13 +16,6 @@ outro_file_base= constants.outro_file_base
 data_section_title = constants.data_section_title
 
 
-def graph_html_section(soup):
-	section = soup.new_tag('section')
-	section.append(soup.new_tag('h2'))
-	section.h2.append(data_section_title)
-	return section
-
-
 def format_macaulay_html(pair):
 	#data is a tuple with first element a denom_power string
 	#second element a macaulay poly numerator
@@ -54,6 +47,16 @@ def format_macaulay_html(pair):
 	answer.append(c_poly_str)
 	answer.append(valid)
 	return(answer)
+
+
+def graph_html_section(soup):
+	section = soup.new_tag('section')
+	section.append(soup.new_tag('h2'))
+	section.h2.append(data_section_title)
+	return section
+
+
+
 
 def assemble_table_for_html(graph,data):
 		#data is an object so that it's extendible
