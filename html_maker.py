@@ -1,24 +1,19 @@
+import constants
+
+
 todolist=[\
 'need better format for graph name',\
 'need to add check for existence of image',\
 'need graph data class',\
-'import constants dynamically',\
 'use beautifulsoup for html generation',\
 'rewrite format_macaulay',\
 ]
 
-graphics_format = 'svg'
+graphics_format = constants.graphics_format
+intro_file_base= constants.intro_file_base
+outro_file_base= constants.outro_file_base
+data_section_title = constants.data_section_title
 
-#
-#
-# TEXT FOR PRESENTATION
-#
-#
-intro_file_base='intro'
-outro_file_base='outro'
-
-
-data_section_title="Data for small graphs"
 
 
 
