@@ -7,7 +7,7 @@ import numpy as np
 
 todolist=[\
 'write code or find pre-made solution to position vertices automatically',\
-'write code or find pre-made solution to generate graphs automatically',\
+'input adjacency matrices from nauty',\
 'factor polynomials',\
 ]
 
