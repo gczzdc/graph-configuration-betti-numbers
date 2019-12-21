@@ -7,6 +7,7 @@ todolist=[\
 'need to add check for existence of image',\
 'need graph data class',\
 'use beautifulsoup for html generation',\
+'fix css',\
 'rewrite format_macaulay',\
 ]
 
@@ -58,55 +59,34 @@ def graph_html_section(soup):
 
 
 
-def assemble_table_for_html(graph,data):
-		#data is an object so that it's extendible
-	#data should have Betti numbers
-	output_builder=[]
-	output_builder.append('<div class="row">\n')
-	# output_builder.append('<div class="colleft" style="width:50%;float:left;text-align:right">\n')
-	output_builder.append('<div class="colleft">\n')
-	output_builder.append('<p><img src="')
-	output_builder.append(graph)
-	output_builder.append('.')
-	output_builder.append(graphics_format)
-	output_builder.append('" alt="picture of the graph ')
-	output_builder.append(graph)
-	output_builder.append('" ')
-	output_builder.append('style="margin-right:20px"')#;margin-bottom:20px;margin-top:10px"')
-	output_builder.append('></p>\n')
-	output_builder.append('</div>\n')
-	# output_builder.append('<div class="colright" style="width:50%;float:left;text-align:left">\n')
-	output_builder.append('<div class="colright">\n')
-	output_builder.append('<table class="matrix" ')
-	output_builder.append('style="display:inline-block;margin-left:20px">\n')#;margin-bottom:20px;margin-top:10px">\n')
+def assemble_table_for_html(graph,data, soup, image_exists):
+
+	tables = soup.new_tag('div')
+	
+	representations = soup.new_tag('div', class_='row')
+	
+	pic = soup.new_tag('div',class_='colleft')
+	pic.append(soup.new_tag('p'))
+	if image_exists:
+		img_src = '{}.{}'.format(graph, graphics_format)
+		alt_txt = 'picture of the graph {}'.format(graph)
+		pic.p.append(soup.new_tag('img',src=img_src, alt=alt_txt, style='margin-right:20px'))
+
+	representations.append(pic)	
+
+	adjacency = soup.new_tag('div',class_='colright')
+	adjacency.append(soup.new_tag('table', class_='matrix', style='display:inline-block;margin-left:20px'))
 	for i in range(len(data.adjacency)):
-		output_builder.append('<tr>\n')
-		for j in range(len(data.adjacency[0])):
-			output_builder.append('<td class="matrixcell">\n')
-			output_builder.append(str(data.adjacency[i][j]))
-			output_builder.append('</td>\n')
-		output_builder.append('</tr>\n')
-	output_builder.append('</table>\n')
-	output_builder.append('</div>\n')
-	output_builder.append('</div>\n')
-	# output_builder.append('<p class="centered">\n')
-	# output_builder.append('<img src="')
-	# output_builder.append(graph)
-	# output_builder.append('.')
-	# output_builder.append(graphics_format)
-	# output_builder.append('" alt="picture of the graph ')
-	# output_builder.append(graph)
-	# output_builder.append('">\n')
-	# output_builder.append('<table class="matrix">\n')
-	# for i in range(len(data.adjacency)):
-	# 	output_builder.append('<tr>\n')
-	# 	for j in range(len(data.adjacency[0])):
-	# 		output_builder.append('<td class="matrixcell">\n')
-	# 		output_builder.append(str(data.adjacency[i][j]))
-	# 		output_builder.append('</td>\n')
-	# 	output_builder.append('</tr>\n')
-	# output_builder.append('</table>\n')
-	# output_builder.append('</p>\n')
+		this_row = soup.new_tag('tr')
+		for entry in data.adjacency[i]:
+			this_entry = soup.new_tag('td',class_='matrixcell')
+			this_entry.append(str(entry))
+			this_row.append(this_entry)
+		adjacency.table.append(this_row)
+
+	representations.append(adjacency)
+	
+
 	output_builder.append('<div style="width:100%;clear:both"><p class="centered">\n')
 	if data.note:
 		output_builder.append('Note: ')
