@@ -1,4 +1,5 @@
 import constants
+from bs4 import BeautifulSoup
 
 
 todolist=[\
@@ -15,21 +16,11 @@ outro_file_base= constants.outro_file_base
 data_section_title = constants.data_section_title
 
 
-
-
-graph_html_header_builder=[]
-graph_html_header_builder.append((
-	'</section>\n'
-	'<section>\n'
-	"<h2>"
-	))
-graph_html_header_builder.append(data_section_title)
-graph_html_header_builder.append((
-	'</h2>\n'
-	))
-
-graph_html_header=''.join(graph_html_header_builder)
-
+def graph_html_section(soup):
+	section = soup.new_tag('section')
+	section.append(soup.new_tag('h2'))
+	section.h2.append(data_section_title)
+	return section
 
 
 def format_macaulay_html(pair):
