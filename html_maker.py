@@ -108,6 +108,35 @@ def betti_number_table(gaph, data, soup):
 			betti_table.table.append(this_row)
 
 		betti_info.append(betti_table)
+	return betti_info
+
+
+def make_table_header(graph, data, soup, image_exists):
+	representations = soup.new_tag('div', class_='row')
+	pic = soup.new_tag('div',class_='colleft')
+	pic.append(soup.new_tag('p'))
+	if image_exists:
+		img_src = '{}.{}'.format(graph, graphics_format)
+		alt_txt = 'picture of the graph {}'.format(graph)
+		pic.p.append(soup.new_tag('img',src=img_src, alt=alt_txt, style='margin-right:20px'))
+	representations.append(pic)	
+	adjacency = soup.new_tag('div',class_='colright')
+	adjacency.append(soup.new_tag('table', class_='matrix', style='display:inline-block;margin-left:20px'))
+	for i in range(len(data.adjacency)):
+		this_row = soup.new_tag('tr')
+		for entry in data.adjacency[i]:
+			this_entry = soup.new_tag('td',class_='matrixcell')
+			this_entry.append(str(entry))
+			this_row.append(this_entry)
+		adjacency.table.append(this_row)
+	representations.append(adjacency)
+	return representations
+
+def assemble_table_for_html(graph,data, soup, image_exists):
+	overall_output = soup.new_tag('div')
+	representations = make_table_header(graph, data, soup. image_exists)
+	overall_output.append(representations)
+	betti_info = betti_number_table(graph, data, soup)
 	overall_output.append(betti_info)
 	return (overall_output)
 
