@@ -169,7 +169,7 @@ def build_toc(soup, items):
 	return toc_div
 
 
-def build_betti_subsec(graph_list,n):
+def build_betti_subsec(graph_list,n,data_dic):
 	subsec = BeautifulSoup('')
 	subsec.append(graph_html_section_maker(subsec,n))
 	for graph in graph_list[j]:
@@ -196,7 +196,7 @@ def assemble_html(graph_list,data_dic):
 	toc_div = build_toc(soup, keys)
 	data_section.append(toc_div)
 	for j in keys:
-		this_subsec = build_betti_subsec(graph_list[j],j,soup)
+		this_subsec = build_betti_subsec(graph_list[j],j,data_dic)
 		data_section.append(this_subsec)
 	soup.html.body.append(data_section)
 	return soup
