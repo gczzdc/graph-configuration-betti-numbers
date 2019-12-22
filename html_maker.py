@@ -11,8 +11,7 @@ todolist=[\
 ]
 
 graphics_format = constants.graphics_format
-intro_file_base= constants.intro_file_base
-outro_file_base= constants.outro_file_base
+base_file_base= constants.base_file_base
 data_section_title = constants.data_section_title
 Betti_row_max_length = constants.Betti_row_max_length
 
@@ -178,7 +177,7 @@ def assemble_html(graph_dic):
 	# with integer keys n 
 	# and values iterators of 
 	# graphs data with n essential vertices
-	with open(intro_file_base + '.html','r') as f:
+	with open(base_file_base + '.html','r') as f:
 		soup= BeautifulSoup(f.read())
 	data_section = soup.new_tag('section')
 	data_section.append(soup.new_tag('h2'))

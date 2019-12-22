@@ -1,0 +1,163 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="graph_configs.css"><title>
+Betti numbers of unordered configuration spaces of small graphs
+</title>
+<style>
+	body {
+		box-sizing: border-box;
+	}
+</style>
+</head>
+<body>
+<h2>Betti numbers of unordered configuration spaces of small graphs</h2><br><section>
+<h2>Introduction</h2>
+<div>
+<p>
+The purpose of this document is to provide data about known Betti numbers of unordered configuration spaces of small graphs in order to guide research and avoid duplicated effort.
+</p>
+</div>
+<div>
+<p>
+It contains information for connected multigraphs having at most six edges which contain no loops, no bivalent vertices, and no internal (i.e., non-leaf) bridges.
+For each such graph there is a table of Betti numbers for configurations of small numbers of points along with Poincar&eacute; series which encode Betti numbers for all larger numbers of points. 
+Because the Poincar&eacute; series are rational functions, this means that for fixed i and &Gamma;, the sequence &beta;<sub>i</sub> (B<sub>k</sub>&Gamma;) of ith Betti numbers of is eventually polynomial in the number of points k in the configuration. 
+For the reader's convenience, the stable polynomial is also indicated.
+</p>
+<p>
+The enumeration of the graphs in question was done by hand and verified using Richard Mathar's preprint <a href="https://arxiv.org/abs/1709.09000">Statistics on Small Graphs</a> (Table 61). 
+The core homology computation was done using <a href="http://www.math.uiuc.edu/Macaulay2/">Macaulay2</a>. 
+</p>
+</div>
+<div>
+<p>
+	The approach uses the fact that the chains of the unordered configuration spaces of a graph are a differential graded module over a polynomial ring with variables the edges of the graph.
+The calculation is simplified further by a presentation of this differential graded module as the tensor product of finitely generated models for local configurations at the vertices of the graph.
+This picture was pioneered by <a href="https://www.impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/89/1/87804/estimates-for-homological-dimension-of-configuration-spaces-of-graphs">&#346;wi&#261;tkowski</a>; the action by the polynomial ring was described in <a href="https://arxiv.org/abs/1708.02351">my work</a> with An and Knudsen and analyzed in <a href="https://arxiv.org/abs/1806.05585">later work</a> with the same collaborators.
+Other related work includes the following.
+<ol>
+<li> 
+<a href="https://doi.org/10.1007/s00454-012-9459-8">Ko and Park</a> calculated the first Betti numbers for all graphs.
+</li>
+<li> 
+<a href="http://doi.org/10.2140/agt.2018.18.2305">Ramos</a> calculated all Betti numbers for trees. For trees all values are stable. In this document, this includes the graphs with fewer than two essential vertices.
+</li>
+<li> 
+<a href="https://arxiv.org/abs/1806.02846">Maci&#261;&#380;ek and Sawicki</a> calculated all Betti numbers for theta graphs. In this document, this data is reproduced in a different form in the section for graphs with precisely two essential vertices.
+</li>
+</ol>
+</p>
+</div>
+<div>
+<p>A pdf version of this document is available <a href="https://drummondcole.com/gabriel/academic/graph_configuration_betti_numbers/graph_configuration_betti_numbers.pdf">here</a>. 
+I would like to thank Byung Hee An and Ben Knudsen for help and suggestions related to this project.
+This work was supported by IBS-R003-D1. 
+This document was last modified July 16, 2019. <!-- last.Modified doesn't always work, do this manually-->
+</p>
+</div>
+<h3>Examples of motivation</h3>
+<div>
+<p>
+Two examples of the use of this data are as follows.
+</p>
+<p>
+In my work with An and Knudsen, we showed that the ith Betti numbers of B<sub>k</sub>(&Gamma;) grows like a polynomial in k of degree &Delta;<sub>&Gamma;</sub><sup>i</sup>-1, where &Delta;<sub>&Gamma;</sub><sup>i</sup> is the maximal number of connected components of the complement of i points in &Gamma;. 
+At the time, An made the following conjecture, which I believe has not appeared publicly, about the leading coefficient of this polynomial.
+<div><h4>Leading coefficient conjecture</h4><br>
+For any graph &Gamma; and any index i&gt; 1, the leading term of the polynomial governing the growth of the ith Betti numbers of B<sub>k</sub>(&Gamma;) is C<sub>&Gamma;</sub><sup>i</sup> k<sup>&Delta;<sub>&Gamma;</sub><sup>i</sup>-1</sup>, where
+<div style="display:block; padding-top:20px; padding-bottom:20px;margin: auto; text-align: center;">
+C<sub>&Gamma;</sub><sup>i</sup> = (&Sigma;<sub>S</sub> &Pi;<sub>v in S</sub> (d(v)-2))/(&Delta;<sub>&Gamma;</sub><sup>i</sup>-1)!
+</div>
+
+where S runs over i-element subsets of the essential vertices of &Gamma; and d(v) is the degree of a vertex.
+</div>
+This conjecture would be false for i=1 more or less because of the special case of Lemma 3.18 of our second paper. 
+
+In any event, the data here provides evidence for the conjecture, which holds for all of these small graphs.
+</p>
+<p>
+As a second example, as expressed above, for each &Gamma; and i the sequence &beta;<sub>i</sub> (B<sub>k</sub>&Gamma;) is eventually polynomial in k.
+A priori this does not tell us when polynomiality starts. 
+The data here allows us to immediately eliminate some possibilities. 
+For example, the data for the graph with adjacency matrix 
+<div style="display:block;padding-bottom:20px">
+<table class="matrix">
+<tr>
+<td class="matrixcell">
+0</td>
+<td class="matrixcell">
+3</td>
+<td class="matrixcell">
+2</td>
+</tr>
+<tr>
+<td class="matrixcell">
+3</td>
+<td class="matrixcell">
+0</td>
+<td class="matrixcell">
+1</td>
+</tr>
+<tr>
+<td class="matrixcell">
+2</td>
+<td class="matrixcell">
+1</td>
+<td class="matrixcell">
+0</td>
+</tr>
+</table>
+</div>
+indicates that the beginning of the polynomial range may exceed the number of essential vertices.
+</p>
+<p>
+The data is consistent with the polynomial range beginning with k one greater than the number of essential vertices (assuming &Gamma; has no isolated vertices).
+</p>
+</div>
+
+<h3>Reducing to the kinds of graphs considered here</h3>
+<div><p>
+Betti numbers for unordered configuration spaces of graphs with loops can be obtained by reducing to loop-free graphs with the same number of edges (see Lemma 4.6 of our second paper above). 
+Betti numbers for unordered configuration spaces of loop-free graphs with bivalent vertices can be obtained from such information for graphs without bivalent vertices (smoothing bivalent vertices is a homeomorphism and thus does not affect the configuration spaces). 
+Betti numbers for unordered configuration spaces of disconnected graphs can be obtained combinatorially from the counts for connected graphs by summing over all ways of partitioning the desired number of points among the path components (this is true for any locally path-connected topological spaces and is not particular to graphs). 
+Betti numbers for unordered configuration spaces of graphs with internal bridges can be obtained in a similar combinatorial manner from such information for the graphs obtained by cutting the edge into two leaves (see Proposition 5.2 of our first paper above).
+</p></div>
+<h3>Notes about the data</h3>
+<div><p>The graphs are organized by the number of essential (valence at least three) vertices. 
+They are presented both with images and with adjacency matrices.
+The number of essential vertices also gives the maximal homological degree of the unordered configuration spaces of a graph; as long as there is at least one essential vertex, this maximal degree is realized for configuration spaces of sufficiently many points (uniformly, twice the number of essential vertices is always enough to realize the maximal degree).
+The graphs are enumerated essentially at random within the grouping by number of essential vertices. 
+Unstable values are indicated in bold.
+All values not explicitly included in the tables of data are stable and are calculated by the indicated stable polynomial value.
+</p></div>
+<h3>Notes about the computation</h3>
+<div><p>
+The core computation of a presentation for the homology and all Poincar&eacute; series for 36 graphs (the isolated vertex and edge have irregular chain complexes because they have no essential vertices and therefore were computed by hand) took between four and five seconds on a late 2012 MacBook Pro. 
+Pushing the kind of calculation pursued here from graphs with six to seven, eight, or possibly even nine edges should be more or less just a problem of graph enumeration. 
+For example, the full computation for the complete graph K<sub>5</sub> with two disjoint edges removed (eight edges) takes under a minute. On the other hand, the full computation for the complete graph K<sub>5</sub> with a single edge removed (nine edges) takes seven minutes, and I did not complete the computation for K<sub>5</sub> itself (ten edges).
+</p></div>
+<div><p>
+Example code for the core computation looks as follows. 
+It presents a local two-stage chain complex model for each vertex and then tensors them together, both over the full polynomial ring on the edges.
+<pre>
+	<code>
+-- macaulay script for H_*(B_*(K4))
+R = ZZ[e_0, e_1, e_2, e_3, e_4, e_5]
+C0 = chainComplex { matrix {{e_4 - e_0, e_5 - e_0}} }
+C1 = chainComplex { matrix {{e_1 - e_0, e_2 - e_0}} }
+C2 = chainComplex { matrix {{e_3 - e_1, e_5 - e_1}} }
+C3 = chainComplex { matrix {{e_3 - e_2, e_4 - e_2}} }
+C = C0 ** C1 ** C2 ** C3
+H = HH (C)
+p0 = hilbertSeries (H_0, Reduce =&gt; true)
+p1 = hilbertSeries (H_1, Reduce =&gt; true)
+p2 = hilbertSeries (H_2, Reduce =&gt; true)
+p3 = hilbertSeries (H_3, Reduce =&gt; true)
+p4 = hilbertSeries (H_4, Reduce =&gt; true)
+	</code>
+</pre>
+</p>
+</div>
+</section>
+</body>
+</html>
