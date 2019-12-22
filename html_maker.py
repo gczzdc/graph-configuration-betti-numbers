@@ -140,16 +140,16 @@ def assemble_table_for_html(graph,data, soup, image_exists):
 	overall_output.append(betti_info)
 	return (overall_output)
 
-def graph_html_section_maker(n):
-	output_builder=	['<h3><a id=',]
-	output_builder.append(str(n))
-	output_builder.append("_vertices></a>\n Data for graphs with ")
-	output_builder.append(str(n))
-	if n !=1:
-		output_builder.append(' essential vertices\n</h3>\n<hr>\n')
+def graph_html_section_maker(soup, n):
+	section = soup.new_tag('h3')
+	section_name = '{}_vertices'.format(n)
+	section.append(soup.new_tag('a', id=section_name))
+	if n!=1:
+		section.append('Data for graphs with {} essential vertices'.format(n))
 	else:
-		output_builder.append(' essential vertex\n</h3>\n<hr>\n')	
-	return (''.join(output_builder))
+		section.append('Data for graphs with 1 essential vertex')
+	section.append(soup.new_tag('hr'))
+	return section
 
 def assemble_html(graph_list,data_dic):
 	# graph_list is a list or dictionary 
