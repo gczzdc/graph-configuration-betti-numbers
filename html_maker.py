@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 
 
 todolist=[\
-'check about html escaping in bs html generation',\
 'fix css',\
 'rewrite format_macaulay',\
 'put image_exists in data_class',\
