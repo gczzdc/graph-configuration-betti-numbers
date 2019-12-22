@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 
 todolist=[\
 'fix css',\
-'rewrite format_macaulay',\
-'put image_exists in data_class',\
-'put graph name in data_class',\
+'put image_exists in data_class as image_exists',\
+'put graph name in data_class as name',\
+'put formatted poly strings in data class as more tuple values in poly[row_number]'
 ]
 
 graphics_format = constants.graphics_format
@@ -15,36 +15,29 @@ data_section_title = constants.data_section_title
 Betti_row_max_length = constants.Betti_row_max_length
 
 
-def format_macaulay_html(pair):
-	#data is a tuple with first element a denom_power string
-	#second element a macaulay poly numerator
+def format_macaulay_html(poly, denom_power, num_poly_str, stable_poly_str):
+	# returns a bs object and a string
 	answer=[]
-	poly = pair[0]
-	denom_power = pair[1]
-	rational_string=''
-	is_monomial=0
-	for coefficient in poly:
-		if coefficient:
-			is_monomial+=1
-	if is_monomial!=1 and denom_power>0:
-		rational_string+='('
-	rational_string+=format_poly_to_str(poly)
-	if is_monomial!=1 and denom_power>0:
-		rational_string+=')'
+	rational_string=BeautifulSoup('')
+	monomial_count = sum((1 for coefficient in poly if coefficient))
+	if monomial_count !=1 and denom_power>0:
+		rational_string.append('(')
+	rational_string.append(num_poly_str)
+	if monomial_count!=1 and denom_power>0:
+		rational_string.append(')')
 	if denom_power>0:
-		rational_string+= '/(1-t)'
+		rational_string.append('/(1-t)')
 	if denom_power>1:
-		rational_string+='<sup>'+str(denom_power)+'</sup>'
+		power=BeautifulSoup('')
+		power.append(power.new_tag('sup'))
+		power.sup.append(str(denom_power))
+		rational_string.append(power)
 	answer.append(rational_string)
-	c_poly=hilb_series_to_coefficient_poly(poly,denom_power)[::-1]
 	if denom_power>2:
-		c_poly_str='('+format_poly_to_str(c_poly,format='html',var='k')+')'
-		c_poly_str +='/'+str(denom_power-1)+'!'
+		stable_string='('+stable_poly_str+')'
+		stable_string +='/'+str(denom_power-1)+'!'
 	else:
-		c_poly_str=format_poly_to_str(c_poly,format='html',var='k')
-	valid='k &gt; ' +str(len(poly)-denom_power-1)
-	answer.append(c_poly_str)
-	answer.append(valid)
+		stable_string=stable_poly_str
 	return(answer)
 
 
@@ -94,7 +87,7 @@ def betti_number_table(graph,soup):
 				this_row.append(this_entry)
 			for col_number in range(cap-min(len(graph.Betti_numbers[row_number]),cap)):
 				this_row.append(soup.new_tag('td'))
-			html_polys = format_macaulay_html(graph.polys[row_number])
+			html_polys = format_macaulay_html(*graph.polys[row_number])
 			Pseries = soup.new_tag('td')
 			Pseries.append(html_polys[0])
 			stable = soup.new_tag('td')
