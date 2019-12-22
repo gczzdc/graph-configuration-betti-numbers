@@ -204,5 +204,5 @@ def assemble_html(graph_list,data_dic):
 
 def write_html(graph_list,data_dic,file_name):
 	with open(file_name, 'w') as f:
-		f.write(assemble_html(graph_list,data_dic))
+		f.write(assemble_html(graph_list,data_dic).prettify())
 
