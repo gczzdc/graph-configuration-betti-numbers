@@ -3,15 +3,11 @@ from bs4 import BeautifulSoup
 
 
 todolist=[\
-'need better format for graph name',\
-'need graph data class',\
-'use beautifulsoup for html generation',\
 'check about html escaping in bs html generation',\
 'fix css',\
 'rewrite format_macaulay',\
 'put image_exists in data_class',\
 'put graph name in data_class',\
-'change logic so that external data_dic is not needed',\
 ]
 
 graphics_format = constants.graphics_format
@@ -61,18 +57,18 @@ def graph_html_section(soup):
 	return section
 
 
-def betti_number_table(gaph, data, soup):
+def betti_number_table(graph,soup):
 	betti_info= soup.new_tag('div',style = 'width:100%;clear:both')
 	betti_info.append(soup.new_tag('p',class_='centered'))
-	if data.note:
-		betti_info.p.append('Note: {}'.format(data.note))
+	if graph.note:
+		betti_info.p.append('Note: {}'.format(graph.note))
 		betti_info.p.append(soup.new_tag('br'))
-	if not data.Betti_numbers:
+	if not graph.Betti_numbers:
 		betti_info.p.append('No Betti number data available')
 	else:
 		betti_info.p.append('Betti numbers &beta;<sub>i</sub>(B<sub>k</sub>(&Gamma;)):')
 		betti_table = soup.new_tag('p',class_='centered')
-		row_length = max([len(row) for row in data.Betti_numbers.values()])
+		row_length = max([len(row) for row in graph.Betti_numbers.values()])
 		cap = min(row_length,Betti_row_max_length)
 		betti_table.append(soup.new_tag('table',class_='centered'))
 		betti_table.table.append(soup.new_tag('tr'))
@@ -88,19 +84,19 @@ def betti_number_table(gaph, data, soup):
 		stable_header.append('stable polynomial value')
 		betti_table.table.tr.append(Pseries_header)
 		betti_table.table.tr.append(stable_header)
-		for row_number in range(data.homological_degree+1):
+		for row_number in range(graph.homological_degree+1):
 			this_row=soup.new_tag('tr')
 			this_row.append(soup.new_tag('th'))
 			this_row.th.append(str(row_number))
-			for col_number in range(min(len(data.Betti_numbers[row_number]),cap)):
+			for col_number in range(min(len(graph.Betti_numbers[row_number]),cap)):
 				this_entry = soup.new_tag('td')
 				this_entry.append(soup.new_tag('span'))
-				if (row_number,col_number) in data.Betti_number_is_unstable:
+				if (row_number,col_number) in graph.Betti_number_is_unstable:
 					this_entry.span['style']='font-weight:900'
 				this_row.append(this_entry)
-			for col_number in range(cap-min(len(data.Betti_numbers[row_number]),cap)):
+			for col_number in range(cap-min(len(graph.Betti_numbers[row_number]),cap)):
 				this_row.append(soup.new_tag('td'))
-			html_polys = format_macaulay_html(data.polys[row_number])
+			html_polys = format_macaulay_html(graph.polys[row_number])
 			Pseries = soup.new_tag('td')
 			Pseries.append(html_polys[0])
 			stable = soup.new_tag('td')
@@ -113,20 +109,20 @@ def betti_number_table(gaph, data, soup):
 	return betti_info
 
 
-def make_table_header(graph, data, soup, image_exists):
+def make_table_header(graph, soup):
 	representations = soup.new_tag('div', class_='row')
 	pic = soup.new_tag('div',class_='colleft')
 	pic.append(soup.new_tag('p'))
-	if image_exists:
-		img_src = '{}.{}'.format(graph, graphics_format)
-		alt_txt = 'picture of the graph {}'.format(graph)
+	if graph.image_exists:
+		img_src = '{}.{}'.format(graph.name, graphics_format)
+		alt_txt = 'picture of the graph {}'.format(graph.name)
 		pic.p.append(soup.new_tag('img',src=img_src, alt=alt_txt, style='margin-right:20px'))
 	representations.append(pic)	
 	adjacency = soup.new_tag('div',class_='colright')
 	adjacency.append(soup.new_tag('table', class_='matrix', style='display:inline-block;margin-left:20px'))
-	for i in range(len(data.adjacency)):
+	for i in range(len(graph.adjacency)):
 		this_row = soup.new_tag('tr')
-		for entry in data.adjacency[i]:
+		for entry in graph.adjacency[i]:
 			this_entry = soup.new_tag('td',class_='matrixcell')
 			this_entry.append(str(entry))
 			this_row.append(this_entry)
@@ -134,11 +130,11 @@ def make_table_header(graph, data, soup, image_exists):
 	representations.append(adjacency)
 	return representations
 
-def assemble_table_for_html(graph,data, soup, image_exists):
+def assemble_table_for_html(graph, soup):
 	overall_output = soup.new_tag('div')
-	representations = make_table_header(graph, data, soup. image_exists)
+	representations = make_table_header(graph, soup)
 	overall_output.append(representations)
-	betti_info = betti_number_table(graph, data, soup)
+	betti_info = betti_number_table(graph, soup)
 	overall_output.append(betti_info)
 	return (overall_output)
 
@@ -169,34 +165,30 @@ def build_toc(soup, items):
 	return toc_div
 
 
-def build_betti_subsec(graph_list,n,data_dic):
+def build_betti_subsec(graph_list,n):
 	subsec = BeautifulSoup('')
 	subsec.append(graph_html_section_maker(subsec,n))
 	for graph in graph_list[j]:
-		data = data_dic[graph]
-		image_exists = data.image_exists
-		subsec.append(assemble_table_for_html(graph, data, subsec,image_exists))
+		subsec.append(assemble_table_for_html(graph, subsec))
 
 
 
-def assemble_html(graph_list,data_dic):
-	# graph_list is a list or dictionary 
+def assemble_html(graph_dic):
+	# graph_dic is a dictionary 
 	# with integer keys n 
 	# and values iterators of 
-	# graphs with n vertices
+	# graphs data with n essential vertices
 	with open(intro_file_base + '.html','r') as f:
 		soup= BeautifulSoup(f.read())
 	data_section = soup.new_tag('section')
 	data_section.append(soup.new_tag('h2'))
 	data_section.h2.append(data_section_title)
-	keys = []
-	for j in range(len(graph_list)):
-		if graph_list[j]:
-			keys.append(j)
+	keys = [k for k in graph_dic if graph_dic[k]]
+	keys.sort()
 	toc_div = build_toc(soup, keys)
 	data_section.append(toc_div)
-	for j in keys:
-		this_subsec = build_betti_subsec(graph_list[j],j,data_dic)
+	for k in keys:
+		this_subsec = build_betti_subsec(graph_list[k],k)
 		data_section.append(this_subsec)
 	soup.html.body.append(data_section)
 	return soup
