@@ -7,6 +7,7 @@ todolist=[\
 'need to add check for existence of image',\
 'need graph data class',\
 'use beautifulsoup for html generation',\
+'check about html escaping in bs html generation',\
 'fix css',\
 'rewrite format_macaulay',\
 ]
@@ -15,6 +16,7 @@ graphics_format = constants.graphics_format
 intro_file_base= constants.intro_file_base
 outro_file_base= constants.outro_file_base
 data_section_title = constants.data_section_title
+Betti_row_max_length = constants.Betti_row_max_length
 
 
 def format_macaulay_html(pair):
@@ -61,7 +63,7 @@ def graph_html_section(soup):
 
 def assemble_table_for_html(graph,data, soup, image_exists):
 
-	tables = soup.new_tag('div')
+	overall_output = soup.new_tag('div')
 	
 	representations = soup.new_tag('div', class_='row')
 	
@@ -85,62 +87,59 @@ def assemble_table_for_html(graph,data, soup, image_exists):
 		adjacency.table.append(this_row)
 
 	representations.append(adjacency)
-	
 
-	output_builder.append('<div style="width:100%;clear:both"><p class="centered">\n')
+	overall_output.append(representations)
+	
+	betti_info= soup.new_tag('div',style = 'width:100%;clear:both')
+	betti_info.append(soup.new_tag('p',class_='centered'))
 	if data.note:
-		output_builder.append('Note: ')
-		output_builder.append(data.note)
-		output_builder.append('\n<br>\n')
-	if data.Betti_numbers:
-		output_builder.append('Betti numbers &beta;<sub>i</sub>(B<sub>k</sub>(&Gamma;)):')
-		output_builder.append('\n</p>\n<p class="centered">')
+		betti_info.p.append('Note: {}'.format(data.note))
+		betti_info.p.append(soup.new_tag('br'))
+	if not data.Betti_numbers:
+		betti_info.p.append('No Betti number data available')
+	else:
+		betti_info.p.append('Betti numbers &beta;<sub>i</sub>(B<sub>k</sub>(&Gamma;)):')
+		betti_table = soup.new_tag('p',class_='centered')
 		row_length = max([len(row) for row in data.Betti_numbers.values()])
 		cap = min(row_length,Betti_row_max_length)
-		output_builder.append('<table class="centered">\n')
-		output_builder.append('<tr>\n')
-		output_builder.append('<th>i&#92;k</th>\n')
+		betti_table.append(soup.new_tag('table',class_='centered'))
+		betti_table.table.append(soup.new_tag('tr'))
+		betti_table.table.tr.append(soup.new_tag('th'))
+		betti_table.table.tr.th.append('i&#92;k')
 		for col_number in range(cap):
-			output_builder.append('<th>')
-			output_builder.append(str(col_number))
-			output_builder.append('</th>\n')
-		output_builder.append('<th>')
-		output_builder.append('Poincar&eacute; series')
-		output_builder.append('</th>\n')
-		output_builder.append('<th>')
-		output_builder.append('stable polynomial value')
-		output_builder.append('</th>\n')
-		output_builder.append('</tr>\n')
+			this_header = soup.new_tag('th')
+			this_header.append(str(col_number))
+			betti_table.tr.append(this_header)
+		Pseries_header = soup.new_tag('th')
+		Pseries_header.append('Poincar&eacute; series')
+		stable_header = soup.new_tag('th')
+		stable_header.append('stable polynomial value')
+		betti_table.table.tr.append(Pseries_header)
+		betti_table.table.tr.append(stable_header)
 		for row_number in range(data.homological_degree+1):
-			output_builder.append('<tr>\n<th>')
-			output_builder.append(str(row_number))
-			output_builder.append('</th>\n')
+			this_row=soup.new_tag('tr')
+			this_row.append(soup.new_tag('th'))
+			this_row.th.append(str(row_number))
 			for col_number in range(min(len(data.Betti_numbers[row_number]),cap)):
-				output_builder.append('<td>')
+				this_entry = soup.new_tag('td')
+				this_entry.append(soup.new_tag('span'))
 				if (row_number,col_number) in data.Betti_number_is_unstable:
-					output_builder.append('<span style="font-weight:900">')
-				output_builder.append(str(data.Betti_numbers[row_number][col_number]))
-				if (row_number,col_number) in data.Betti_number_is_unstable:
-					output_builder.append('</span>')
-				output_builder.append('</td>\n')
+					this_entry.span['style']='font-weight:900'
+				this_row.append(this_entry)
 			for col_number in range(cap-min(len(data.Betti_numbers[row_number]),cap)):
-				output_builder.append('<td></td>\n')
-			output_builder.append('<td>')
+				this_row.append(soup.new_tag('td'))
 			html_polys = format_macaulay_html(data.polys[row_number])
-			output_builder.append(html_polys[0])
-			output_builder.append('</td>\n')
-			output_builder.append('<td>')
-			output_builder.append(html_polys[1])
-			# output_builder.append(data.htmltriples[row_number][0])
-			# output_builder.append(data.htmltriples[row_number][1])
-			output_builder.append('</td>\n')
-			output_builder.append('</tr>\n')
-		output_builder.append('</table>\n')
-	else:
-		output_builder.append('No Betti number data available')
-	output_builder.append('</p></div>\n')
-	output_builder.append('<hr>\n')
-	return (''.join(output_builder))
+			Pseries = soup.new_tag('td')
+			Pseries.append(html_polys[0])
+			stable = soup.new_tag('td')
+			stable.append(html_polys[1])
+			this_row.append(Pseries)
+			this_row.append(stable)
+			betti_table.table.append(this_row)
+
+		betti_info.append(betti_table)
+	overall_output.append(betti_info)
+	return (overall_output)
 
 def graph_html_section_maker(n):
 	output_builder=	['<h3><a id=',]
