@@ -151,35 +151,54 @@ def graph_html_section_maker(soup, n):
 	section.append(soup.new_tag('hr'))
 	return section
 
+def build_toc(soup, items):
+	toc_div = soup.new_tag('div')
+	toc_div.append(soup.new_tag('ul'))
+	for j in items:
+		this_item = soup.new_tag('li')
+		relative_link = '#{}_vertices'.format(j)
+		this_item.append(soup.new_tag('a',href=relative_link))
+		if j != 1:
+			this_item.a.append('Graphs with {} essential vertices'.format(j))
+		else:
+			this_item.a.append('Graphs with 1 essential vertex')
+
+		toc_div.ul.append(this_item)
+	return toc_div
+
+
+def build_betti_subsec(graph_list,n):
+	subsec = BeautifulSoup('')
+	subsec.append(graph_html_section_maker(subsec,n))
+	for graph in graph_list[j]:
+		data = data_dic[graph]
+		image_exists = data.image_exists
+		subsec.append(assemble_table_for_html(graph, data, subsec,image_exists))
+
+
+
 def assemble_html(graph_list,data_dic):
 	# graph_list is a list or dictionary 
 	# with integer keys n 
 	# and values iterators of 
 	# graphs with n vertices
-	output_builder=[]
 	with open(intro_file_base + '.html','r') as f:
-		output_builder.append(f.read())
-	output_builder.append(graph_html_header)
-	output_builder.append('<div><ul>\n')
-	for j in range(len(graph_list)):
-		output_builder.append('<li><a href="#')
-		output_builder.append(str(j))
-		output_builder.append('_vertices">Graphs with ')
-		output_builder.append(str(j))
-		output_builder.append(' vertices</a></li>\n')
-	output_builder.append('</ul></div>\n')
+		soup= BeautifulSoup(f.read())
+	data_section = soup.new_tag('section')
+	data_section.append(soup.new_tag('h2'))
+	data_section.h2.append(data_section_title)
+	keys = []
 	for j in range(len(graph_list)):
 		if graph_list[j]:
-			output_builder.append(graph_html_section_maker(j))
-			for graph in graph_list[j]:
-				if graph in data_dic:
-					output_builder.append(assemble_table_for_html(graph,data_dic[graph]))
-				else: #make an empty information thing
-					output_builder.append(assemble_table_for_html(graph,data_class()))
-	# output_builder.append(graph_html_footer)
-	with open(outro_file_base+'.html','r') as f:
-		output_builder.append(f.read())
-	return (''.join(output_builder))
+			keys.append(j)
+	toc_div = build_toc(soup, keys)
+	data_section.append(toc_div)
+	for j in keys:
+		this_subsec = build_betti_subsec(graph_list[j],j,soup)
+		data_section.append(this_subsec)
+	soup.html.body.append(data_section)
+	return soup
+
 
 def write_html(graph_list,data_dic,file_name):
 	with open(file_name, 'w') as f:
