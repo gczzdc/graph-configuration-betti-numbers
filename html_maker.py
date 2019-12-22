@@ -4,12 +4,14 @@ from bs4 import BeautifulSoup
 
 todolist=[\
 'need better format for graph name',\
-'need to add check for existence of image',\
 'need graph data class',\
 'use beautifulsoup for html generation',\
 'check about html escaping in bs html generation',\
 'fix css',\
 'rewrite format_macaulay',\
+'put image_exists in data_class',\
+'put graph name in data_class',\
+'change logic so that external data_dic is not needed',\
 ]
 
 graphics_format = constants.graphics_format
