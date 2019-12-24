@@ -15,7 +15,7 @@ base_file_base= constants.base_file_base
 data_section_title = constants.data_section_title
 Betti_row_max_length = constants.Betti_row_max_length
 
-def format_poly_to_str(poly, var='t'):
+def format_poly_to_html(poly, var='t'):
 	# format polynomial (list starting with degree zero coefficient) to html.
 	soup=BeautifulSoup('')
 	for j,c in enumerate(poly):
@@ -51,40 +51,48 @@ def format_poly_to_str(poly, var='t'):
 	return soup
 
 
-def format_macaulay_html(poly, denom_power, num_poly_str, stable_poly_str):
+def format_macaulay_html(num_poly, denom_power, stable_poly):
 	# formats an internal data representation for tabular html display
 	#
 	# input format: 
 	#
-	# poly is a list of coefficients
+	# num_poly is a list of coefficients of 
+	# 	the numerator of the poincare series
 	# denom_power is an int
-	# num_poly_str is a string representation of a poly
-	# stable_poly_str is a string representation of a poly
+	# stable_poly_str is a list of coefficients
+	#	of the stable poly, normalized by the
+	# 	appropriate factorial
 	#
-	# returns a bs object for the Poincare series 
-	# and a string for the stable polynomial
+	# returns a pair of bs objects 
+	# for the Poincare series 
+	# and for the stable polynomial
 	answer=[]
-	rational_string=BeautifulSoup('')
-	monomial_count = sum((1 for coefficient in poly if coefficient))
+	poincare_soup=BeautifulSoup('')
+	monomial_count = sum((1 for coefficient in num_poly if coefficient))
 	if monomial_count !=1 and denom_power>0:
-		rational_string.append('(')
-	rational_string.append(num_poly_str)
+		poincare_soup.append('(')
+	num_poly_str = format_poly_to_html(num_poly)
+	poincare_soup.append(num_poly_str)
 	if monomial_count!=1 and denom_power>0:
-		rational_string.append(')')
+		poincare_soup.append(')')
 	if denom_power>0:
-		rational_string.append('/(1-t)')
+		poincare_soup.append('/(1-t)')
 	if denom_power>1:
 		power=BeautifulSoup('')
 		power.append(power.new_tag('sup'))
 		power.sup.append(str(denom_power))
-		rational_string.append(power)
-	answer.append(rational_string)
+		poincare_soup.append(power)
+	answer.append(poincare_soup)
+	stable_poly_str = format_poly_to_html(stable_poly)
+	stable_soup = BeautifulSoup('')
 	if denom_power>2:
-		stable_string='('+stable_poly_str+')'
-		stable_string +='/'+str(denom_power-1)+'!'
+		stable_soup.append('(')
+		stable_soup.append(stable_poly_str)
+		stable_soup.append(')/{}!'.format(denom_power-1))
 	else:
-		stable_string=stable_poly_str
-	return(answer)
+		stable_soup.append(stable_poly_str)
+	answer.append(stable_soup)
+	return answer
 
 
 def graph_html_section(soup):
