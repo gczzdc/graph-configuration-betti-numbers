@@ -1,3 +1,6 @@
+import networkx as nx
+import numpy as np
+
 class Graph():
 	def __init__(self):
 		self.vertex_count=0
@@ -85,7 +88,9 @@ class Graph():
 		self.has_VE=True
 
 	def sparse6_to_adjacency(self):
-		pass
+		G = nx.from_sparse6_bytes(self.sparse6.encode('ascii'))
+		self.adjacency = nx.to_numpy_array(G).astype(int).tolist()
+		self.has_adjacency=True
 	def sparse6_to_VE(self):
 		pass
 	def sparse6_to_VH(self):
