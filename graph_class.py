@@ -91,6 +91,12 @@ class Graph():
 		G = nx.from_sparse6_bytes(self.sparse6.encode('ascii'))
 		self.adjacency = nx.to_numpy_array(G).astype(int).tolist()
 		self.has_adjacency=True
+		
+	def adjacency_to_sparse6(self):
+		G = nx.from_numpy_array(np.array(self.adjacency))
+		self.sparse6 = nx.to_sparse6_bytes(G).decode('ascii')[11:-1]
+		self.has_sparse6=True
+
 	def sparse6_to_VE(self):
 		pass
 	def sparse6_to_VH(self):
@@ -98,8 +104,6 @@ class Graph():
 	def VE_to_sparse6(self):
 		pass
 	def VH_to_sparse6(self):
-		pass
-	def adjacency_to_sparse6(self):
 		pass
 
 
