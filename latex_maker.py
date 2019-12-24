@@ -37,33 +37,27 @@ def format_poly_to_tex(poly, var='t'):
 		poly_tex=poly_tex[1:]
 	return poly_tex
 
-def format_macaulay_latex(pair):
-	# print (pair)
+def format_macaulay_latex(num_poly, denom_power, stable_poly):
 	answer=[]
 		#pair[0] is denom power
 		#pair[1] is numer poly
-	poly = pair[0]
-	denom_power = pair[1]
-	rational_string=''
+	poincare_tex=''
 	if denom_power>0:
-		rational_string+='\\frac{'+format_poly_to_str(poly,format='latex')+'}'
+		poincare_tex+='\\frac{{{}}}'.format(format_poly_to_tex(poly))
 		if denom_power>1:
-			rational_string+= '{(1-t)^{'+str(denom_power)+'}}'
+			poincare_tex+= '{{(1-t)^{{{}}}}}'.format(denom_power)
 		else:
-			rational_string+= '{1-t}'				
+			poincare_tex+= '{1-t}'				
 	else:
-		rational_string+=format_poly_to_str(poly,format='latex')		
-	answer.append(rational_string)
-	c_poly=hilb_series_to_coefficient_poly(poly,denom_power)[::-1]
+		poincare_tex+=format_poly_to_tex(poly)		
+	answer.append(poincare_tex)
 	if denom_power>2:
-		c_poly_str='\\frac{'+format_poly_to_str(c_poly,format='latex',var='k')+'}'
-		c_poly_str +='{'+str(denom_power-1)+'!}'
+		stable_tex='\\frac{{{}}}'.format(format_poly_to_tex(stable_poly,var='k'))
+		stable_tex +='{{{}!}}'.format(denom_power-1)
 	else:
-		c_poly_str=format_poly_to_str(c_poly,format='latex',var='k')
-	answer.append(c_poly_str)
-	valid=	'k > '+str(len(poly)-denom_power-1)
-	answer.append(valid)
-	return(answer)
+		stable_tex=format_poly_to_tex(stable_poly,var='k')
+	answer.append(stable_tex)
+	return answer
 
 def assemble_table_for_pdf(graph,data,single=False):
 	#data is an object so that it's extendible
