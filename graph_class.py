@@ -1,17 +1,23 @@
 class Graph():
 	def __init__(self):
+		self.vertices_=None
+		self.edges_=None
+		self.half_edges_=None
+		self.adjacency_=None
+		self.sparse6_=None
+
+		self.name=None
+		self.image_file=None
+		self.note=None
+
+		self.essential_vertices_=None
+
 		self.homological_degree=-1
 		self.Betti_numbers={}
 		self.Betti_number_is_unstable=set()
 		self.graph.poincare_num_poly=None,
 		self.graph.poincare_denom_power=None,
 		self.graph.stable_poly_normalized=None
-		self.adjacency_=None
-		self.note=None
-		self.image_file=None
-		self.name=None
-		self.essential_vertices_=None
-		self.edges_=None
 	
 	def essential_vertices(self):
 		if not self.essential_vertices_:
