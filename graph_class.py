@@ -44,6 +44,16 @@ class Graph():
 			self.adjacency[e[0]][e[1]] = multiplicity
 			self.adjacency[e[1]][e[0]] = multiplicity
 		self.has_adjacency=True
+
+	def adjacency_to_VE(self):
+		self.vertex_count = len(self.adjacency)
+		self.edges = {}
+		for i in range(self.vertex_count)
+			for j in range(i+1):
+				multiplicity=self.adjacency[i][j]
+				if multiplicity:
+					self.edges[(j,i)]=multiplicity
+		self.has_VE=True
 	def essential_vertices(self):
 		if not self.essential_vertices:
 			self.build_essential_vertices()
