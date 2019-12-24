@@ -29,7 +29,6 @@ def format_poly_to_tex(poly, var='t'):
 				poly_tex+=var
 			if j>1:
 				poly_tex+='^{{{}}}'.format(j)
-				#alternate formatting because of string formatting rules
 	#special handling if the polynomial was empty
 	if not poly_tex:
 		return '0'
