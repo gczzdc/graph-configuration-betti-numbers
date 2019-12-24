@@ -168,13 +168,13 @@ def make_table_header(graph, soup):
 	adjacency.append(soup.new_tag('table', 
 							class_='matrix', 
 							style='display:inline-block;margin-left:20px'))
-	for i in range(len(graph.adjacency)):
-		this_row = soup.new_tag('tr')
-		for entry in graph.adjacency[i]:
+	for row in graph.adjacency:
+		row_soup = soup.new_tag('tr')
+		for entry in row:
 			this_entry = soup.new_tag('td',class_='matrixcell')
 			this_entry.append(str(entry))
-			this_row.append(this_entry)
-		adjacency.table.append(this_row)
+			row_soup.append(this_entry)
+		adjacency.table.append(row_soup)
 	representations.append(adjacency)
 	return representations
 
