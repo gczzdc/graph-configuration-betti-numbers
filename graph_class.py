@@ -83,6 +83,16 @@ class Graph():
 			else:
 				self.edges[key]=1
 		self.has_VE=True
+	def VH_to_adjacency(self):
+		if not self.has_VE:
+			self.VH_to_VE()
+		self.VE_to_adjacency()
+
+	def adjacency_to_VH(self):
+		if not self.has_VE:
+			self.adjacency_to_VE()
+		self.VE_to_VH()
+
 	def essential_vertices(self):
 		if not self.essential_vertices:
 			self.build_essential_vertices()
