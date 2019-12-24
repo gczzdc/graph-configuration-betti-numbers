@@ -9,7 +9,7 @@ def basic_enumerator(j, graph):
 def basic_namer(graph):
 	if graph.name:
 		return graph.name
-	return '\n'.join((' '.join((str(x) for x in row)) for row in graph.adjacency))
+	return '\n'.join((' '.join((str(x) for x in row)) for row in graph.adjacency()))
 
 
 def batch_macaulay_script(graph_enumerator, 

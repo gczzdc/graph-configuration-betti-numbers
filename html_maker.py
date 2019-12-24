@@ -173,7 +173,7 @@ def make_table_header(graph, soup):
 	adjacency.append(soup.new_tag('table', 
 							class_='matrix', 
 							style='display:inline-block;margin-left:20px'))
-	for row in graph.adjacency:
+	for row in graph.adjacency():
 		row_soup = soup.new_tag('tr')
 		for entry in row:
 			this_entry = soup.new_tag('td',class_='matrixcell')
