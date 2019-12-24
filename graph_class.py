@@ -54,6 +54,17 @@ class Graph():
 				if multiplicity:
 					self.edges[(j,i)]=multiplicity
 		self.has_VE=True
+
+	def VE_to_VH(self):
+		self.edge_count=sum(self.edges.values())
+		self.stars = [[] for _ in range(self.vertex_count)]
+		counter = 0
+		for vertex_pair, multiplicity in self.edges.items():
+			for _ in range(multiplicity):
+				for vertex in vertex_pair:
+					self.stars[vertex].append(counter)
+				counter+=1
+		self.has_VH = True
 	def essential_vertices(self):
 		if not self.essential_vertices:
 			self.build_essential_vertices()
