@@ -157,10 +157,12 @@ def make_table_header(graph, soup):
 	representations = soup.new_tag('div', class_='row')
 	pic = soup.new_tag('div',class_='colleft')
 	pic.append(soup.new_tag('p'))
-	if graph.image_exists:
-		img_src = '{}.{}'.format(graph.name, graphics_format)
+	if graph.image_file:
 		alt_txt = 'picture of the graph {}'.format(graph.name)
-		pic.p.append(soup.new_tag('img',src=img_src, alt=alt_txt, style='margin-right:20px'))
+		pic.p.append(soup.new_tag('img',
+					src=graph.image_file, 
+					alt=alt_txt, 
+					style='margin-right:20px'))
 	representations.append(pic)	
 	adjacency = soup.new_tag('div',class_='colright')
 	adjacency.append(soup.new_tag('table', class_='matrix', style='display:inline-block;margin-left:20px'))
