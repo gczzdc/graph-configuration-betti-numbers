@@ -1,5 +1,9 @@
 import constants
 
+intro_tex=constants.intro_tex
+outro_tex=constants.outro_tex
+data_section_title=constants.data_section_title
+
 def format_poly_to_tex(poly, var='t'):
 	# format polynomial (list starting with degree zero coefficient) to tex.
 	poly_tex=''
