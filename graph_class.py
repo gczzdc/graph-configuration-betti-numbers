@@ -1,15 +1,29 @@
 class Graph():
 	def __init__(self):
-		self.vertices=None
+		self.vertex_count=0
+		# a non-negative integer
 		self.edges=None
-		self.half_edges=None
-		self.adjacency=None
-		self.sparse6=None
+		# a dictionary of ordered pairs with keys
+		# pairs of vertices
+		self.has_VE=False
 
-		self.has_sparse6 = False
-		self.has_VE = False
+
+		self.edge_count=0
+		# a non-negative integer
+		self.stars=None
+		# a list of lists, one for each vertex
+		#where each vertex list is of edges adjacent to the vertex
+		#each edge must appear twice is the union of these lists.
+		self.has_VH=False
+
+		self.adjacency=None
 		self.has_adjacency = False
-		self.has_HVi = False
+		#full adjacency matrix as a list of lists.
+
+		self.sparse6=None
+		self.has_sparse6 = False
+		#mckay sparse6 format
+
 
 		self.name=None
 		self.image_file=None
