@@ -182,7 +182,7 @@ def assemble_table_for_html(graph, soup):
 	overall_output.append(betti_info)
 	return (overall_output)
 
-def graph_html_section_maker(soup, n):
+def subsec_header_maker(soup, n):
 	section = soup.new_tag('h3')
 	section_name = '{}_vertices'.format(n)
 	section.append(soup.new_tag('a', id=section_name))
@@ -211,7 +211,7 @@ def build_toc(soup, items):
 
 def build_betti_subsec(graph_list,n):
 	subsec = BeautifulSoup('')
-	subsec.append(graph_html_section_maker(subsec,n))
+	subsec.append(subsec_header_maker(subsec,n))
 	for graph in graph_list[n]:
 		subsec.append(assemble_table_for_html(graph, subsec))
 	return subsec
