@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup
 
 todolist=[\
 'fix css',\
-'put image_exists in data_class as image_exists',\
-'put graph name in data_class as name',\
 'put formatted stable poly in data class',\
 ]
 

@@ -5,4 +5,6 @@ class Graph():
 		self.Betti_number_is_unstable=set()
 		self.polys={}
 		self.adjacency=None
-		self.note=''
+		self.note=None
+		self.image_file=None
+		self.name=None
