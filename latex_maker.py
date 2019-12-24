@@ -146,21 +146,24 @@ def assemble_table_for_pdf(graph,data,single=False):
 
 
 def assemble_table_for_tex(graph, single_file=False):
-	output_builder=[]
-	output_builder.append(make_table_header(graph, single_file))
-	output_builder.append(betti_number_table(graph))
-	return (''.join(output_builder))
+	out_builder=[]
+	out_builder.append('\\begin{absolutelynopagebreak}\n')
+	out_builder.append(make_table_header(graph, single_file))
+	out_builder.append(betti_number_table(graph))
+	out_builder.append('\\end{absolutelynopagebreak}')
+	out_builder.append('\\vspace{20pt}\n\n\\hrule\n\n\\vspace{20pt}\n')	
+	return ''.join(out_builder)
 
 def subsec_header_maker(n):
-	output_builder=	[]
+	out_builder=	[]
 	if n!=0:
-		output_builder.append("\\clearpage\n")
+		out_builder.append("\\clearpage\n")
 	if j!=1:
-		output_builder.append("\\subsection{{Data for graphs with {} essential vertices}}\n".format(j))
+		out_builder.append("\\subsection{{Data for graphs with {} essential vertices}}\n".format(j))
 	else:
-		output_builder.append("\\subsection{Data for graphs with 1 essential vertex}\n")
-	output_builder.append('\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
-	return (''.join(output_builder))
+		out_builder.append("\\subsection{Data for graphs with 1 essential vertex}\n")
+	out_builder.append('\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
+	return ''.join(out_builder)
 
 def build_betti_subsec(graph_list,n, single_file):
 	subsec=subsec_header_builder(n)
@@ -174,19 +177,19 @@ def assemble_pdf(graph_dic,single_file=False):
 	# with integer keys n 
 	# and values iterators of 
 	# graphs data with n essential vertices
-	output_builder=[]
+	out_builder=[]
 	with open(intro_tex, 'r') as f:
-		output_builder.append(f.read())
-	output_builder.append("\\clearpage\n")
-	output_builder.append("\\section{{{}}}\n".format(data_section_title))
-	output_builder.append("\\setcounter{subsection}{-1}\n")
+		out_builder.append(f.read())
+	out_builder.append("\\clearpage\n")
+	out_builder.append("\\section{{{}}}\n".format(data_section_title))
+	out_builder.append("\\setcounter{subsection}{-1}\n")
 	keys = [k for k in graph_dic if graph_dic[k]]
 	keys.sort()
 	for k in keys:
-		output_builder.append(build_betti_subsec(graph_dic[k],k, single_file))
+		out_builder.append(build_betti_subsec(graph_dic[k],k, single_file))
 	with open(outro_tex,'r') as f:
-		output_builder.append(f.read())
-	return (''.join(output_builder))
+		out_builder.append(f.read())
+	return ''.join(out_builder)
 
 
 
