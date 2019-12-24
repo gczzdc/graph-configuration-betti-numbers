@@ -55,10 +55,12 @@ def format_macaulay_html(num_poly, denom_power, stable_poly):
 	#
 	# num_poly is a list of coefficients of 
 	# 	the numerator of the poincare series
+	# 	by increasing degree
 	# denom_power is an int
 	# stable_poly_str is a list of coefficients
 	#	of the stable poly, normalized by the
 	# 	appropriate factorial
+	#   by increasing degree
 	#
 	# returns a pair of bs objects 
 	# for the Poincare series 
@@ -138,7 +140,9 @@ def betti_number_table(graph,soup):
 				this_row.append(this_entry)
 			for col_number in range(cap-min(len(graph.Betti_numbers[row_number]),cap)):
 				this_row.append(soup.new_tag('td'))
-			html_polys = format_macaulay_html(*graph.polys[row_number])
+			html_polys = format_macaulay_html(graph.poincare_num_poly,
+												graph.poincare_denom_power,
+												graph.stable_poly_normalized)
 			Pseries = soup.new_tag('td')
 			Pseries.append(html_polys[0])
 			stable = soup.new_tag('td')
