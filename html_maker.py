@@ -212,7 +212,7 @@ def build_toc(soup, items):
 def build_betti_subsec(graph_list,n):
 	subsec = BeautifulSoup('')
 	subsec.append(graph_html_section_maker(subsec,n))
-	for graph in graph_list[j]:
+	for graph in graph_list[n]:
 		subsec.append(assemble_table_for_html(graph, subsec))
 	return subsec
 
