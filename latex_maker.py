@@ -75,28 +75,6 @@ def assemble_table_for_pdf(graph,data,single=False):
 	#data is an object so that it's extendible
 	#data should have Betti numbers
 	output_builder=[]
-	output_builder.append('\\begin{absolutelynopagebreak}\n')
-	output_builder.append('\\[\n\\begin{tabular}{c}\n')
-	if single:
-		tempfile=open(graph+'.tex','r')
-		output_builder.append(tempfile.read())
-		tempfile.close()
-	else:
-		output_builder.append('\\input{')
-		output_builder.append(graph)
-		output_builder.append('}\n')
-	output_builder.append('\\end{tabular}')
-	output_builder.append('\\qquad{}\n')
-	output_builder.append("\\renewcommand{\\arraystretch}{1}\n")
-	output_builder.append('\\left(\\begin{array}{')
-	for _ in range(len(data.adjacency[0])):
-		output_builder.append('c')
-	output_builder.append('}\n')
-	for i in range(len(data.adjacency)):
-		output_builder.append('&'.join([str(n) for n in data.adjacency[i]]))
-		output_builder.append('\\\\\n')
-	output_builder.append('\\end{array}\\right)')
-	output_builder.append('\n\\]\n')
 	if data.note:
 		output_builder.append('\nNote: ')
 		output_builder.append(data.note)
@@ -139,11 +117,31 @@ def assemble_table_for_pdf(graph,data,single=False):
 	else:
 		output_builder.append('No Betti number data available\n\\\\\n')
 	output_builder.append('\\end{center}\n')
-	output_builder.append('\\end{absolutelynopagebreak}')
-	output_builder.append('\\vspace{20pt}\n\n\\hrule\n\n\\vspace{20pt}\n')
 	return (''.join(output_builder))
 
 
+def make_table_header(graph, single_file):
+	out_builder = []
+	out_builder.append('\\[\n')
+	if graph.image_texfile:
+		out_builder.append('\\begin{tabular}{c}\n')
+		if single_file:
+			with open(graph.image_texfile+'.tex','r') as f:
+				out_builder.append(f.read()) 
+		else:
+			out_builder.append('\\input{{{}}}\n'.format(graph.image_texfile))
+		out_builder.append('\\end{tabular}\n\\qquad{}\n')
+	out_builder.append("\\renewcommand{\\arraystretch}{1}\n")
+	out_builder.append('\\left(\\begin{array}{')
+	for _ in graph.adjacency:
+		out_builder.append('c')
+	out_builder.append('}\n')
+	for row in graph.adjacency:
+		out_builder.append('&'.join((str(n) for n in row)))
+		out_builder.append('\\\\\n')
+	out_builder.append('\\end{array}\\right)\n')
+	out_builder.append('\\]\n')
+	return ''.join(out_builder)
 
 def assemble_table_for_tex(graph, single_file=False):
 	out_builder=[]
