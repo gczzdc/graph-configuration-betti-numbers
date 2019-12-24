@@ -1,4 +1,11 @@
 import math
+#format here:
+#
+# tuple (V,E)
+# here V is either a set of vertices
+# or a dictionary of vertices with values locations
+# E is a dictionary with keys vertex pairs and values multiplicities
+
 
 stardic={3:[(1,1,1),(3,1,1),(4,1,1)],4:[(1,1,1,1),(3,1,1,1)],5:[(1,1,1,1,1),],6:[(1,1,1,1,1,1),]}
 
