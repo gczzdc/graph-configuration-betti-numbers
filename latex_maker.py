@@ -147,23 +147,23 @@ def graph_section_maker(j):
 		output_builder.append(' essential vertices}\n\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
 	return (''.join(output_builder))
 
-def assemble_pdf(graph_list,data_dic,single=False):
+def assemble_pdf(graph_dic,single_file=False):
+	# graph_dic is a dictionary 
+	# with integer keys n 
+	# and values iterators of 
+	# graphs data with n essential vertices
 	output_builder=[]
-	f = open(intro_file_base+'.tex','r')
-	output_builder.append(f.read())
-	f.close()
-	output_builder.append(graph_list_header)
-	for j in range(len(graph_list)):
-		if graph_list[j]:
-			output_builder.append(graph_section_maker(j))
-			for graph in graph_list[j]:
-				if graph in data_dic:
-					output_builder.append(assemble_table_for_pdf(graph,data_dic[graph],single))
-				else: #make an empty information thing
-					output_builder.append(assemble_table_for_pdf(graph,data_class(),single))
-	f = open(outro_file_base+'.tex','r')
-	output_builder.append(f.read())
-	f.close()
+	with open(intro_tex, 'r') as f:
+		output_builder.append(f.read())
+	output_builder.append("\\clearpage\n")
+	output_builder.append("\\section{{{}}}\n".format(data_section_title))
+	output_builder.append("\\setcounter{{subsection}}{{-1}}\n")
+	keys = [k for k in graph_dic if graph_dic[k]]
+	keys.sort()
+	for k in keys:
+		output_builder.append(build_betti_subsec(graph_dic[k],k, single_file))
+	with open(outro_tex,'r') as f:
+		output_builder.append(f.read())
 	return (''.join(output_builder))
 
 
