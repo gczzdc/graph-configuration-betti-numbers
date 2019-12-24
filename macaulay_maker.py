@@ -2,7 +2,6 @@ import constants
 
 graph_order_of_magnitude=constants.graph_order_of_magnitude
 
-
 def basic_enumerator(j, graph):
 	return 'G{}'.format(str(j).rjust(graph_order_of_magnitude,'0'))
 

@@ -94,8 +94,6 @@ def upload_files(full_upload):
 		for graph in graphs:
 			scp(graph+'.'+graphics_format)
 
-
-
 def graph_generator(
 	interactive=False, 
 	recompile_images=recompile_images,
