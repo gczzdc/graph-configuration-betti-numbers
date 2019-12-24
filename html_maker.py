@@ -6,8 +6,7 @@ todolist=[\
 'fix css',\
 'put image_exists in data_class as image_exists',\
 'put graph name in data_class as name',\
-'put formatted poly strings in data class as more tuple values in poly[row_number]',\
-'alternately, add a poly html formatter (this is more probable)'
+'put formatted stable poly in data class',\
 ]
 
 graphics_format = constants.graphics_format
