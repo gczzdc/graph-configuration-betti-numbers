@@ -71,54 +71,41 @@ def format_macaulay_latex(num_poly, denom_power, stable_poly):
 	answer.append(stable_tex)
 	return answer
 
-def assemble_table_for_pdf(graph,data,single=False):
-	#data is an object so that it's extendible
-	#data should have Betti numbers
-	output_builder=[]
-	if data.note:
-		output_builder.append('\nNote: ')
-		output_builder.append(data.note)
-		output_builder.append('\n\\\\')
-	if data.Betti_numbers:
-		output_builder.append('\nBetti numbers $\\beta_i(B_k(\\Gamma))$:\n')
-		row_length = max([len(row) for row in data.Betti_numbers.values()])
-		cap = min(row_length,Betti_row_max_length)
-		output_builder.append('\\begin{center}\n')
-		output_builder.append("\\renewcommand{\\arraystretch}{2}\n")
-		output_builder.append('\\begin{tabular}{l|')
-		for j in range(cap+2):
-			output_builder.append('c')
-		output_builder.append('}\n')
-		output_builder.append('$i\\backslash k$')
-		for col_number in range(cap):
-			output_builder.append(' & ')
-			output_builder.append('$'+str(col_number)+'$')
-		output_builder.append(" & Poincar\\'e series")
-		output_builder.append(' & stable polynomial value')
-		output_builder.append('\\\\\\hline\n')
-		for row_number in range(data.homological_degree+1):
-			output_builder.append('$'+str(row_number)+'$')
-			for col_number in range(min(len(data.Betti_numbers[row_number]),cap)):
-				output_builder.append(' & ')
-				output_builder.append('$')
-				if (row_number,col_number) in data.Betti_number_is_unstable:
-					output_builder.append('\\mathbf{')
-				output_builder.append(str(data.Betti_numbers[row_number][col_number]))
-				if (row_number,col_number) in data.Betti_number_is_unstable:
-					output_builder.append('}')
-				output_builder.append('$')
-			output_builder.append('\n & ')
-			latex_polys = format_macaulay_latex(data.polys[row_number])
-			output_builder.append('$'+latex_polys[0]+'$')
-			output_builder.append(' & ')
-			output_builder.append('$'+latex_polys[1]+'$')
-			output_builder.append('\\\\\n')
-		output_builder.append('\\end{tabular}\n')
-	else:
-		output_builder.append('No Betti number data available\n\\\\\n')
-	output_builder.append('\\end{center}\n')
-	return (''.join(output_builder))
 
+def betti_number_table(graph):
+	out_builder=[]
+	if graph.note:
+		out_builder.append('\nNote: {}\n\\\\\n'.format(graph.note))
+	if not graph.Betti_numbers:
+		output_builder.append('No Betti number data available\n\\\\\n')
+	else:
+		out_builder.append('Betti numbers $\\beta_i(B_k(\\Gamma))$:\n')
+		row_length = max([len(row) for row in graph.Betti_numbers.values()])
+		cap = min(row_length,Betti_row_max_length)
+		out_builder.append('\\begin{center}\n')
+		out_builder.append("\\renewcommand{\\arraystretch}{2}\n")
+		out_builder.append('\\begin{{tabular}}{{l|{}}}\n'.format('c'*(cap+2)))
+		out_builder.append('$i\\backslash k$')
+		for col_number in range(cap):
+			out_builder.append(' & ${}$'.format(col_number))
+		out_builder.append(" & Poincar\\'e series")
+		out_builder.append(' & stable polynomial value')
+		out_builder.append('\\\\\\hline\n')
+		for row_number in range(graph.homological_degree+1):
+			out_builder.append('${}$'.format(row_number))
+			for col_number in range(min(len(graph.Betti_numbers[row_number]),cap)):
+				this_number = graph.Betti_numbers[row_number][col_number]
+				if (row_number,col_number) in graph.Betti_number_is_unstable:
+					formatted_number = '\\mathbf{{{}}}'.format(this_number)
+				else:
+					formatted_number = this_number
+				out_builder.append(' & ${}$'.format(formatted_number))
+			out_builder.append('\n & ')
+			tex_polys = format_macaulay_latex(*graph.polys[row_number])
+			out_builder.append('${}$ & ${}$\\\\\n'.format(tex_polys[0],tex_polys[1]))
+		out_builder.append('\\end{tabular}\n')
+		out_builder.append('\\end{center}\n')
+	return ''.join(out_builder)
 
 def make_table_header(graph, single_file):
 	out_builder = []
