@@ -165,7 +165,9 @@ def make_table_header(graph, soup):
 					style='margin-right:20px'))
 	representations.append(pic)	
 	adjacency = soup.new_tag('div',class_='colright')
-	adjacency.append(soup.new_tag('table', class_='matrix', style='display:inline-block;margin-left:20px'))
+	adjacency.append(soup.new_tag('table', 
+							class_='matrix', 
+							style='display:inline-block;margin-left:20px'))
 	for i in range(len(graph.adjacency)):
 		this_row = soup.new_tag('tr')
 		for entry in graph.adjacency[i]:
