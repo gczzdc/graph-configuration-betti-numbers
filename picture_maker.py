@@ -1,5 +1,8 @@
+import constants
+img_start_tex=constants.img_start_tex
+img_end_tex=constants.img_end_tex
 
-def graphmaker(node_dic, edge_dic, narrow_flag=1, scale=1):
+def image_maker(node_dic, edge_dic, narrow_flag=1, scale=1):
 	out_builder = []
 	out_builder.append("\\begin{tikzpicture}")
 	if scale !=1:
@@ -29,14 +32,11 @@ def graphmaker(node_dic, edge_dic, narrow_flag=1, scale=1):
 	out_builder.append("\\end{tikzpicture}\n")
 	return ''.join(out_builder)
 
-def graph_file(outfile,node_dic,edge_dic,narrow_flag=1,scale=1):
-	data = graphmaker(node_dic,edge_dic,narrow_flag,scale)
-	f=open(outfile+'.tex','w')
-	f_sa = open(outfile+'_img.tex','w')
-	f.writelines(data)
-	f_sa.write(img_start_tex)
-	f_sa.writelines(data)
-	f_sa.write(img_end_tex)
-	f.close()
-	f_sa.close()
-	return
+def image_files(outfile,node_dic,edge_dic,narrow_flag=1,scale=1):
+	data = image_maker(node_dic,edge_dic,narrow_flag,scale)
+	with open(outfile+'.tex','w') as f:
+		f.write(data)
+	with open(outfile+'_img.tex','w') as f:
+		f.write(img_start_tex)
+		f.write(data)
+		f.write(img_end_tex)
