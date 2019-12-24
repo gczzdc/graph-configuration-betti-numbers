@@ -1,6 +1,7 @@
 import constants
 
 #break up io and command formatting
+graph_order_of_magnitude=constants.graph_order_of_magnitude
 
 
 def basic_enumerator(j, graph):
