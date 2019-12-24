@@ -17,7 +17,17 @@ Betti_row_max_length = constants.Betti_row_max_length
 
 
 def format_macaulay_html(poly, denom_power, num_poly_str, stable_poly_str):
-	# returns a bs object and a string
+	# formats an internal data representation for tabular html display
+	#
+	# input format: 
+	#
+	# poly is a list of coefficients
+	# denom_power is an int
+	# num_poly_str is a string representation of a poly
+	# stable_poly_str is a string representation of a poly
+	#
+	# returns a bs object for the Poincare series 
+	# and a string for the stable polynomial
 	answer=[]
 	rational_string=BeautifulSoup('')
 	monomial_count = sum((1 for coefficient in poly if coefficient))
