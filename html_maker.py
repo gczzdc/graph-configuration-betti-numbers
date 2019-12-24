@@ -158,7 +158,10 @@ def make_table_header(graph, soup):
 	pic = soup.new_tag('div',class_='colleft')
 	pic.append(soup.new_tag('p'))
 	if graph.image_file:
-		alt_txt = 'picture of the graph {}'.format(graph.name)
+		if graph.name:
+			alt_txt = 'picture of the graph {}'.format(graph.name)
+		else:
+			alt_txt = 'picture of a graph'
 		pic.p.append(soup.new_tag('img',
 					src=graph.image_file, 
 					alt=alt_txt, 
