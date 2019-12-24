@@ -98,14 +98,24 @@ class Graph():
 		self.has_sparse6=True
 
 	def sparse6_to_VE(self):
-		pass
-	def sparse6_to_VH(self):
-		pass
-	def VE_to_sparse6(self):
-		pass
-	def VH_to_sparse6(self):
-		pass
+		if not self.has_adjacency:
+			self.sparse6_to_adjacency()
+		self.adjacency_to_VE()
 
+	def sparse6_to_VH(self):
+		if not self.has_adjacency:
+			self.sparse6_to_adjacency()
+		self.adjacency_to_VH()
+
+	def VE_to_sparse6(self):
+		if not self.has_adjacency:
+			self.VE_to_adjacency()
+		self.adjacency_to_sparse6()
+
+	def VH_to_sparse6(self):
+		if not self.has_adjacency:
+			self.VH_to_adjacency()
+		self.adjacency_to_sparse6()
 
 	def VH_to_adjacency(self):
 		if not self.has_VE:
