@@ -38,6 +38,12 @@ class Graph():
 		self.graph.poincare_denom_power=None,
 		self.graph.stable_poly_normalized=None	
 
+	def VE_to_adjacency(self):
+		self.adjacency = [ [0 for i in range(self.vertex_count)] for j in range(self.vertex_count)]
+		for e,multiplicity in self.edges.items():
+			self.adjacency[e[0]][e[1]] = multiplicity
+			self.adjacency[e[1]][e[0]] = multiplicity
+		self.has_adjacency=True
 	def essential_vertices(self):
 		if not self.essential_vertices:
 			self.build_essential_vertices()
