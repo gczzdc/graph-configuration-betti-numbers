@@ -2,6 +2,7 @@ import constants
 img_start_tex = constants.img_start_tex
 img_end_tex = constants.img_end_tex
 node_radius = constants.node_radius
+bend_dic = constants.bend_dic
 
 def image_maker(node_dic, edge_dic, narrow_flag=1, scale=1):
 	out_builder = []
