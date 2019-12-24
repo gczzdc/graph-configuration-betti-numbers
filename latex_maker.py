@@ -139,15 +139,15 @@ def assemble_table_for_pdf(graph,data,single=False):
 
 
 def graph_section_maker(j):
+def subsec_header_maker(n):
 	output_builder=	[]
-	if j!=0:
+	if n!=0:
 		output_builder.append("\\clearpage\n")
-	output_builder.append("\\subsection{Data for graphs with ")
-	output_builder.append(str(j))
-	if j==1:
-		output_builder.append(' essential vertex}\n\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
+	if j!=1:
+		output_builder.append("\\subsection{{Data for graphs with {} essential vertices}}\n".format(j))
 	else:
-		output_builder.append(' essential vertices}\n\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
+		output_builder.append("\\subsection{Data for graphs with 1 essential vertex}\n")
+	output_builder.append('\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
 	return (''.join(output_builder))
 
 def build_betti_subsec(graph_list,n, single_file):
