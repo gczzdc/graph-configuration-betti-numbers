@@ -160,7 +160,7 @@ def assemble_pdf(graph_dic,single_file=False):
 		output_builder.append(f.read())
 	output_builder.append("\\clearpage\n")
 	output_builder.append("\\section{{{}}}\n".format(data_section_title))
-	output_builder.append("\\setcounter{{subsection}}{{-1}}\n")
+	output_builder.append("\\setcounter{subsection}{-1}\n")
 	keys = [k for k in graph_dic if graph_dic[k]]
 	keys.sort()
 	for k in keys:
