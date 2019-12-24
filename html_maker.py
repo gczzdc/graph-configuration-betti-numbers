@@ -1,12 +1,6 @@
 import constants
 from bs4 import BeautifulSoup
 
-
-todolist=[\
-'fix css',\
-'put formatted stable poly in data class',\
-]
-
 graphics_format = constants.graphics_format
 base_html= constants.base_html
 data_section_title = constants.data_section_title

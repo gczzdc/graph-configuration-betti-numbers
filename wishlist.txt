@@ -1,0 +1,9 @@
+Wishlist:
+
+Find code or write solution to position vertices and edges automatically
+(maybe networkx has a solution?)
+
+Factor polynomials
+
+Move styling from html file into css file
+
