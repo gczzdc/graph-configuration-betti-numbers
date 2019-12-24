@@ -1,8 +1,8 @@
 graphics_format = 'svg'
 
-intro_file_base='intro'
-outro_file_base='outro'
+intro_tex='intro.tex'
 base_html='base.html'
+outro_tex='outro.tex'
 
 data_section_title="Data for small graphs"
 
