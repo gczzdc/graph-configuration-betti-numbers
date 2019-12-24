@@ -15,6 +15,41 @@ base_file_base= constants.base_file_base
 data_section_title = constants.data_section_title
 Betti_row_max_length = constants.Betti_row_max_length
 
+def format_poly_to_str(poly, var='t'):
+	# format polynomial (list starting with degree zero coefficient) to html.
+	soup=BeautifulSoup('')
+	for j,c in enumerate(poly):
+		# c is the jth cofficient starting with the constant term
+		if c>0:
+			#if the coefficient is positive, put in a plus sign
+			#not necessary for negative coefficients
+			soup.append('+')
+		if c!=0:
+			#don't write +-1 coefficients unless it's a constant term
+			if c == 1:
+				if j==0:
+					soup.append('1')
+			elif c==-1:
+				soup.append('-')
+				if j==0:
+					soup.append('1')
+			else:
+				soup.append(str(c))
+			#format variable and exponent
+			if j>0:
+				soup.append(var)
+			if j>1:
+				exp = soup.new_tag('sup')
+				exp.append(str(j))
+				soup.append(exp)
+	#special handling if the polynomial was empty
+	if soup.string is None:
+		return BeautifulSoup('0')
+	#deleting leading '+' sign
+	if soup.contents[0][0]=='+':
+		soup.contents[0].replace_with(soup.contents[0][1:])
+	return soup
+
 
 def format_macaulay_html(poly, denom_power, num_poly_str, stable_poly_str):
 	# formats an internal data representation for tabular html display
