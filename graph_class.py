@@ -83,6 +83,21 @@ class Graph():
 			else:
 				self.edges[key]=1
 		self.has_VE=True
+
+	def sparse6_to_adjacency(self):
+		pass
+	def sparse6_to_VE(self):
+		pass
+	def sparse6_to_VH(self):
+		pass
+	def VE_to_sparse6(self):
+		pass
+	def VH_to_sparse6(self):
+		pass
+	def adjacency_to_sparse6(self):
+		pass
+
+
 	def VH_to_adjacency(self):
 		if not self.has_VE:
 			self.VH_to_VE()
