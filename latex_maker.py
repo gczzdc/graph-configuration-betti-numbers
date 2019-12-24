@@ -1,30 +1,38 @@
 import constants
 
 def format_poly_to_tex(poly, var='t'):
-	rational_string=''
+	# format polynomial (list starting with degree zero coefficient) to tex.
+	poly_tex=''
 	for j,c in enumerate(poly):
+		# c is the jth cofficient starting with the constant term
 		if c>0:
-			rational_string+='+'
+			#if the coefficient is positive, put in a plus sign
+			#not necessary for negative coefficients
+			poly_tex+='+'
 		if c!=0:
+			#don't write +-1 coefficients unless it's a constant term
 			if c == 1:
 				if j==0:
-					rational_string+='1'
+					poly_tex+='1'
 			elif c==-1:
-				rational_string += '-'
+				poly_tex += '-'
 				if j==0:
-					rational_string+='1'
+					poly_tex+='1'
 			else:
-				rational_string+=str(c)
+				poly_tex+=str(c)
+			#format variable and exponent
 			if j>0:
-				rational_string+=var
+				poly_tex+=var
 			if j>1:
-				rational_string+='^{{{}}}'.format(j)
+				poly_tex+='^{{{}}}'.format(j)
 				#alternate formatting because of string formatting rules
-	if not rational_string:
+	#special handling if the polynomial was empty
+	if not poly_tex:
 		return '0'
-	if rational_string[0]=='+':
-		rational_string=rational_string[1:]
-	return rational_string
+	#deleting leading '+' sign
+	if poly_tex[0]=='+':
+		poly_tex=poly_tex[1:]
+	return poly_tex
 
 def format_macaulay_latex(pair):
 	# print (pair)
