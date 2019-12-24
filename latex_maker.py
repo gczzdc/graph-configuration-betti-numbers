@@ -150,6 +150,13 @@ def graph_section_maker(j):
 		output_builder.append(' essential vertices}\n\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
 	return (''.join(output_builder))
 
+def build_betti_subsec(graph_list,n, single_file):
+	subsec=subsec_header_builder(n)
+	for graph in graph_list[n]:
+		subsec+=append(assemble_table_for_tex(graph,single_file))
+	return subsec
+
+
 def assemble_pdf(graph_dic,single_file=False):
 	# graph_dic is a dictionary 
 	# with integer keys n 
