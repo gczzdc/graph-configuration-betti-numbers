@@ -56,9 +56,9 @@ def make_macaulay_script(graph,
 	#the list entries are the edge indices.
 	#no data checking, assume every vertex is essential.
 	for i in range(V):
-		h0=ess_vert[i][0]
+		h0=essential_vertices[i][0]
 		m_script+= 'C{}v{}=chainComplex{matrix{{'.format(prefix,i)
-		m_script+= ','.join(['e{}_{}-e{}_{}'.format(prefix, h, prefix, h0) for h in ess_vert[i][1:]])
+		m_script+= ','.join(['e{}_{}-e{}_{}'.format(prefix, h, prefix, h0) for h in essential_vertices[i][1:]])
 		m_script+='}}}\n'
 	m_script+='C{} = '.format(prefix)
 	m_script += '**'.join(['C{}v{}'.format(prefix,i) for i in range(V)])
