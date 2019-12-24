@@ -1,6 +1,6 @@
 import constants
 
-def format_poly_to_str(poly, format='html', var='t'):
+def format_poly_to_tex(poly, var='t'):
 	rational_string=''
 	for j,c in enumerate(poly):
 		if c>0:
@@ -18,18 +18,13 @@ def format_poly_to_str(poly, format='html', var='t'):
 			if j>0:
 				rational_string+=var
 			if j>1:
-				if format=='html':
-					rational_string+='<sup>'+str(j)+'</sup>'
-				elif format=='latex':
-					rational_string+='^{'+str(j)+'}'
+				rational_string+='^{{{}}}'.format(j)
+				#alternate formatting because of string formatting rules
 	if not rational_string:
 		return '0'
 	if rational_string[0]=='+':
 		rational_string=rational_string[1:]
-	# if rational_string=='':
-	# 	rational_string='1'
-	
-	return (rational_string)
+	return rational_string
 
 def format_macaulay_latex(pair):
 	# print (pair)
