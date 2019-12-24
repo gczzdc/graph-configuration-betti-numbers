@@ -38,9 +38,21 @@ def format_poly_to_tex(poly, var='t'):
 	return poly_tex
 
 def format_macaulay_latex(num_poly, denom_power, stable_poly):
+	# formats an internal data representation for tabular html display
+	#
+	# input format: 
+	#
+	# num_poly is a list of coefficients of 
+	# 	the numerator of the poincare series
+	# denom_power is an int
+	# stable_poly_str is a list of coefficients
+	#	of the stable poly, normalized by the
+	# 	appropriate factorial
+	#
+	# returns a pair of bs objects 
+	# for the Poincare series 
+	# and for the stable polynomial
 	answer=[]
-		#pair[0] is denom power
-		#pair[1] is numer poly
 	poincare_tex=''
 	if denom_power>0:
 		poincare_tex+='\\frac{{{}}}'.format(format_poly_to_tex(poly))
