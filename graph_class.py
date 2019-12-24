@@ -65,6 +65,24 @@ class Graph():
 					self.stars[vertex].append(counter)
 				counter+=1
 		self.has_VH = True
+
+	def VH_to_VE(self):
+		self.vertex_count=len(self.stars)
+		temp_edges = {}
+		for j, star in enumerate(self.stars):
+			for e in star:
+				if e in edges:
+					temp_edges[e].append(j)
+				else:
+					temp_edges[e]=[j,]
+		self_edges={}
+		for e, pair in temp_edges.items():
+			key = tuple(pair)
+			if key in self.edges:
+				self.edges[key]+=1
+			else:
+				self.edges[key]=1
+		self.has_VE=True
 	def essential_vertices(self):
 		if not self.essential_vertices:
 			self.build_essential_vertices()
