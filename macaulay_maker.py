@@ -1,6 +1,5 @@
 import constants
 
-#break up io and command formatting
 graph_order_of_magnitude=constants.graph_order_of_magnitude
 
 
@@ -12,23 +11,21 @@ def basic_namer(graph):
 		return graph.name
 	return '\n'.join((' '.join((str(x) for x in row)) for row in graph.adjacency))
 
+
 def batch_macaulay_script(graph_enumerator, 
 						results_file, 
-						script_file='temp.m2', 
 						name_function=basic_namer, 
 						prefix_function=basic_enumerator
 						):
-	with open(script_file,'w') as f:
-		f.write('-- file to compute homology of configuration space of a list of graphs\n\n')
-		f.write('"'+results_file+'" << close\n\n')
-		
+	command = '-- file to compute homology of configuration space of a list of graphs\n\n'
+	command += '"'+results_file+'" << close\n\n'
 	for j,graph in enumerate(graph_enumerator):
-		make_macaulay_script(graph,
+		command+= make_macaulay_script(graph,
 							results_file,
-							script_file,
 							append=True, 
 							graph_name=name_function(graph), 
 							prefix=prefix_function(j,graph))
+	return command
 
 def format_macaulay_comment(string):
 	ans = ''
@@ -41,7 +38,6 @@ def format_macaulay_output(string):
 
 
 def make_macaulay_script(graph, 
-						results_file, 
 						script_file, 
 						append=True, 
 						graph_name='', 
@@ -80,15 +76,7 @@ def make_macaulay_script(graph,
 		m_script+= ' <<endl<<"numerator poly: "<<n{}deg{}'.format(prefix,i)
 		m_script+= '<<endl<<endl\n'
 		m_script+='f<<close\n\n'
-
-	#do this differently
-	if append:
-		f=open(scriptfile,'a')
-	else:
-		f=open(scriptfile,'w')
-	f.write(m_script)
-	f.close()
-	
+	return m_script	
 
 
 
