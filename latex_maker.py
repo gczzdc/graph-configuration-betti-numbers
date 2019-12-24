@@ -138,7 +138,13 @@ def assemble_table_for_pdf(graph,data,single=False):
 	return (''.join(output_builder))
 
 
-def graph_section_maker(j):
+
+def assemble_table_for_tex(graph, single_file=False):
+	output_builder=[]
+	output_builder.append(make_table_header(graph, single_file))
+	output_builder.append(betti_number_table(graph))
+	return (''.join(output_builder))
+
 def subsec_header_maker(n):
 	output_builder=	[]
 	if n!=0:
