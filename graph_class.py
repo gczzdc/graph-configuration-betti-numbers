@@ -2,7 +2,7 @@ import networkx as nx
 import numpy as np
 
 class Graph():
-	def __init__(self):
+	def __init__(self,sparse6):
 		self.vertex_count=0
 		# a non-negative integer
 		self.edges=None
@@ -23,12 +23,12 @@ class Graph():
 		self.has_adjacency = False
 		#full adjacency matrix as a list of lists.
 
-		self.sparse6=None
-		self.has_sparse6 = False
+		self.sparse6=sparse6
+		self.has_sparse6=True
 		#mckay sparse6 format
 
 
-		self.name=None
+		self.name=sparse6
 		self.image_file=None
 		self.note=None
 
@@ -40,6 +40,7 @@ class Graph():
 		self.graph.poincare_num_poly={},
 		self.graph.poincare_denom_power={},
 		self.graph.stable_poly_normalized={}
+		self.validity={}	
 
 	def VE_to_adjacency(self):
 		self.adjacency = [ [0 for i in range(self.vertex_count)] for j in range(self.vertex_count)]
@@ -91,7 +92,7 @@ class Graph():
 		G = nx.from_sparse6_bytes(self.sparse6.encode('ascii'))
 		self.adjacency = nx.to_numpy_array(G).astype(int).tolist()
 		self.has_adjacency=True
-		
+
 	def adjacency_to_sparse6(self):
 		G = nx.from_numpy_array(np.array(self.adjacency))
 		self.sparse6 = nx.to_sparse6_bytes(G).decode('ascii')[11:-1]
@@ -136,6 +137,11 @@ class Graph():
 		if not self.has_VE:
 			self.build_VE()
 		return self.edges
+
+	def sparse6(self):
+		if not self.has_sparse6:
+			self.build_sparse_6()
+		return self.sparse6
 
 	def adjacency(self):
 		if not self.has_adjacency:
