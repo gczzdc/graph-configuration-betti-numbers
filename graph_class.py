@@ -1,5 +1,8 @@
 import networkx as nx
 import numpy as np
+import constants
+
+graphics_format=constants.graphics_format
 
 class Graph():
 	def __init__(self,sparse6):
@@ -29,7 +32,8 @@ class Graph():
 
 
 		self.name=sparse6
-		self.image_file=None
+		self.image_dic=None
+		self.filename=None
 		self.note=None
 
 		self.essential_vertices=None
@@ -41,6 +45,9 @@ class Graph():
 		self.graph.poincare_denom_power={},
 		self.graph.stable_poly_normalized={}
 		self.validity={}	
+
+	def image_filename(self):
+		return '{}.{}'.format(self.filename,graphics_format)
 
 	def VE_to_adjacency(self):
 		self.adjacency = [ [0 for i in range(self.vertex_count)] for j in range(self.vertex_count)]

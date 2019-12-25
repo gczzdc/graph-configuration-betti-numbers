@@ -112,13 +112,13 @@ def betti_number_table(graph):
 def make_table_header(graph, single_file):
 	out_builder = []
 	out_builder.append('\\[\n')
-	if graph.image_texfile:
+	if graph.filename:
 		out_builder.append('\\begin{tabular}{c}\n')
 		if single_file:
-			with open(graph.image_texfile+'.tex','r') as f:
+			with open(graph.filename+'.tex','r') as f:
 				out_builder.append(f.read()) 
 		else:
-			out_builder.append('\\input{{{}}}\n'.format(graph.image_texfile))
+			out_builder.append('\\input{{{}}}\n'.format(graph.filename))
 		out_builder.append('\\end{tabular}\n\\qquad{}\n')
 	out_builder.append("\\renewcommand{\\arraystretch}{1}\n")
 	out_builder.append('\\left(\\begin{{array}}{{{}}}\n'.format('c'*len(graph.adjacency())))
