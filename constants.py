@@ -11,6 +11,9 @@ img_end_tex='\\end{document}'
 
 node_radius = '2.5pt'
 
+
+
+loud_commands=True
 recompile_images=False
 reconvert_images=False
 run_macaulay=False
