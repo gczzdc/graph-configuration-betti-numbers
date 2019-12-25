@@ -1,3 +1,4 @@
+import graph_class
 from math_tools import hilb_series_to_coefficient_poly as convert
 from math import factorial
 
@@ -57,50 +58,21 @@ def parse_macaulay_poly(s):
 		answer.append(coefficient)
 	return(answer)
 
-def process_macaulay_file(mf=macaulay_outfile):
-	f= open(mf,'r')
-	macaulay_data=f.readlines()
-	f.close()
+def process_macaulay_output(macaulay_data):
 	answer = {}
 	for j in range(0,len(macaulay_data),5):
-		graph_name=macaulay_data[j].split('Data for graph')[1].strip()
-		if graph_name not in answer:
-			answer[graph_name]= data_class()
+		sparse6=macaulay_data[j].split('Data for graph')[1].strip()
+		if sparse6 not in answer:
+			answer[graph_name]= graph_class.Graph(sparse6)
 		degree = int(macaulay_data[j+1].split('homological degree')[1].strip())
 		denom_power = int(macaulay_data[j+2].split(':')[1].strip())
-		num_poly = parse_macaulay_poly(macaulay_data[j+3].split(':')[1].strip())
-		valid = len(num_poly) - denom_power - 1
-		answer[graph_name].polys[degree]=(num_poly,denom_power,valid)
-	for G in answer:
-		answer[G].homological_degree=len(answer[G].polys)-1
-		length_test=[]
-		for i in answer[G].polys:
-			length_test.append(int(answer[G].polys[i][2]))
-		maxlen = max(length_test)+1
-		for i in range(answer[G].homological_degree+1):
-			answer[G].Betti_numbers[i]=[]
-			for k in range(maxlen+1):
-				coef_poly= hilb_series_to_coefficient_poly(answer[G].polys[i][0],answer[G].polys[i][1],k)[::-1]
-					#cutting off to get unstable value
-				full_coef_poly = hilb_series_to_coefficient_poly(answer[G].polys[i][0],answer[G].polys[i][1])[::-1]
-					#not cutting off to get stable prediction
-				denom_fact = factorial(answer[G].polys[i][1]-1)
-				this_Betti=0
-				for j,c in enumerate(coef_poly):
-					this_Betti += k**j * c
-				if this_Betti % denom_fact:
-					print (G, i,k, this_Betti, denom_fact, 'error in fraction',answer[G].polys[i])
-					raise(Exception)
-				this_Betti =this_Betti // denom_fact
-				this_Betti_stable=0
-				for j,c in enumerate(full_coef_poly):
-					this_Betti_stable += k**j * c
-				this_Betti_stable = this_Betti_stable / denom_fact
-				##
-				answer[G].Betti_numbers[i].append(int(this_Betti))
-				if this_Betti != this_Betti_stable:
-					answer[G].Betti_number_is_unstable.add((i,k))
-		# generate betti numbers
+		answer[graph_name].poincare_denom_power[degree]=denom_power 
+		num_poly=parse_macaulay_poly(macaulay_data[j+3].split(':')[1].strip())
+		answer[graph_name].poincare_num_poly[degree] = num_poly 
+		answer[graph_name].validity[degree]= len(num_poly) - denom_power - 1
+	for name, G in answer.items():
+		calculate_all_Betti_numbers_and_stable_poly(G)
+		#modifies G in place
 	return answer
 
 def calculate_all_Betti_numbers_and_stable_poly(G):
