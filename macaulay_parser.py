@@ -1,3 +1,4 @@
+from math_tools import hilb_series_to_coefficient_poly as convert
 def parse_macaulay_poly(s):
 	#this looks like eg. T3+6T4-3T5
 	last_power=-1
@@ -99,3 +100,21 @@ def process_macaulay_file(mf=macaulay_outfile):
 					answer[G].Betti_number_is_unstable.add((i,k))
 		# generate betti numbers
 	return answer
+
+def calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact):
+	G.Betti_numbers[i]=[]
+	for k in range(maxlen+1):
+		coef_poly= convert(G.poincare_num_poly[i], G.denom_power[i],k)
+			#cutting off to get unstable value
+		this_Betti=0
+		for j,c in enumerate(coef_poly):
+			this_Betti += k**j * c
+		this_Betti_stable=0
+		for j,c in enumerate(G.stable_poly_normalized[i]):
+			this_Betti_stable += k**j * c
+		if this_Betti != this_Betti_stable:
+			G.Betti_number_is_unstable.add((i,k))
+		this_Betti, remainder = divmod(this_Betti, denom_fact)
+		if remainder:
+			raise ParsingError('Error in Fraction with graph {}, i={}, k={}'.format(G.sparse6,i,k))
+		G.Betti_numbers[i].append(int(this_Betti))
