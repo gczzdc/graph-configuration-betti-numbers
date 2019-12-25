@@ -37,9 +37,9 @@ class Graph():
 		self.homological_degree=-1
 		self.Betti_numbers={}
 		self.Betti_number_is_unstable=set()
-		self.graph.poincare_num_poly=None,
-		self.graph.poincare_denom_power=None,
-		self.graph.stable_poly_normalized=None	
+		self.graph.poincare_num_poly={},
+		self.graph.poincare_denom_power={},
+		self.graph.stable_poly_normalized={}
 
 	def VE_to_adjacency(self):
 		self.adjacency = [ [0 for i in range(self.vertex_count)] for j in range(self.vertex_count)]

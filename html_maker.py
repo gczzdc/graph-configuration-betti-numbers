@@ -134,9 +134,9 @@ def betti_number_table(graph,soup):
 				this_row.append(this_entry)
 			for col_number in range(cap-min(len(graph.Betti_numbers[row_number]),cap)):
 				this_row.append(soup.new_tag('td'))
-			html_polys = format_macaulay_html(graph.poincare_num_poly,
-												graph.poincare_denom_power,
-												graph.stable_poly_normalized)
+			html_polys = format_macaulay_html(graph.poincare_num_poly[row_number],
+												graph.poincare_denom_power[row_number],
+												graph.stable_poly_normalized[row_number])
 			Pseries = soup.new_tag('td')
 			Pseries.append(html_polys[0])
 			stable = soup.new_tag('td')

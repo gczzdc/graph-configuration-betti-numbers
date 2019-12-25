@@ -101,9 +101,9 @@ def betti_number_table(graph):
 					formatted_number = this_number
 				out_builder.append(' & ${}$'.format(formatted_number))
 			out_builder.append('\n & ')
-			tex_polys = format_macaulay_latex(graph.poincare_num_poly,
-												graph.poincare_denom_power,
-												graph.stable_poly_normalized)
+			tex_polys = format_macaulay_latex(graph.poincare_num_poly[row_number],
+												graph.poincare_denom_power[row_number],
+												graph.stable_poly_normalized[row_number])
 			out_builder.append('${}$ & ${}$\\\\\n'.format(tex_polys[0],tex_polys[1]))
 		out_builder.append('\\end{tabular}\n')
 		out_builder.append('\\end{center}\n')
