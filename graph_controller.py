@@ -13,6 +13,7 @@ from constants import (
 	full_upload,
 	loud_commands
 )
+from latex_maker import compile_tex
 	
 def yesno(prompt, default):
 	if default ==False:
