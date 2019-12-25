@@ -1,8 +1,19 @@
 from constants import (
+	bib_command,
+	compile_command,
 	intro_tex,
 	outro_tex,
-	data_section_title
+	data_section_title,
+	tex_filename
 )
+
+from utility import run
+
+def compile_tex():
+	run('{} {}'.format(compile_command, tex_filename))
+	run('{} {}'.format(bib_command, tex_filename))
+	run('{} {}'.format(compile_command, tex_filename))
+	run('{} {}'.format(compile_command, tex_filename))
 
 
 def format_poly_to_tex(poly, var='t'):
