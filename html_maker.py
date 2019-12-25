@@ -1,10 +1,11 @@
-import constants
 from bs4 import BeautifulSoup
 
-graphics_format = constants.graphics_format
-base_html= constants.base_html
-data_section_title = constants.data_section_title
-Betti_row_max_length = constants.Betti_row_max_length
+from constants import (
+	graphics_format,
+	base_html,
+	data_section_title,
+	Betti_row_max_length
+)
 
 def format_poly_to_html(poly, var='t'):
 	# format polynomial (list starting with degree zero coefficient) to html.

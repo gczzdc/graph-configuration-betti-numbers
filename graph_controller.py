@@ -1,15 +1,15 @@
-import constants
 import picture_maker
-
-recompile_images = constants.recompile_images
-reconvert_images = constants.reconvert_images
-run_macaulay = constants.run_macaulay
-make_files = constants.make_files
-compile_main = constants.compile_main
-ssh_upload = constants.ssh_upload
-full_upload = constants.full_upload
-loud_commands = constants.loud_commands
-
+from constants import (
+	recompile_images,
+	reconvert_images,
+	run_macaulay,
+	make_files,
+	compile_main,
+	ssh_upload,
+	full_upload,
+	loud_commands
+)
+	
 def yesno(prompt, default):
 	if default ==False:
 		textadd = ' (default: no) '

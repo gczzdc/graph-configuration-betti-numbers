@@ -1,8 +1,6 @@
 import networkx as nx
 import numpy as np
-import constants
-
-graphics_format=constants.graphics_format
+from constants import graphics_format
 
 class Graph():
 	def __init__(self,sparse6):
