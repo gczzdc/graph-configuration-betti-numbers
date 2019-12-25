@@ -1,3 +1,5 @@
+from utility import run
+
 from constants import (
 	bend_dic,
 	cleanup_commands
@@ -29,40 +31,40 @@ def image_maker(node_dic, edge_dic, narrow_flag=1, scale=1):
 											j*narrow_flag),
 											edge[1])			
 	out_builder.append("\\end{tikzpicture}\n")
-	return ''.join(out_builder)
+	return ''.join(out_builder)	
 
-def image_files(outfile,node_dic,edge_dic,narrow_flag=1,scale=1):
-	data = image_maker(node_dic,edge_dic,narrow_flag,scale)
-	with open(outfile+'.tex','w') as f:
+def compile_image(G, loud_commands):
+	if loud_commands:
+		print ('generating tex file for graph {}'.format(G.name))
+	edge_dic = G.edges()
+	data = image_maker(G.node_dic
+						edge_dic,
+						G.narrow_flag,
+						scale=1)
+	with open(G.filename+'.tex','w') as f:
 		f.write(data)
-	with open(outfile+'_img.tex','w') as f:
+
+def convert_image(G):
+	for graph in graphs:
+	if loud_commands:
+		print ('generating {} file for graph {}'.format(image_format, 
+														G.name))
+	data = image_maker(G.node_dic
+						edge_dic,
+						G.narrow_flag,
+						scale=2)
+	with open(G.filename+'_img.tex','w') as f:
 		f.write(img_start_tex)
 		f.write(data)
 		f.write(img_end_tex)
 
-def compile_images(graphs, loud_commands):
-	for G in graphs:
-		if loud_commands:
-			print ('generating tex file for graph {}'.format(graph.name))
-		if G.image_dic:
-			edge_dic = G.edges()
-		picture_maker.image_files(filebase, G.image_dic, edge_dic, G.narrow_flag, scale=1)
+	run('{} {}_img'.format(compile_command, G.filename))		
+	run('{} {}_img.{} {}.{}'.format(convert_command[0], 
+									G.filename, 
+									convert_command[1], 
+									G.filename, 
+									image_format))
 
-		if len(graphs[graph])==2:
-			graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=1,scale=1)
-		else:
-			graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=graphs[graph][2],scale=1)
-		run(cleanup_commands[0]+graph+'_img'+cleanup_commands[1])
-
-
-def convert_images(graphs):
-	for graph in graphs:
-	if loud_commands:
-		print ('generating tex file for',graph)
-	if len(graphs[graph])==2:
-		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=1,scale=2)
-	else:
-		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=graphs[graph][2],scale=2)
-	run(compile_command+ ' '+graph+'_img')		
-	run(convert_command[0]+graph+'_img'+convert_command[1]+graph+convert_command[2])
-	run(cleanup_commands[0]+graph+'_img'+cleanup_commands[1])
+	run('{} {}_img.{}'.format(cleanup_command[0], 
+								G.filename, 
+								cleanup_command[1]))

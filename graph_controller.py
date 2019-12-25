@@ -95,14 +95,15 @@ def graph_generator(
 		ssh_upload=yesno('upload files to remote server',ssh_upload)
 		if ssh_upload:
 			full_upload=yesno('upload infrequently changed files',full_upload)
-	
-	if recompile_images:
-		picture_maker.compile_images(graphs, loud_commands)
-	if reconvert_images:
-		picture_maker.convert_images(graphs, loud_commands)
-	if run_macaulay:
-		batch_macaulay_script(graphs,macaulay_outfile,loud_commands)
-		run('m2 --script temp.m2')
+	for G in graphs:
+		if G.image_dic:
+			if recompile_images:
+				picture_maker.compile_image(G, loud_commands)
+			if reconvert_images:
+				picture_maker.convert_image(G, loud_commands)
+		if run_macaulay:
+			macaulay_script(G, macaulay_outfile, loud_commands)
+			run('m2 --script temp.m2')
 	if make_files:
 		process_files(graphs,loud_commands)
 	if compile_main:
