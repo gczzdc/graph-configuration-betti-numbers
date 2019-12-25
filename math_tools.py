@@ -1,6 +1,6 @@
 import numpy as np
 
-def hilb_series_to_coefficient_poly(numerator, denom_power,cutoff=-1):
+def hilb_series_to_coefficient_poly(numerator, denom_power, cutoff=-1):
 	# print (numerator, type(numerator))
 	#hilb series is of the form numerator/(1-T)^denom_power
 	#numerator is formatted as an array starting with LOWEST power.

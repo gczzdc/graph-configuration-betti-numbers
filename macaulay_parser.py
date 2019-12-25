@@ -14,7 +14,6 @@ def parse_macaulay_poly(s):
 		start_saltus=0
 	answer=[]
 	for c in s[start_saltus:]:
-		# print ('c',c,type(c))
 		if c=='T':
 			regime='exponent'
 			exponent_string=''

@@ -95,7 +95,7 @@ def graph_html_section(soup):
 	return section
 
 
-def betti_number_table(graph,soup):
+def betti_number_table(graph, soup):
 	betti_info= soup.new_tag('div',style = 'width:100%;clear:both')
 	betti_info.append(soup.new_tag('p',class_='centered'))
 	if graph.note:
@@ -212,7 +212,7 @@ def build_toc(soup, items):
 	return toc_div
 
 
-def build_betti_subsec(graph_list,n):
+def build_betti_subsec(graph_list, n):
 	subsec = BeautifulSoup('')
 	subsec.append(subsec_header_maker(subsec,n))
 	for graph in graph_list[n]:
@@ -242,7 +242,7 @@ def assemble_html(graph_dic):
 	return soup
 
 
-def write_html(graph_list,data_dic,file_name):
+def write_html(graph_list, data_dic, file_name):
 	with open(file_name, 'w') as f:
 		f.write(assemble_html(graph_list,data_dic).prettify())
 
