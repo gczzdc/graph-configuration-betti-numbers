@@ -33,6 +33,7 @@ class Graph():
 		self.image_dic=None
 		self.filename=None
 		self.note=None
+		self.has_image = False
 
 		self.essential_vertices=None
 
