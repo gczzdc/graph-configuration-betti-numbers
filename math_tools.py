@@ -5,7 +5,7 @@ def hilb_series_to_coefficient_poly(numerator, denom_power,cutoff=-1):
 	#hilb series is of the form numerator/(1-T)^denom_power
 	#numerator is formatted as an array starting with LOWEST power.
 	#start by generating the formula for coefficients
-	#output formatted starting with HIGHEST power
+	#output formatted starting with LOWEST power
 	#should be divided by (denom_power-1) factorial
 	ans = []
 	if denom_power==0:
@@ -15,4 +15,4 @@ def hilb_series_to_coefficient_poly(numerator, denom_power,cutoff=-1):
 		for j in range(1,denom_power):
 			this_term=np.polymul(this_term, [1,j-i])
 		ans=np.polyadd(ans,this_term)
-	return [int(n) for n in ans]
+	return [int(n) for n in ans][::-1]
