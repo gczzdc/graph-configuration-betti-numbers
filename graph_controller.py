@@ -64,12 +64,6 @@ def process_files(graphs):
 	assemble_file(ordered_graphs, graph_data, 'index.html', 'html')
 
 
-def compile_tex(graphs):
-	run(compile_command+' '+file_name)
-	run(bib_command+' '+file_name)
-	run(compile_command+' '+file_name)
-	run(compile_command+' '+file_name)
-
 def upload_files(graphs, full_upload):
 	scp(file_name+'.pdf')
 	scp('index.html')
