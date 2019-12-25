@@ -100,7 +100,7 @@ def graph_generator(
 		if ssh_upload:
 			full_upload=yesno('upload infrequently changed files',full_upload)
 	for G in graphs:
-		if G.image_dic:
+		if G.has_image:
 			if recompile_images:
 				compile_image(G, loud_commands)
 			if reconvert_images:
