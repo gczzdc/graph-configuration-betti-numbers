@@ -1,4 +1,8 @@
-import picture_maker
+from picture_maker import (
+	compile_image,
+	convert_image
+)
+
 from constants import (
 	recompile_images,
 	reconvert_images,
@@ -98,9 +102,9 @@ def graph_generator(
 	for G in graphs:
 		if G.image_dic:
 			if recompile_images:
-				picture_maker.compile_image(G, loud_commands)
+				compile_image(G, loud_commands)
 			if reconvert_images:
-				picture_maker.convert_image(G, loud_commands)
+				convert_image(G, loud_commands)
 		if run_macaulay:
 			macaulay_script(G, macaulay_outfile, loud_commands)
 			run('m2 --script temp.m2')
