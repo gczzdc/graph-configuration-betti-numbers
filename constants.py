@@ -1,36 +1,26 @@
-graphics_format = 'svg'
+#for ssh
+host='dreamhost:'
+portscp=''
+remote_directory='drummondcole.com/gabriel/academic/'+file_name+'/'
 
-compile_command ='pdflatex'
-convert_command =('pdf2svg', 'pdf')
-cleanup_command = ('rm ','*')
-
-
-intro_tex='intro.tex'
+#for html
 base_html='base.html'
+css_file='graph_configs.css'
+
+#for tex
+intro_tex='intro.tex'
 outro_tex='outro.tex'
+tex_filename='graph_configuration_betti_numbers'
+bib_command='bibtex'
+compile_command ='pdflatex'
 
-data_section_title="Data for small graphs"
-
+#for images
+node_radius = '2.5pt'
 img_start_tex='\\documentclass[crop,tikz]{standalone}\n\\begin{document}\n'
 img_end_tex='\\end{document}'
-
-node_radius = '2.5pt'
-
-
-
-loud_commands=True
-recompile_images=False
-reconvert_images=False
-run_macaulay=False
-make_files = True
-compile_main=False
-ssh_upload = False
-full_upload = False
-
-
-Betti_row_max_length = 20
-graph_order_of_magnitude=4
-
+graphics_format = 'svg'
+convert_command =('pdf2svg', 'pdf')
+cleanup_command = ('rm ','*')
 # for putting in multiple edges.
 # this is not a great solution, it would be better to be able to do this uniformly and automatically
 # but it is good enough for now
@@ -44,3 +34,22 @@ bend_dic={\
 4:[-90,-25,25,90],\
 5:[-90,-30,0,30,90],\
 6:[-90,-40,-15,15,40,90]}
+
+
+
+#for control flow
+loud_commands=True
+recompile_images=False
+reconvert_images=False
+run_macaulay=False
+make_files = True
+compile_main=False
+ssh_upload = False
+full_upload = False
+
+#for display and utility
+data_section_title="Data for small graphs"
+Betti_row_max_length = 20
+graph_order_of_magnitude=4
+
+
