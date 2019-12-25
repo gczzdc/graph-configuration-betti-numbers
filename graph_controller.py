@@ -60,13 +60,13 @@ def process_files(graphs):
 	assemble_file(ordered_graphs, graph_data, 'index.html', 'html')
 
 
-def compile_tex():
+def compile_tex(graphs):
 	run(compile_command+' '+file_name)
 	run(bib_command+' '+file_name)
 	run(compile_command+' '+file_name)
 	run(compile_command+' '+file_name)
 
-def upload_files(full_upload):
+def upload_files(graphs, full_upload):
 	scp(file_name+'.pdf')
 	scp('index.html')
 	if full_upload:
@@ -101,11 +101,11 @@ def graph_generator(
 	if reconvert_images:
 		picture_maker.convert_images(graphs, loud_commands)
 	if run_macaulay:
-		batch_macaulay_script(graphs,macaulay_outfile)
+		batch_macaulay_script(graphs,macaulay_outfile,loud_commands)
 		run('m2 --script temp.m2')
 	if make_files:
-		process_files()
+		process_files(graphs,loud_commands)
 	if compile_main:
-		compile_tex()
+		compile_tex(graphs,loud_commands)
 	if ssh_upload:
-		upload_files(full_upload)
+		upload_files(graphs, full_upload,loud_commands)
