@@ -1,5 +1,10 @@
 graphics_format = 'svg'
 
+compile_command ='pdflatex'
+convert_command =('pdf2svg', 'pdf')
+cleanup_command = ('rm ','*')
+
+
 intro_tex='intro.tex'
 base_html='base.html'
 outro_tex='outro.tex'
