@@ -1,4 +1,6 @@
 from math_tools import hilb_series_to_coefficient_poly as convert
+from math import factorial
+
 def parse_macaulay_poly(s):
 	#this looks like eg. T3+6T4-3T5
 	last_power=-1
@@ -100,6 +102,16 @@ def process_macaulay_file(mf=macaulay_outfile):
 					answer[G].Betti_number_is_unstable.add((i,k))
 		# generate betti numbers
 	return answer
+
+def calculate_all_Betti_numbers_and_stable_poly(G):
+	G.homological_degree=len(answer[G].poincare_num_poly)-1
+	maxlen = max(G.validity.values()) + 1
+	for i in range(G.homological_degree+1):
+		full_coef_poly = convert(G.poincare_num_poly[i], G.denom_power[i])
+			#not cutting off to get stable prediction
+		G.stable_poly_normalized[i]=full_coef_poly
+		denom_fact = factorial(G.denom_power[i]-1)
+		calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact)
 
 def calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact):
 	G.Betti_numbers[i]=[]
