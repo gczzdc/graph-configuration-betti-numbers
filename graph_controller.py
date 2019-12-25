@@ -13,6 +13,7 @@ from constants import (
 	full_upload,
 	loud_commands
 )
+from utility import scp
 from latex_maker import compile_tex
 	
 def yesno(prompt, default):
@@ -64,14 +65,14 @@ def process_files(graphs):
 	assemble_file(ordered_graphs,graph_data, file_name+'_single.tex','pdf',single=True)
 	assemble_file(ordered_graphs, graph_data, 'index.html', 'html')
 
-
-def upload_files(graphs, full_upload):
-	scp(file_name+'.pdf')
-	scp('index.html')
+def upload_files(graphs, full_upload,loud_commands):
+	scp(tex_filename+'.pdf', loud_commands)
+	scp('index.html', loud_commands)
 	if full_upload:
-		scp(css_file)
-		for graph in graphs:
-			scp(graph+'.'+graphics_format)
+		scp(css_file, loud_commands)
+		for G in graphs:
+			if G.has_image: 
+				scp('{}.{}'.format(G.filename,graphics_format))
 
 def graph_generator(
 	graphs,
