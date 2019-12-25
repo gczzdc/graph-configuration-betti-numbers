@@ -8,8 +8,7 @@ def basic_enumerator(j, graph):
 def basic_namer(graph):
 	if graph.name:
 		return graph.name
-	return '\n'.join((' '.join((str(x) for x in row)) for row in graph.adjacency()))
-
+	return '>>sparse6<<{}'.format(graph.sparse6())
 
 def batch_macaulay_script(graph_enumerator, 
 						results_file, 
@@ -69,7 +68,7 @@ def make_macaulay_script(graph,
 		m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		if append:
 			m_script+='f = openOutAppend "{}"\n'.format(results_file)
-		m_script+= 'f<< "Data for graph"<<endl<<{}<<endl<<'.format(format_macaulay_output(graph_name))
+		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph_name))
 		m_script+='"homological degree "<<{}'.format(i)
 		m_script+= ' <<endl<<"power of 1-T: "<<d{}deg{}'.format(prefix,i)
 		m_script+= ' <<endl<<"numerator poly: "<<n{}deg{}'.format(prefix,i)
