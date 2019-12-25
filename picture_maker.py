@@ -34,3 +34,30 @@ def image_files(outfile,node_dic,edge_dic,narrow_flag=1,scale=1):
 		f.write(img_start_tex)
 		f.write(data)
 		f.write(img_end_tex)
+
+def compile_images(graphs, loud_commands):
+	for G in graphs:
+		if loud_commands:
+			print ('generating tex file for graph {}'.format(graph.name))
+		if G.image_dic:
+			edge_dic = G.edges()
+		picture_maker.image_files(filebase, G.image_dic, edge_dic, G.narrow_flag, scale=1)
+
+		if len(graphs[graph])==2:
+			graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=1,scale=1)
+		else:
+			graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=graphs[graph][2],scale=1)
+		run(cleanup_commands[0]+graph+'_img'+cleanup_commands[1])
+
+
+def convert_images(graphs):
+	for graph in graphs:
+	if loud_commands:
+		print ('generating tex file for',graph)
+	if len(graphs[graph])==2:
+		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=1,scale=2)
+	else:
+		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=graphs[graph][2],scale=2)
+	run(compile_command+ ' '+graph+'_img')		
+	run(convert_command[0]+graph+'_img'+convert_command[1]+graph+convert_command[2])
+	run(cleanup_commands[0]+graph+'_img'+cleanup_commands[1])

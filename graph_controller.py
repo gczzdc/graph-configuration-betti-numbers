@@ -1,4 +1,5 @@
 import constants
+import picture_maker
 
 recompile_images = constants.recompile_images
 reconvert_images = constants.reconvert_images
@@ -7,6 +8,7 @@ make_files = constants.make_files
 compile_main = constants.compile_main
 ssh_upload = constants.ssh_upload
 full_upload = constants.full_upload
+loud_commands = constants.loud_commands
 
 def yesno(prompt, default):
 	if default ==False:
@@ -20,29 +22,7 @@ def yesno(prompt, default):
 		return(False)
 	return(default)
 
-def convert_images():
-	for graph in graphs:
-	if loud_commands:
-		print ('generating tex file for',graph)
-	if len(graphs[graph])==2:
-		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=1,scale=2)
-	else:
-		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=graphs[graph][2],scale=2)
-	run(compile_command+ ' '+graph+'_img')		
-	run(convert_command[0]+graph+'_img'+convert_command[1]+graph+convert_command[2])
-	run(cleanup_commands[0]+graph+'_img'+cleanup_commands[1])
-
-def compile_images():
-	for graph in graphs:
-	if loud_commands:
-		print ('generating tex file for',graph)
-	if len(graphs[graph])==2:
-		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=1,scale=1)
-	else:
-		graph_file(graph,graphs[graph][0],graphs[graph][1],narrow_flag=graphs[graph][2],scale=1)
-	run(cleanup_commands[0]+graph+'_img'+cleanup_commands[1])
-
-def process_files():
+def process_files(graphs):
 	graph_data=process_macaulay_file(macaulay_outfile)
 	graph_data['isolated_vertex'] = data_class()
 	graph_data['isolated_vertex'].polys[0] = [[1,1],0,2]
@@ -95,6 +75,7 @@ def upload_files(full_upload):
 			scp(graph+'.'+graphics_format)
 
 def graph_generator(
+	graphs,
 	interactive=False, 
 	recompile_images=recompile_images,
 	reconvert_images=reconvert_images,
@@ -102,7 +83,8 @@ def graph_generator(
 	make_files=make_files,
 	compile_main=compile_main,
 	ssh_upload=ssh_upload,
-	full_upload=full_upload
+	full_upload=full_upload,
+	loud_commands=loud_commands
 	):
 	if interactive:
 		recompile_images=yesno('generate and recompile tex files for images',recompile_images)
@@ -113,10 +95,11 @@ def graph_generator(
 		ssh_upload=yesno('upload files to remote server',ssh_upload)
 		if ssh_upload:
 			full_upload=yesno('upload infrequently changed files',full_upload)
-	if reconvert_images:
-		convert_images()
+	
 	if recompile_images:
-		compile_images()
+		picture_maker.compile_images(graphs, loud_commands)
+	if reconvert_images:
+		picture_maker.convert_images(graphs, loud_commands)
 	if run_macaulay:
 		batch_macaulay_script(graphs,macaulay_outfile)
 		run('m2 --script temp.m2')
