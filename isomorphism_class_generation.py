@@ -59,12 +59,19 @@ def generate_multigraphs(edge_count=2):
 		candidate_multigraphs = convert_to_multigraph(graph_list = simple_graphs,
 														edge_count = edge_count)
 		loud_print(candidate_multigraphs)
-		for multigraph in candidate_multigraphs.split('\n')[:-1]:
-			loud_print(multigraph)
-			adj=build_adjacency(multigraph)
-			loud_print(adj)
-			if no_bivalent_vertex(adj) and no_bridge(adj):
-				answer.append(adj)
+		answer.extend(process_candidates(candidate_multigraphs))
+	return answer
+
+def process_candidates(candidates):
+	answer = []
+	for multigraph in candidates.split('\n')[:-1]:
+		loud_print(multigraph)
+		adj=build_adjacency(multigraph)
+		loud_print(adj)
+		if no_bivalent_vertex(adj) and no_bridge(adj):
+			s6 = convert_to_sparse6(adj)
+			answer.append(s6)
+			loud_print(s6)
 	return answer
 
 def convert_to_sparse6(adjacency):
