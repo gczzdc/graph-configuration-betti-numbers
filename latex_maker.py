@@ -4,7 +4,6 @@ from constants import (
 	intro_tex,
 	outro_tex,
 	data_section_title,
-	tex_filename
 )
 
 from utility import run
