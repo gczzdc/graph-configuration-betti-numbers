@@ -16,6 +16,7 @@ from constants import (
 	ssh_upload,
 	full_upload,
 	loud_commands
+	tex_filename
 )
 from utility import scp, run
 from latex_maker import compile_tex, write_pdf
