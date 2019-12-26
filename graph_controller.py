@@ -3,6 +3,8 @@ from picture_maker import (
 	convert_image
 )
 
+from collections import defaultdict
+
 from macaulay_maker import make_macaulay_script
 
 from constants import (
@@ -62,6 +64,11 @@ def process_files(graphs):
 	#for graph in graph_data:
 		# print (graph)
 		# print (graph_data[graph].Betti_numbers)
+def graphs_by_essential_vertex(graphs):
+	divided_list = defaultdict(list)
+	for G in graphs:
+		divided_list[G.essential_vertices].append(G)
+	return divided_list
 	ordered_graphs = graphs_by_essential_vertex(graphs,max_essential_vertices)
 	assemble_file(ordered_graphs, graph_data, file_name+'.tex', 'pdf')
 	assemble_file(ordered_graphs,graph_data, file_name+'_single.tex','pdf',single=True)
