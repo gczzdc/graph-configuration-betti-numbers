@@ -60,6 +60,10 @@ def generate_multigraphs(edge_count=2):
 														edge_count = edge_count)
 		loud_print(candidate_multigraphs)
 		answer.extend(process_candidates(candidate_multigraphs))
+	ones = ' 1'*edge_count
+	zeros = ' 0'*(edge_count*(edge_count+1)//2)
+	extra_graph = '{}  {}{}{}\n'.format(edge_count+1, 0, ones,zeros)
+	answer.extend(process_candidates(extra_graph))
 	return answer
 
 def process_candidates(candidates):
