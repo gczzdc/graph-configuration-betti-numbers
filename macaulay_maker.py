@@ -1,16 +1,14 @@
-from constants import graph_order_of_magnitude
+from constants import (
+	graph_order_of_magnitude,
+	macaulay_scriptfile,
+	results_file
+)
 
 def basic_enumerator(j, graph):
 	return 'G{}'.format(str(j).rjust(graph_order_of_magnitude,'0'))
 
-def basic_namer(graph):
-	if graph.name:
-		return graph.name
-	return '>>sparse6<<{}'.format(graph.sparse6())
-
 def batch_macaulay_script(graph_enumerator, 
 						results_file, 
-						name_function=basic_namer, 
 						prefix_function=basic_enumerator
 						):
 	command = '-- file to compute homology of configuration space of a list of graphs\n\n'
@@ -19,7 +17,6 @@ def batch_macaulay_script(graph_enumerator,
 		command+= make_macaulay_script(graph,
 							results_file,
 							append=True, 
-							graph_name=name_function(graph), 
 							prefix=prefix_function(j,graph))
 	return command
 
@@ -34,9 +31,8 @@ def format_macaulay_output(string):
 
 
 def make_macaulay_script(graph, 
-						script_file, 
+						results_file, 
 						append=True, 
-						graph_name='', 
 						prefix=''):
 	essential_vertices = graph.essential_vertices()
 	V = len(essential_vertices)
@@ -66,7 +62,9 @@ def make_macaulay_script(graph,
 		m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		if append:
 			m_script+='f = openOutAppend "{}"\n'.format(results_file)
-		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph_name))
+		else:
+			m_script+='f = openOut "{}"\n'.format(results_file)
+		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph.name))
 		m_script+='"homological degree "<<{}'.format(i)
 		m_script+= ' <<endl<<"power of 1-T: "<<d{}deg{}'.format(prefix,i)
 		m_script+= ' <<endl<<"numerator poly: "<<n{}deg{}'.format(prefix,i)
