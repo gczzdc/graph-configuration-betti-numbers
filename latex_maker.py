@@ -187,4 +187,7 @@ def assemble_pdf(graph_dic,single_file=False):
 	return ''.join(out_builder)
 
 
-
+def write_pdf(graph_dic, file_base, single_file=False):
+	with open(file_base+'.tex', 'w') as f:
+		f.write(assemble_pdf(graph_dic, single_file))
+	compile_tex(file_base)
