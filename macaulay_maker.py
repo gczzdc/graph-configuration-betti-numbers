@@ -37,11 +37,14 @@ def make_macaulay_script(graph,
 	essential_vertices = graph.essential_vertices()
 	V = len(essential_vertices)
 	m_script ='-- macaulay script for homology of configuration spaces of the graph\n'
-	m_script+= format_macaulay_comment(graph_name)+'\n'
-	m_script+='R = ZZ['
-	edge_vars=['e{}_{}'.format(prefix,n) for n in graph.edges()]
-	m_script+= ', '.join(edge_vars)
-	m_script+=']\n'
+	m_script+= format_macaulay_comment(graph.name)+'\n'
+	m_script+='R = ZZ'
+	if graph.edges:
+		m_script+='['
+		edge_vars=['e{}_{}'.format(prefix,n) for n in graph.edges()]
+		m_script+= ', '.join(edge_vars)
+		m_script+=']'
+	m_script+='\n'
 	#comes in h format:
 	#total number of edges (starting from zero to e-1)
 	#list whose elements at index j are the half edges of v_j
@@ -52,9 +55,16 @@ def make_macaulay_script(graph,
 		m_script+= 'C{}v{}=chainComplex{matrix{{'.format(prefix,i)
 		m_script+= ','.join(['e{}_{}-e{}_{}'.format(prefix, h, prefix, h0) for h in essential_vertices[i][1:]])
 		m_script+='}}}\n'
-	m_script+='C{} = '.format(prefix)
-	m_script += '**'.join(['C{}v{}'.format(prefix,i) for i in range(V)])
-	m_script +='\n'
+	if V:
+		m_script+='C{} = '.format(prefix)
+		m_script += '**'.join(['C{}v{}'.format(prefix,i) for i in range(V)])
+		m_script +='\n'
+	else:
+		#special case when there are no essential vertices;
+		#this works for the isolated vertex and isolated edge
+		#but would give unexpected results for a circle.
+		m_script+='C{} = chainComplex R\n'.format(prefix)
+		m_script+='C{}#0 = R^1'.format(prefix)
 	for i in range(V+1):
 		m_script+= 'H{}deg{}=HH_{}(C{})\n'.format(prefix,i,i,prefix)
 		m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
