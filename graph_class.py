@@ -100,7 +100,9 @@ class Graph():
 		self.has_adjacency=True
 
 	def adjacency_to_sparse6(self):
-		G = nx.from_numpy_array(np.array(self.adjacency))
+		G = nx.from_numpy_array(np.array(self.adjacency), 
+			parallel_edges=True, 
+			create_using=nx.MultiGraph)
 		self.sparse6 = nx.to_sparse6_bytes(G).decode('ascii')[11:-1]
 		self.has_sparse6=True
 
