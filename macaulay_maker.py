@@ -3,6 +3,7 @@ from constants import (
 	macaulay_scriptfile,
 	results_file
 )
+import time
 
 def basic_enumerator(j, graph):
 	return 'G{}'.format(str(j).rjust(graph_order_of_magnitude,'0'))
@@ -82,6 +83,16 @@ def make_macaulay_script(graph,
 		m_script+='f<<close\n\n'
 	return m_script	
 
-
-
-
+def run_macaulay_script(G,j):
+	macaulay_outfile = '{}_{}.txt'.format(results_file, basic_enumerator(j,G))
+	with open(macaulay_scriptfile, 'w') as f: 
+		f.write(make_macaulay_script(
+			G, 
+			macaulay_outfile, 
+			append=False))
+	t0 = time.time()
+	run('m2 --script {}'.format(macaulay_scriptfile))
+	timedelta = time.time()-t0
+	with open(macaulay_outfile,'r') as f:
+		data = f.read()
+	return (data, timedelta)
