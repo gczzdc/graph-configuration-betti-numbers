@@ -32,6 +32,8 @@
 # or generate it separately.
 
 import subprocess
+import networkx as nx
+import numpy as np
 
 loud = False
 
@@ -64,6 +66,13 @@ def generate_multigraphs(edge_count=2):
 			if no_bivalent_vertex(adj) and no_bridge(adj):
 				answer.append(adj)
 	return answer
+
+def convert_to_sparse6(adjacency):
+	G = nx.from_numpy_array(np.array(adjacency), 
+		parallel_edges=True, 
+		create_using=nx.MultiGraph)
+	loud_print(G.edges)
+	return nx.to_sparse6_bytes(G).decode('ascii')[11:-1]
 
 
 def prettyprint(multigraph_list):
