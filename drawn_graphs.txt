@@ -1,0 +1,300 @@
+:@
+(0,0)
+name = isolated_vertex
+narrow = 1
+
+:An
+(0,0)
+(0,1)
+name = isolated_edge
+narrow = 1
+
+:A_
+(0,0)
+(1,0)
+name = theta3
+narrow = 1
+
+:Ccf
+(0,0)
+(0,-1)
+(.87, .5)
+(-.87,.5)
+name = star3
+narrow = 1
+
+:A_N
+[[0, 4], [4, 0]]
+(0,0)
+(1,0)
+name = theta4
+narrow = 1
+
+:Bo?N
+(0,0)
+(0,2)
+(0,1)
+name = dart_3_1
+narrow=1
+
+:Co_N
+(0,1)
+(0,3)
+(0,0)
+(0,2)
+name = a_graph_1_2_1
+narrow = 1
+
+:DaGb
+(0,0)
+(0,-1)
+(0,1)
+(-1,0)
+(1,0)
+name = star4
+narrow=1
+
+:A_B
+(0,0)
+(1,0)
+name = theta5
+narrow=1
+
+:Bo?@
+(0,0)
+(0,2)
+(0,1)
+name = dart_4_1
+narrow=1
+
+:B__N
+(0,0)
+(-.5,-.866)
+(.5,-.866)
+name = triangle_graph_2_2_1
+narrow = .25
+
+:Cw?I
+(0,-1)
+(0,0)
+(.87, .5)
+(-.87,.5)
+name = star3_3
+narrow=1
+
+:Co_@
+(0,1)
+(0,3)
+(0,0)
+(0,2)
+name = a_graph_1_3_1
+narrow = 1
+
+:CoCI
+(-.5,-.866)
+(0,1)
+(.5,-.866)
+(0,0)
+name = triangle_graph_horn_1_1_2_1
+narrow = .25
+
+:DkG?Q
+(0,-1)
+(-.866, .5)
+(.866,.5)
+(0,-2)
+(0,0)
+name = y_1_1_2_1
+narrow = 1
+
+:EaGaN
+(0.0, -1.0)
+(0.95, -0.31)
+(0.59, 0.81)
+(-0.59, 0.81)
+(-0.95, -0.31)
+name = star5
+narrow=1
+
+:A_?
+(0,0)
+(1,0)
+name = theta6
+narrow=1
+
+:Bo?HN
+(0,0)
+(0,2)
+(0,1)
+name = dart_3_3
+narrow=1
+
+:Bo??N
+(0,0)
+(0,2)
+(0,1)
+name = dart_5_1
+narrow=1
+
+:B__H
+(0,0)
+(-.5,-.866)
+(.5,-.866)
+name = triangle_graph_2_2_2
+narrow = .25
+
+:B_C@
+(0,0)
+(-.5,-.866)
+(.5,-.866)
+name = triangle_graph_3_2_1
+narrow = .25
+
+:Cw?@V
+(0,-1)
+(.87, .5)
+(-.87,.5)
+(0,0)
+name = star3_4
+narrow=1
+
+:Co_?N
+(0,1)
+(0,3)
+(0,0)
+(0,2)
+name = a_graph_1_4_1
+narrow = 1
+
+:Co?_N
+(0,1)
+(0,3)
+(0,0)
+(0,2)
+name = a_graph_3_2_1
+narrow = 1
+
+:Co_IV
+(-.5,-.866)
+(0,1)
+(.5,-.866)
+(0,0)
+name = triangle_graph_horn_2_2_1_1
+narrow = .25
+
+:CoC@V
+(-.5,-.866)
+(0,1)
+(.5,-.866)
+(0,0)
+name = triangle_graph_horn_2_1_2_1
+narrow = .25
+
+:Co?`V
+(-.5,-.866)
+(0,1)
+(.5,-.866)
+(0,0)
+name = triangle_graph_horn_1_1_3_1
+narrow = .25
+
+:Co@`N
+(0,0)
+(1,1)
+(1,0)
+(0,1)
+name = square_2_1_2_1
+narrow = .25
+
+:CcKI
+(0,0)
+(0,1)
+(-.866,-.5)
+(.866,-.5)
+name = K4
+narrow = 1
+
+:Do??QN
+(0,-1)
+(0,1)
+(-1,0)
+(1,0)
+(0,0)
+name = star4_3
+narrow=1
+
+:DkG?@J
+(0,-1)
+(-.866, .5)
+(.866,.5)
+(0,-2)
+(0,0)
+name = y_1_1_3_1
+narrow = 1
+
+:Dk?_QN
+(.5,-.866)
+(-.5,.866)
+(.5,.866)
+(-.5,-.866)
+(0,0)
+name = hairytriangle
+narrow = .25
+
+:Dk?EAN
+(0,0)
+(-1.366,-1.366)
+(1.366,-1.366)
+(-.5,-.866)
+(.5,-.866)
+name = bull
+narrow = .25
+
+:DgH_@F
+(0,1)
+(0,3)
+(0,0)
+(0,4)
+(0,2)
+name = caterpillar
+narrow = 1
+
+:EoG?QN
+(0,-1)
+(0,1)
+(-1,0)
+(1,0)
+(0,-2)
+(0,0)
+name = cross
+narrow = 1
+
+:Eo@gsR
+(.866, .5)
+(-.866, .5)
+(.866,-1.5)
+(-.866,-1.5)
+(0,0)
+(0,-1)
+name = bi_y
+narrow = 1
+
+:EkGEAR
+(0,0)
+(-1.366,-1.366)
+(1.366,-1.366)
+(0,1)
+(-.5,-.866)
+(.5,-.866)
+name = augmented_triangle
+narrow = 1
+
+:FaGaG
+(0.0, -1.0)
+(0.87, -0.5)
+(0.87, 0.5)
+(0.0, 1.0)
+(-0.87, 0.5)
+(-0.87, -0.5)
+name = star6
+narrow=1
