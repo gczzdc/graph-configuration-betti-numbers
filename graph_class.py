@@ -43,7 +43,7 @@ class Graph():
 		self.graph.poincare_num_poly={},
 		self.graph.poincare_denom_power={},
 		self.graph.stable_poly_normalized={}
-		self.validity={}	
+		self.validity=-1	
 
 	def image_filename(self):
 		return '{}.{}'.format(self.filename,graphics_format)

@@ -58,25 +58,30 @@ def parse_macaulay_poly(s):
 	return(answer)
 
 def process_macaulay_output(macaulay_data):
-	answer = {}
+	poincare_denom_power={}
+	poincare_num_poly={}
+	validity = -1
 	for j in range(0,len(macaulay_data),5):
-		sparse6=macaulay_data[j].split('Data for graph')[1].strip()
-		if sparse6 not in answer:
-			answer[graph_name]= graph_class.Graph(sparse6)
 		degree = int(macaulay_data[j+1].split('homological degree')[1].strip())
-		denom_power = int(macaulay_data[j+2].split(':')[1].strip())
-		answer[graph_name].poincare_denom_power[degree]=denom_power 
-		num_poly=parse_macaulay_poly(macaulay_data[j+3].split(':')[1].strip())
-		answer[graph_name].poincare_num_poly[degree] = num_poly 
-		answer[graph_name].validity[degree]= len(num_poly) - denom_power - 1
-	for name, G in answer.items():
-		calculate_all_Betti_numbers_and_stable_poly(G)
-		#modifies G in place
-	return answer
+		this_denom_power = int(macaulay_data[j+2].split(':')[1].strip())
+		poincare_denom_power[degree]=this_denom_power 
+		this_num_poly=parse_macaulay_poly(macaulay_data[j+3].split(':')[1].strip())
+		poincare_num_poly[degree] = this_num_poly 
+		this_validity = len(this_num_poly) - this_denom_power - 1
+		validity = max(validity, this_validity)
+	return (poincare_num_poly, poincare_denom_power, validity)
+
+def incorporate_macaulay_data(G, macaulay_data):
+	processed_data = process_macaulay_output(macaulay_data)
+	G.poincare_num_poly = processed_data[0]
+	G.poincare_denom_power = processed_data[1]
+	G.validity = processed_data[2]
+	calculate_all_Betti_numbers_and_stable_poly(G)
+
 
 def calculate_all_Betti_numbers_and_stable_poly(G):
 	G.homological_degree=len(answer[G].poincare_num_poly)-1
-	maxlen = max(G.validity.values()) + 1
+	maxlen = G.validity + 1
 	for i in range(G.homological_degree+1):
 		full_coef_poly = convert(G.poincare_num_poly[i], G.denom_power[i])
 			#not cutting off to get stable prediction
