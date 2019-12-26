@@ -3,6 +3,8 @@ from picture_maker import (
 	convert_image
 )
 
+from macaulay_maker import make_macaulay_script
+
 from constants import (
 	recompile_images,
 	reconvert_images,
@@ -95,15 +97,17 @@ def graph_generator(
 		ssh_upload=yesno('upload files to remote server',ssh_upload)
 		if ssh_upload:
 			full_upload=yesno('upload infrequently changed files',full_upload)
-	for G in graphs:
+	total_time=0
+	for j,G in enumerate(graphs):
 		if G.has_image:
 			if recompile_images:
 				compile_image(G, loud_commands)
 			if reconvert_images:
 				convert_image(G, loud_commands)
 		if run_macaulay:
-			macaulay_script(G, macaulay_outfile, loud_commands)
-			run('m2 --script temp.m2')
+			macaulay_results = run_macaulay_script(G,j)
+			total_time += macaulay_results[1]
+			incorporate_macaulay_data(G,macaulay_results[0])
 	if make_files:
 		process_files(graphs,loud_commands)
 	if compile_main:
