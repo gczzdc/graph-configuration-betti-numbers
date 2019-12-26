@@ -9,11 +9,11 @@ from constants import (
 
 from utility import run
 
-def compile_tex():
-	run('{} {}'.format(compile_command, tex_filename))
-	run('{} {}'.format(bib_command, tex_filename))
-	run('{} {}'.format(compile_command, tex_filename))
-	run('{} {}'.format(compile_command, tex_filename))
+def compile_tex(filename):
+	run('{} {}'.format(compile_command, filename))
+	run('{} {}'.format(bib_command, filename))
+	run('{} {}'.format(compile_command, filename))
+	run('{} {}'.format(compile_command, filename))
 
 
 def format_poly_to_tex(poly, var='t'):
