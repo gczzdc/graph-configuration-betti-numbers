@@ -35,7 +35,9 @@ bend_dic={\
 5:[-90,-30,0,30,90],\
 6:[-90,-40,-15,15,40,90]}
 
-
+#macaulay2 io
+macaulay_scriptfile = 'temp.m2'
+results_file='m2_graph_results'
 
 #for control flow
 loud_commands=True
