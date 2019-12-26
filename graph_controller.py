@@ -17,8 +17,9 @@ from constants import (
 	full_upload,
 	loud_commands
 )
-from utility import scp
-from latex_maker import compile_tex
+from utility import scp, run
+from latex_maker import compile_tex, write_pdf
+from html_maker import write_html
 	
 def yesno(prompt, default):
 	if default ==False:
@@ -32,47 +33,19 @@ def yesno(prompt, default):
 		return(False)
 	return(default)
 
-def process_files(graphs):
-	graph_data=process_macaulay_file(macaulay_outfile)
-	graph_data['isolated_vertex'] = data_class()
-	graph_data['isolated_vertex'].polys[0] = [[1,1],0,2]
-	# graph_data['isolated_vertex'].latextriples[0]=['1','0',2]
-	# graph_data['isolated_vertex'].htmltriples[0]=['1','0',2]
-	graph_data['isolated_vertex'].homological_degree=0
-	# graph_data['isolated_vertex'].adjacency=[[0,],]
-	graph_data['isolated_vertex'].Betti_numbers[0]=[1,1,0]
-	graph_data['isolated_vertex'].Betti_number_is_unstable.add((0,0))
-	graph_data['isolated_vertex'].Betti_number_is_unstable.add((0,1))		
-	graph_data['isolated_vertex'].note='values calculated by hand'
-	graph_data['isolated_edge'] = data_class()
-	# graph_data['isolated_edge'].latextriples[0]=['\\frac{1}{1-t}','1',2]
-	# graph_data['isolated_edge'].htmltriples[0]=['1/(1-t)','1',2]
-	graph_data['isolated_edge'].polys[0] = [[1,],1,0]
-	# graph_data['isolated_edge'].adjacency=[[0,1],[1,0]]
-	graph_data['isolated_edge'].homological_degree=0
-	graph_data['isolated_edge'].Betti_numbers[0]=[1,]
-	graph_data['isolated_edge'].note='values calculated by hand'
-	for graph in graphs:
-		v = len(graphs[graph][0])
-		graph_data[graph].adjacency=[[0 for i in range(v)] for j in range(v)] 
-		for e in graphs[graph][1]:
-			graph_data[graph].adjacency[e[0]][e[1]] += graphs[graph][1][e]
-			if e[0]!=e[1]:
-				graph_data[graph].adjacency[e[1]][e[0]] += graphs[graph][1][e]
 
-	# graph_data['isolated_edge']
-	#for graph in graph_data:
-		# print (graph)
-		# print (graph_data[graph].Betti_numbers)
 def graphs_by_essential_vertex(graphs):
 	divided_list = defaultdict(list)
 	for G in graphs:
 		divided_list[G.essential_vertices].append(G)
 	return divided_list
-	ordered_graphs = graphs_by_essential_vertex(graphs,max_essential_vertices)
-	assemble_file(ordered_graphs, graph_data, file_name+'.tex', 'pdf')
-	assemble_file(ordered_graphs,graph_data, file_name+'_single.tex','pdf',single=True)
-	assemble_file(ordered_graphs, graph_data, 'index.html', 'html')
+
+def process_files(graphs):
+	ordered_graphs = graphs_by_essential_vertex(graphs)
+	write_pdf(ordered_graphs, tex_filename)
+	write_pdf(ordered_graphs, tex_filename+'_single', single_file = True)
+	write_html(ordered_graphs, 'index.html')
+
 
 def upload_files(graphs, full_upload,loud_commands):
 	scp(tex_filename+'.pdf', loud_commands)
