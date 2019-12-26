@@ -14,7 +14,7 @@ def batch_macaulay_script(graph_enumerator,
 						prefix_function=basic_enumerator
 						):
 	command = '-- file to compute homology of configuration space of a list of graphs\n\n'
-	command += '"'+results_file+'" << close\n\n'
+	command += '"{}" << close\n\n'.format(results_file)
 	for j,graph in enumerate(graph_enumerator):
 		command+= make_macaulay_script(graph,
 							results_file,
