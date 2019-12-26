@@ -33,16 +33,24 @@
 
 import subprocess
 
-def generate_multigraphs(edge_count=2,loud=False):
+loud = False
+
+def toggle_loud():
+	global loud
 	if loud:
-		def loud_print(thing):
-			print(thing)
+		loud = False
 	else:
-		def loud_print(thing):
-			pass
+		loud = True
+
+def loud_print(thing):
+	if loud:
+		print(thing)
+
+def generate_multigraphs(edge_count=2):
 	answer = []
+
 	for vertex_count in range(1,edge_count+1):
-		print('vertex_count: {}'.format(vertex_count))
+		loud_print('vertex_count: {}'.format(vertex_count))
 		simple_graphs = generate_simple_graphs(vertex_count=vertex_count, 
 											max_edge_count=edge_count)
 		loud_print(simple_graphs)
