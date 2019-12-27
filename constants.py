@@ -41,6 +41,8 @@ results_file='m2_graph_results'
 
 #for control flow
 loud_commands=True
+generate_graphs=True
+max_edges=6
 recompile_images=False
 reconvert_images=False
 run_macaulay=False
