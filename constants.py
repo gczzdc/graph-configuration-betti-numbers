@@ -1,7 +1,8 @@
 #for ssh
 host='dreamhost:'
 portscp=''
-remote_directory='drummondcole.com/gabriel/academic/'+file_name+'/'
+directory_name='graph_configuration_betti_numbers'
+remote_directory='drummondcole.com/gabriel/academic/'+directory_name+'/'
 
 #for html
 base_html='base.html'
@@ -15,6 +16,7 @@ bib_command='bibtex'
 compile_command ='pdflatex'
 
 #for images
+drawn_graphs_file = 'drawn_graphs.txt'
 node_radius = '2.5pt'
 img_start_tex='\\documentclass[crop,tikz]{standalone}\n\\begin{document}\n'
 img_end_tex='\\end{document}'
