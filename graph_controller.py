@@ -3,11 +3,17 @@ from picture_maker import (
 	convert_image
 )
 
+from isomorphism_class_generation import generate_multigraphs
+
+from drawn_graphs_reader import assign_pix_to_graphs
+
 from collections import defaultdict
 
 from macaulay_maker import make_macaulay_script
 
 from constants import (
+	generate_graphs,
+	max_edges,
 	recompile_images,
 	reconvert_images,
 	run_macaulay,
@@ -21,6 +27,7 @@ from constants import (
 from utility import scp, run
 from latex_maker import compile_tex, write_pdf
 from html_maker import write_html
+from graph_class import Graph
 	
 def yesno(prompt, default):
 	if default ==False:
