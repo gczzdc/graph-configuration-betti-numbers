@@ -64,6 +64,15 @@ def upload_files(graphs, full_upload,loud_commands):
 			if G.has_image: 
 				scp('{}.{}'.format(G.filename,graphics_format))
 
+def make_graphs(max_edges):
+	graphs=[]
+	for j in range(max_edges+1):
+		for sparse6 in generate_multigraphs(j):
+			graphs.append(Graph(sparse6))
+	assign_pix_to_graphs(graphs)
+	return graphs
+
+
 def graph_generator(
 	graphs=[],
 	interactive=False,
@@ -79,6 +88,7 @@ def graph_generator(
 	loud_commands=loud_commands
 	):
 	if interactive:
+		generate_graphs=yesno('generate graphs programmatically?', generate_graphs)
 		recompile_images=yesno('generate and recompile tex files for images',recompile_images)
 		reconvert_images=yesno('reconvert images for web', reconvert_images)
 		run_macaulay=yesno('run macaulay scripts to determine homology',run_macaulay)
@@ -88,6 +98,8 @@ def graph_generator(
 		if ssh_upload:
 			full_upload=yesno('upload infrequently changed files',full_upload)
 	total_time=0
+	if generate_graphs:
+		graphs = make_graphs(max_edges)
 	for j,G in enumerate(graphs):
 		if G.has_image:
 			if recompile_images:
