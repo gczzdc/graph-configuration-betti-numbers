@@ -58,7 +58,7 @@ class Graph():
 	def adjacency_to_VE(self):
 		self.vertex_count = len(self.adjacency)
 		self.edges = {}
-		for i in range(self.vertex_count)
+		for i in range(self.vertex_count):
 			for j in range(i+1):
 				multiplicity=self.adjacency[i][j]
 				if multiplicity:
@@ -192,9 +192,9 @@ class Graph():
 			raise ConvertError('cannot build adjacency matrix; no data type recognized')
 
 	def build_sparse_6(self):
-		elif self.has_VE:
+		if self.has_VE:
 			self.VE_to_sparse6()
-		if self.has_adjacency:
+		elif self.has_adjacency:
 			self.adjacency_to_sparse6()
 		elif self.has_VH:
 			self.VH_to_sparse_6()

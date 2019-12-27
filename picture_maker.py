@@ -2,11 +2,11 @@ from utility import run
 
 from constants import (
 	bend_dic,
-	cleanup_commands
+	cleanup_command,
 	compile_command,
 	convert_command,
 	img_end_tex,
-	image_format,
+	graphics_format,
 	img_start_tex,
 	node_radius,
 )
@@ -37,7 +37,7 @@ def compile_image(G, loud_commands):
 	if loud_commands:
 		print ('generating tex file for graph {}'.format(G.name))
 	edge_dic = G.edges()
-	data = image_maker(G.node_dic
+	data = image_maker(G.node_dic,
 						edge_dic,
 						G.narrow_flag,
 						scale=1)
@@ -45,11 +45,10 @@ def compile_image(G, loud_commands):
 		f.write(data)
 
 def convert_image(G):
-	for graph in graphs:
 	if loud_commands:
-		print ('generating {} file for graph {}'.format(image_format, 
+		print ('generating {} file for graph {}'.format(graphics_format, 
 														G.name))
-	data = image_maker(G.node_dic
+	data = image_maker(G.node_dic,
 						edge_dic,
 						G.narrow_flag,
 						scale=2)
@@ -63,7 +62,7 @@ def convert_image(G):
 									G.filename, 
 									convert_command[1], 
 									G.filename, 
-									image_format))
+									graphics_format))
 
 	run('{} {}_img.{}'.format(cleanup_command[0], 
 								G.filename, 

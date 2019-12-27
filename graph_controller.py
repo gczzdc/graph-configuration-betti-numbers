@@ -21,7 +21,7 @@ from constants import (
 	compile_main,
 	ssh_upload,
 	full_upload,
-	loud_commands
+	loud_commands,
 	tex_filename
 )
 from utility import scp, run
