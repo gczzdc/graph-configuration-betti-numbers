@@ -65,8 +65,10 @@ def upload_files(graphs, full_upload,loud_commands):
 				scp('{}.{}'.format(G.filename,graphics_format))
 
 def graph_generator(
-	graphs,
-	interactive=False, 
+	graphs=[],
+	interactive=False,
+	generate_graphs=generate_graphs, 
+	max_edges=max_edges,
 	recompile_images=recompile_images,
 	reconvert_images=reconvert_images,
 	run_macaulay=run_macaulay, 
