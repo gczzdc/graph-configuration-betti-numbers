@@ -101,6 +101,8 @@ def graph_generator(
 	total_time=0
 	if generate_graphs:
 		graphs = make_graphs(max_edges)
+	if not run_macaulay:
+		raise NotImplementedError("Loading M2 data from static files not yet supported")
 	for j,G in enumerate(graphs):
 		if G.has_image:
 			if recompile_images:
@@ -111,6 +113,9 @@ def graph_generator(
 			macaulay_results = run_macaulay_script(G,j)
 			total_time += macaulay_results[1]
 			incorporate_macaulay_data(G,macaulay_results[0])
+	if run_macaulay:
+		print ('{} seconds spent on core M2 calculation for {} graphs'.format(
+			round(total_time, 2), len(graphs)))
 	if make_files:
 		process_files(graphs,loud_commands)
 	if compile_main:
