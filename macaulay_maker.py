@@ -64,7 +64,7 @@ def make_macaulay_script(graph,
 		#this works for the isolated vertex and isolated edge
 		#but would give unexpected results for a circle.
 		m_script+='C{} = chainComplex R\n'.format(prefix)
-		m_script+='C{}#0 = R^1'.format(prefix)
+		m_script+='C{}#0 = R^1\n'.format(prefix)
 	for i in range(V+1):
 		m_script+= 'H{}deg{}=HH_{}(C{})\n'.format(prefix,i,i,prefix)
 		m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
