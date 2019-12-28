@@ -67,10 +67,14 @@ def make_macaulay_script(graph,
 		m_script+='C{}#0 = R^1\n'.format(prefix)
 	for i in range(V+1):
 		m_script+= 'H{}deg{}=HH_{}(C{})\n'.format(prefix,i,i,prefix)
-		m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
-		m_script+= 'd{}deg{}=(denominator p{}deg{})#0#1 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
-		m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
+		if graph.edges:
+			m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
+			m_script+= 'd{}deg{}=(denominator p{}deg{})#0#1 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
+			m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		else:
+			#no edges so no ordinary Hilbert Series
+			m_script+= 'd{}deg{}=0 -- reduced power of denominator\n'.format(prefix,i)
+			m_script+= 'n{}deg{}=0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		m_script+='f = openOutAppend "{}"\n'.format(results_file)
 		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph.name))
 		m_script+='"homological degree "<<{}'.format(i)
