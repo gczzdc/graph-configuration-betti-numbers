@@ -33,7 +33,6 @@ def format_macaulay_output(string):
 
 def make_macaulay_script(graph, 
 						results_file, 
-						append=True, 
 						prefix=''):
 	essential_vertices = graph.get_essential_vertices()
 	V = len(essential_vertices)
@@ -71,10 +70,8 @@ def make_macaulay_script(graph,
 		m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
 		m_script+= 'd{}deg{}=(denominator p{}deg{})#0#1 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
 		m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
-		if append:
-			m_script+='f = openOutAppend "{}"\n'.format(results_file)
 		else:
-			m_script+='f = openOut "{}"\n'.format(results_file)
+		m_script+='f = openOutAppend "{}"\n'.format(results_file)
 		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph.name))
 		m_script+='"homological degree "<<{}'.format(i)
 		m_script+= ' <<endl<<"power of 1-T: "<<d{}deg{}'.format(prefix,i)
@@ -88,8 +85,8 @@ def run_macaulay_script(G,j):
 	with open(macaulay_scriptfile, 'w') as f: 
 		f.write(make_macaulay_script(
 			G, 
-			macaulay_outfile, 
-			append=False))
+			macaulay_outfile
+			))
 	t0 = time.time()
 	run('m2 --script {}'.format(macaulay_scriptfile))
 	timedelta = time.time()-t0
