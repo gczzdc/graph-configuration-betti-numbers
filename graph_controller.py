@@ -47,7 +47,7 @@ def yesno(prompt, default):
 def graphs_by_essential_vertex(graphs):
 	divided_list = defaultdict(list)
 	for G in graphs:
-		divided_list[G.essential_vertices].append(G)
+		divided_list[len(G.essential_vertices)].append(G)
 	return divided_list
 
 def process_files(graphs):
