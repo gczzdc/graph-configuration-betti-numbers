@@ -24,7 +24,6 @@ name = star3
 narrow = 1
 
 :A_N
-[[0, 4], [4, 0]]
 (0,0)
 (1,0)
 name = theta4
