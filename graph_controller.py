@@ -49,7 +49,7 @@ def graphs_by_essential_vertex(graphs):
 		divided_list[len(G.essential_vertices)].append(G)
 	return divided_list
 
-def process_files(graphs):
+def process_files(graphs, loud_commands):
 	ordered_graphs = graphs_by_essential_vertex(graphs)
 	write_pdf(ordered_graphs, tex_filename)
 	write_pdf(ordered_graphs, tex_filename+'_single', single_file = True)
