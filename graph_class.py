@@ -159,7 +159,7 @@ class Graph():
 	def build_essential_vertices(self):
 		if not self.has_VH:
 			self.build_VH()
-		self.essential_vertices = [v for v in range(len(self.stars)) if len(self.stars[v])>2]
+		self.essential_vertices = [v for v in self.stars if len(v)>2]
 
 	def build_VE(self):
 		if self.has_adjacency:
