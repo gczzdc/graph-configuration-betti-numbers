@@ -40,9 +40,9 @@ class Graph():
 		self.homological_degree=-1
 		self.Betti_numbers={}
 		self.Betti_number_is_unstable=set()
-		self.graph.poincare_num_poly={},
-		self.graph.poincare_denom_power={},
-		self.graph.stable_poly_normalized={}
+		self.poincare_num_poly={},
+		self.poincare_denom_power={},
+		self.stable_poly_normalized={}
 		self.validity=-1	
 
 	def image_filename(self):
