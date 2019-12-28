@@ -9,7 +9,9 @@ from drawn_graphs_reader import assign_pix_to_graphs
 
 from collections import defaultdict
 
-from macaulay_maker import make_macaulay_script
+from macaulay_maker import run_macaulay_script
+
+from macaulay_parser import incorporate_macaulay_data
 
 from constants import (
 	generate_graphs,
