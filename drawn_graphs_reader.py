@@ -6,12 +6,18 @@ def read_graph_pix():
 	raw_graphs = data.split('\n\n')
 	processed_graphs = {}
 	for graph in raw_graphs:
-		lines = graph.split('\n')
+		lines = graph.strip().split('\n')
 		key = lines[0]
-		narrow = lines[-1].split('=')[1].strip()
-		name = lines[-2].split('=')[1].strip()
-		node_dic = {j-1: eval(lines[j]) for j in range(1, len(graph_lines-2))}
-		processed_graphs[key]=(node_dic, name, narrow)
+		try:
+			narrow = float(lines[-1].split('=')[1].strip())
+			name = lines[-2].split('=')[1].strip()
+			node_dic = {j-1: eval(lines[j]) for j in range(1, len(lines)-2)}
+			processed_graphs[key]=(node_dic, name, narrow)
+		except:
+			print('Error')
+			for j in lines:
+				print(j)
+			input()
 	return processed_graphs
 
 def assign_pix_to_graphs(graphs):
@@ -19,9 +25,9 @@ def assign_pix_to_graphs(graphs):
 	for graph in graphs:
 		if graph.sparse6 in pix:
 			info = pix[graph.sparse6]
-			graph.name = info.name
-			graph.narrow = info.narrow
-			graph.image_dic = info.node_dic
-			graph.filename = info.name
+			graph.name = info[1]
+			graph.narrow = info[2]
+			graph.image_dic = info[0]
+			graph.filename = info[1]
 			graph.has_image = True
 			
