@@ -154,13 +154,13 @@ def make_table_header(graph, soup):
 	representations = soup.new_tag('div', class_='row')
 	pic = soup.new_tag('div',class_='colleft')
 	pic.append(soup.new_tag('p'))
-	if graph.file_name:
+	if graph.filename:
 		if graph.name:
 			alt_txt = 'picture of the graph {}'.format(graph.name)
 		else:
 			alt_txt = 'picture of a graph'
 		pic.p.append(soup.new_tag('img',
-					src=graph.image_file(), 
+					src=graph.image_filename(), 
 					alt=alt_txt, 
 					style='margin-right:20px'))
 	representations.append(pic)	
@@ -216,7 +216,7 @@ def build_toc(soup, items):
 def build_betti_subsec(graph_list, n):
 	subsec = BeautifulSoup('')
 	subsec.append(subsec_header_maker(subsec,n))
-	for graph in graph_list[n]:
+	for graph in graph_list:
 		subsec.append(assemble_table_for_html(graph, subsec))
 	return subsec
 
@@ -228,7 +228,7 @@ def assemble_html(graph_dic):
 	# and values iterators of 
 	# graphs data with n essential vertices
 	with open(base_html,'r') as f:
-		soup= BeautifulSoup(f.read())
+		soup= BeautifulSoup(f.read(),features='html.parser')
 	data_section = soup.new_tag('section')
 	data_section.append(soup.new_tag('h2'))
 	data_section.h2.append(data_section_title)
@@ -237,7 +237,7 @@ def assemble_html(graph_dic):
 	toc_div = build_toc(soup, keys)
 	data_section.append(toc_div)
 	for k in keys:
-		this_subsec = build_betti_subsec(graph_list[k],k)
+		this_subsec = build_betti_subsec(graph_dic[k],k)
 		data_section.append(this_subsec)
 	soup.html.body.append(data_section)
 	return soup

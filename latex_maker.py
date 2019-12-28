@@ -1,4 +1,5 @@
 from constants import (
+	Betti_row_max_length,
 	bib_command,
 	compile_command,
 	intro_tex,
@@ -66,13 +67,13 @@ def format_macaulay_latex(num_poly, denom_power, stable_poly):
 	answer=[]
 	poincare_tex=''
 	if denom_power>0:
-		poincare_tex+='\\frac{{{}}}'.format(format_poly_to_tex(poly))
+		poincare_tex+='\\frac{{{}}}'.format(format_poly_to_tex(num_poly))
 		if denom_power>1:
 			poincare_tex+= '{{(1-t)^{{{}}}}}'.format(denom_power)
 		else:
 			poincare_tex+= '{1-t}'				
 	else:
-		poincare_tex+=format_poly_to_tex(poly)		
+		poincare_tex+=format_poly_to_tex(num_poly)		
 	answer.append(poincare_tex)
 	if denom_power>2:
 		stable_tex='\\frac{{{}}}'.format(format_poly_to_tex(stable_poly,var='k'))
@@ -153,17 +154,17 @@ def subsec_header_maker(n):
 	out_builder=	[]
 	if n!=0:
 		out_builder.append("\\clearpage\n")
-	if j!=1:
-		out_builder.append("\\subsection{{Data for graphs with {} essential vertices}}\n".format(j))
+	if n!=1:
+		out_builder.append("\\subsection{{Data for graphs with {} essential vertices}}\n".format(n))
 	else:
 		out_builder.append("\\subsection{Data for graphs with 1 essential vertex}\n")
 	out_builder.append('\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
 	return ''.join(out_builder)
 
-def build_betti_subsec(graph_list,n, single_file):
-	subsec=subsec_header_builder(n)
-	for graph in graph_list[n]:
-		subsec+=append(assemble_table_for_tex(graph,single_file))
+def build_betti_subsec(graph_list, n, single_file):
+	subsec=subsec_header_maker(n)
+	for graph in graph_list:
+		subsec+= assemble_table_for_tex(graph,single_file)
 	return subsec
 
 
