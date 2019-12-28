@@ -28,8 +28,8 @@ def image_maker(node_dic, edge_dic, narrow=1, scale=1):
 			out_builder.append(
 				'\\draw (n{}.center) to[bend right={}] (n{}.center);\n'.format(
 											edge[0],
-											edge[1])			
 											j*narrow,
+											edge[1]))			
 	out_builder.append("\\end{tikzpicture}\n")
 	return ''.join(out_builder)	
 
@@ -44,7 +44,7 @@ def compile_image(G, loud_commands):
 	with open(G.filename+'.tex','w') as f:
 		f.write(data)
 
-def convert_image(G):
+def convert_image(G, loud_commands):
 	if loud_commands:
 		print ('generating {} file for graph {}'.format(graphics_format, 
 														G.name))
