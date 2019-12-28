@@ -132,8 +132,8 @@ def make_table_header(graph, single_file):
 			out_builder.append('\\input{{{}}}\n'.format(graph.filename))
 		out_builder.append('\\end{tabular}\n\\qquad{}\n')
 	out_builder.append("\\renewcommand{\\arraystretch}{1}\n")
-	out_builder.append('\\left(\\begin{{array}}{{{}}}\n'.format('c'*len(graph.adjacency())))
-	for row in graph.adjacency():
+	out_builder.append('\\left(\\begin{{array}}{{{}}}\n'.format('c'*len(graph.get_adjacency())))
+	for row in graph.adjacency:
 		out_builder.append('&'.join((str(n) for n in row)))
 		out_builder.append('\\\\\n')
 	out_builder.append('\\end{array}\\right)\n')

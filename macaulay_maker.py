@@ -35,7 +35,7 @@ def make_macaulay_script(graph,
 						results_file, 
 						append=True, 
 						prefix=''):
-	essential_vertices = graph.essential_vertices()
+	essential_vertices = graph.get_essential_vertices()
 	V = len(essential_vertices)
 	m_script ='-- macaulay script for homology of configuration spaces of the graph\n'
 	m_script+= format_macaulay_comment(graph.name)+'\n'

@@ -36,8 +36,8 @@ def image_maker(node_dic, edge_dic, narrow_flag=1, scale=1):
 def compile_image(G, loud_commands):
 	if loud_commands:
 		print ('generating tex file for graph {}'.format(G.name))
-	edge_dic = G.edges()
 	data = image_maker(G.node_dic,
+	edge_dic = G.get_edges()
 						edge_dic,
 						G.narrow_flag,
 						scale=1)

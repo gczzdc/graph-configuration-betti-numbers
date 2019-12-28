@@ -136,22 +136,22 @@ class Graph():
 			self.adjacency_to_VE()
 		self.VE_to_VH()
 
-	def essential_vertices(self):
+	def get_essential_vertices(self):
 		if not self.essential_vertices:
 			self.build_essential_vertices()
 		return self.essential_vertices
 
-	def edges(self):
+	def get_edges(self):
 		if not self.has_VE:
 			self.build_VE()
 		return self.edges
 
-	def sparse6(self):
+	def get_sparse6(self):
 		if not self.has_sparse6:
-			self.build_sparse_6()
+			self.build_sparse6()
 		return self.sparse6
 
-	def adjacency(self):
+	def get_adjacency(self):
 		if not self.has_adjacency:
 			self.build_adjacency()
 		return self.adjacency
@@ -162,7 +162,9 @@ class Graph():
 		self.essential_vertices = [v for v in self.stars if len(v)>2]
 
 	def build_VE(self):
-		if self.has_adjacency:
+		if self.has_VE:
+			return
+		elif self.has_adjacency:
 			self.adjacency_to_VE()
 		elif self.has_VH:
 			self.VH_to_VE()
@@ -172,7 +174,9 @@ class Graph():
 			raise ConvertError('cannot build VE format; no data type recognized')
 
 	def build_VH(self):
-		if self.has_VE:
+		if self.has_VH:
+			return
+		elif self.has_VE:
 			self.VE_to_VH()
 		elif self.has_adjacency:
 			self.adjacency_to_VH()
@@ -182,7 +186,9 @@ class Graph():
 			raise ConvertError('cannot build VH format; no data type recognized')
 
 	def build_adjacency(self):
-		if self.has_VE:
+		if self.has_adjacency:
+			return
+		elif self.has_VE:
 			self.VE_to_adjacency()
 		elif self.has_VH:
 			self.VH_to_adjacency()
@@ -191,13 +197,15 @@ class Graph():
 		else:
 			raise ConvertError('cannot build adjacency matrix; no data type recognized')
 
-	def build_sparse_6(self):
-		if self.has_VE:
+	def build_sparse6(self):
+		if self.has_sparse6:
+			return
+		elif self.has_VE:
 			self.VE_to_sparse6()
 		elif self.has_adjacency:
 			self.adjacency_to_sparse6()
 		elif self.has_VH:
-			self.VH_to_sparse_6()
+			self.VH_to_sparse6()
 		else:
 			raise ConvertError('cannot build sparse6 format; no data type recognized')
 
