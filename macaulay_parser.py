@@ -88,7 +88,10 @@ def calculate_all_Betti_numbers_and_stable_poly(G):
 		full_coef_poly = convert(G.poincare_num_poly[i], G.poincare_denom_power[i])
 			#not cutting off to get stable prediction
 		G.stable_poly_normalized[i]=full_coef_poly
-		denom_fact = factorial(G.denom_power[i]-1)
+		if G.poincare_denom_power[i]>0:
+			denom_fact = factorial(G.poincare_denom_power[i]-1)
+		else:
+			denom_fact = 1
 		calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact)
 
 def calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact):
