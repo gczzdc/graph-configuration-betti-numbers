@@ -48,6 +48,7 @@ def convert_image(G):
 	if loud_commands:
 		print ('generating {} file for graph {}'.format(graphics_format, 
 														G.name))
+	edge_dic = G.get_edges()
 	data = image_maker(G.image_dic,
 						edge_dic,
 						G.narrow,
