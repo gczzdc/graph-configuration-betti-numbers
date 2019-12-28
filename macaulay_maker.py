@@ -41,9 +41,10 @@ def make_macaulay_script(graph,
 	m_script ='-- macaulay script for homology of configuration spaces of the graph\n'
 	m_script+= format_macaulay_comment(graph.name)+'\n'
 	m_script+='R = ZZ'
+	graph.build_VH()
 	if graph.edges:
 		m_script+='['
-		edge_vars=['e{}_{}'.format(prefix,n) for n in graph.edges()]
+		edge_vars=['e{}_{}'.format(prefix,n) for n in range(graph.edge_count)]
 		m_script+= ', '.join(edge_vars)
 		m_script+=']'
 	m_script+='\n'
