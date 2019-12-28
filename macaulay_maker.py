@@ -68,6 +68,7 @@ def make_macaulay_script(graph,
 		#but would give unexpected results for a circle.
 		m_script+='C{} = chainComplex R\n'.format(prefix)
 		m_script+='C{}#0 = R^1\n'.format(prefix)
+		m_script+='"{}"<<close\n'.format(results_file)
 	for i in range(V+1):
 		m_script+= 'H{}deg{}=HH_{}(C{})\n'.format(prefix,i,i,prefix)
 		if graph.edges:
@@ -94,6 +95,10 @@ def run_macaulay_script(G,j):
 			G, 
 			macaulay_outfile
 			))
+	try:
+		os.remove(macaulay_outfile)
+	except OSError:
+		pass
 	t0 = time.time()
 	run('m2 --script {}'.format(macaulay_scriptfile))
 	timedelta = time.time()-t0
