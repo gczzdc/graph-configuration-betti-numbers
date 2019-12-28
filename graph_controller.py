@@ -43,7 +43,6 @@ def yesno(prompt, default):
 		return(False)
 	return(default)
 
-
 def graphs_by_essential_vertex(graphs):
 	divided_list = defaultdict(list)
 	for G in graphs:
