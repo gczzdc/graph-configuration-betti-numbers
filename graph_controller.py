@@ -118,3 +118,4 @@ def graph_generator(
 		compile_tex(graphs,loud_commands)
 	if ssh_upload:
 		upload_files(graphs, full_upload,loud_commands)
+	return graphs
