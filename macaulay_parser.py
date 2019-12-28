@@ -61,11 +61,13 @@ def process_macaulay_output(macaulay_data):
 	poincare_denom_power={}
 	poincare_num_poly={}
 	validity = -1
-	for j in range(0,len(macaulay_data),5):
-		degree = int(macaulay_data[j+1].split('homological degree')[1].strip())
-		this_denom_power = int(macaulay_data[j+2].split(':')[1].strip())
+	macaulay_lines = macaulay_data.split('\n')
+	for j in range(0,len(macaulay_lines)-1,5):
+		#-1 here is a cludgy hack because of an extra endline at the end of the file
+		degree = int(macaulay_lines[j+1].split('homological degree')[1].strip())
+		this_denom_power = int(macaulay_lines[j+2].split(':')[1].strip())
 		poincare_denom_power[degree]=this_denom_power 
-		this_num_poly=parse_macaulay_poly(macaulay_data[j+3].split(':')[1].strip())
+		this_num_poly=parse_macaulay_poly(macaulay_lines[j+3].split(':')[1].strip())
 		poincare_num_poly[degree] = this_num_poly 
 		this_validity = len(this_num_poly) - this_denom_power - 1
 		validity = max(validity, this_validity)
@@ -80,10 +82,10 @@ def incorporate_macaulay_data(G, macaulay_data):
 
 
 def calculate_all_Betti_numbers_and_stable_poly(G):
-	G.homological_degree=len(answer[G].poincare_num_poly)-1
+	G.homological_degree=len(G.poincare_num_poly)-1
 	maxlen = G.validity + 1
 	for i in range(G.homological_degree+1):
-		full_coef_poly = convert(G.poincare_num_poly[i], G.denom_power[i])
+		full_coef_poly = convert(G.poincare_num_poly[i], G.poincare_denom_power[i])
 			#not cutting off to get stable prediction
 		G.stable_poly_normalized[i]=full_coef_poly
 		denom_fact = factorial(G.denom_power[i]-1)
@@ -92,7 +94,7 @@ def calculate_all_Betti_numbers_and_stable_poly(G):
 def calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact):
 	G.Betti_numbers[i]=[]
 	for k in range(maxlen+1):
-		coef_poly= convert(G.poincare_num_poly[i], G.denom_power[i],k)
+		coef_poly= convert(G.poincare_num_poly[i], G.poincare_denom_power[i],k)
 			#cutting off to get unstable value
 		this_Betti=0
 		for j,c in enumerate(coef_poly):
