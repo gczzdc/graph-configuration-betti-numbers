@@ -3,7 +3,9 @@ from constants import (
 	macaulay_scriptfile,
 	results_file
 )
+from utility import run
 import time
+import os
 
 def basic_enumerator(j, graph):
 	return 'G{}'.format(str(j).rjust(graph_order_of_magnitude,'0'))
