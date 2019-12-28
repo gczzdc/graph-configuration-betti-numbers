@@ -33,7 +33,7 @@ narrow = 1
 (0,0)
 (0,2)
 (0,1)
-name = dart_3_1
+name = dart_graph_3_1
 narrow=1
 
 :Co_N
@@ -63,7 +63,7 @@ narrow=1
 (0,0)
 (0,2)
 (0,1)
-name = dart_4_1
+name = dart_graph_4_1
 narrow=1
 
 :B__N
@@ -126,14 +126,14 @@ narrow=1
 (0,0)
 (0,2)
 (0,1)
-name = dart_3_3
+name = dart_graph_3_3
 narrow=1
 
 :Bo??N
 (0,0)
 (0,2)
 (0,1)
-name = dart_5_1
+name = dart_graph_5_1
 narrow=1
 
 :B__H
