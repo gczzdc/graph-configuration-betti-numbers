@@ -9,7 +9,7 @@ from drawn_graphs_reader import assign_pix_to_graphs
 
 from collections import defaultdict
 
-from macaulay_maker import run_macaulay_script
+from macaulay_maker import run_macaulay_script, access_macaulay_file
 
 from macaulay_parser import incorporate_macaulay_data
 
@@ -46,7 +46,7 @@ def yesno(prompt, default):
 def graphs_by_essential_vertex(graphs):
 	divided_list = defaultdict(list)
 	for G in graphs:
-		divided_list[len(G.essential_vertices)].append(G)
+		divided_list[len(G.get_essential_vertices())].append(G)
 	return divided_list
 
 def process_files(graphs, loud_commands):
@@ -101,8 +101,6 @@ def graph_generator(
 	total_time=0
 	if generate_graphs:
 		graphs = make_graphs(max_edges)
-	if not run_macaulay:
-		raise NotImplementedError("Loading M2 data from static files not yet supported")
 	
 	for G in graphs:
 		if G.has_image:
@@ -110,11 +108,15 @@ def graph_generator(
 				compile_image(G, loud_commands)
 			if reconvert_images:
 				convert_image(G, loud_commands)
-		if run_macaulay:
+	if not run_macaulay:
+		for G in graphs:
+			macaulay_results = access_macaulay_file(G)
+			incorporate_macaulay_data(G,macaulay_results)
+	else:
+		for G in graphs:
 			macaulay_results = run_macaulay_script(G)
 			total_time += macaulay_results[1]
 			incorporate_macaulay_data(G,macaulay_results[0])
-	if run_macaulay:
 		print ('{} seconds spent on core M2 calculation for {} graphs'.format(
 			round(total_time, 2), len(graphs)))
 	if make_files:
