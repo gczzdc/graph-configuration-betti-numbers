@@ -10,6 +10,7 @@ from constants import (
 def format_poly_to_html(poly, var='t'):
 	# format polynomial (list starting with degree zero coefficient) to html.
 	soup=BeautifulSoup('')
+	monomial_count = sum((1 for c in poly if c))
 	for j,c in enumerate(poly):
 		# c is the jth cofficient starting with the constant term
 		if c>0:
@@ -35,8 +36,8 @@ def format_poly_to_html(poly, var='t'):
 				exp.append(str(j))
 				soup.append(exp)
 	#special handling if the polynomial was empty
-	if soup.string is None:
-		return BeautifulSoup('0')
+	if monomial_count==0:
+		return BeautifulSoup('0', features='html.parser')
 	#deleting leading '+' sign
 	if soup.contents[0][0]=='+':
 		soup.contents[0].replace_with(soup.contents[0][1:])
