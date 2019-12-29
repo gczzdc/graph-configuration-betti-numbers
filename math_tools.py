@@ -9,7 +9,7 @@ def hilb_series_to_coefficient_poly(numerator, denom_power, cutoff=-1):
 	#should be divided by (denom_power-1) factorial
 	ans = []
 	if denom_power==0:
-		return([])
+		raise ValueError('Conversion not implemented in this function when rational function is a polynomial')
 	for i in range(len(numerator[:min(cutoff,len(numerator)-1)])+1):
 		this_term=[numerator[i],]
 		for j in range(1,denom_power):
