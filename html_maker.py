@@ -9,7 +9,7 @@ from constants import (
 
 def format_poly_to_html(poly, var='t'):
 	# format polynomial (list starting with degree zero coefficient) to html.
-	soup=BeautifulSoup('')
+	soup=BeautifulSoup('', features='html.parser')
 	monomial_count = sum((1 for c in poly if c))
 	for j,c in enumerate(poly):
 		# c is the jth cofficient starting with the constant term
@@ -62,7 +62,7 @@ def format_macaulay_html(num_poly, denom_power, stable_poly):
 	# for the Poincare series 
 	# and for the stable polynomial
 	answer=[]
-	poincare_soup=BeautifulSoup('')
+	poincare_soup=BeautifulSoup('', features='html.parser')
 	monomial_count = sum((1 for coefficient in num_poly if coefficient))
 	if monomial_count !=1 and denom_power>0:
 		poincare_soup.append('(')
@@ -73,13 +73,13 @@ def format_macaulay_html(num_poly, denom_power, stable_poly):
 	if denom_power>0:
 		poincare_soup.append('/(1-t)')
 	if denom_power>1:
-		power=BeautifulSoup('')
+		power=BeautifulSoup('',features='html.parser')
 		power.append(power.new_tag('sup'))
 		power.sup.append(str(denom_power))
 		poincare_soup.append(power)
 	answer.append(poincare_soup)
 	stable_poly_str = format_poly_to_html(stable_poly)
-	stable_soup = BeautifulSoup('')
+	stable_soup = BeautifulSoup('', features='html.parser')
 	if denom_power>2:
 		stable_soup.append('(')
 		stable_soup.append(stable_poly_str)
@@ -215,7 +215,7 @@ def build_toc(soup, items):
 
 
 def build_betti_subsec(graph_list, n):
-	subsec = BeautifulSoup('')
+	subsec = BeautifulSoup('',features='html.parser')
 	subsec.append(subsec_header_maker(subsec,n))
 	for graph in graph_list:
 		subsec.append(assemble_table_for_html(graph, subsec))
