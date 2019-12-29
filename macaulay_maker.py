@@ -76,8 +76,8 @@ def make_macaulay_script(graph,
 			m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		else:
 			#no edges so no ordinary Hilbert Series
-			m_script+= 'd{}deg{}=0 -- reduced power of denominator\n'.format(prefix,i)
-			m_script+= 'n{}deg{}=0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
+			m_script+= 'd{}deg{}=0 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
+			m_script+= 'n{}deg{}=rank H{}deg{} -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		m_script+='f = openOutAppend "{}"\n'.format(results_file)
 		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph.name))
 		m_script+='"homological degree "<<{}'.format(i)
