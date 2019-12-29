@@ -2,6 +2,13 @@ import networkx as nx
 import numpy as np
 from constants import graphics_format
 
+unsafe = '?@[\\]^`{|}'
+safe = '0123456789'
+translator = ''.maketrans(unsafe, safe,':')
+
+def safe_encode(sparse6):
+	return sparse6.translate(translator)
+
 class Graph():
 	def __init__(self,sparse6):
 		self.vertex_count=0
@@ -30,8 +37,9 @@ class Graph():
 
 
 		self.name=sparse6
+		self.safe_name = safe_encode(sparse6)
 		self.image_dic=None
-		self.filename=None
+		self.filename = safe_encode(sparse6)
 		self.note=None
 		self.has_image = False
 
