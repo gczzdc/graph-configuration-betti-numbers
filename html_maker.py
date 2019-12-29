@@ -133,6 +133,7 @@ def betti_number_table(graph, soup):
 				this_entry.append(soup.new_tag('span'))
 				if (row_number,col_number) in graph.Betti_number_is_unstable:
 					this_entry.span['style']='font-weight:900'
+				this_entry.span.append(str(graph.Betti_numbers[row_number][col_number]))
 				this_row.append(this_entry)
 			for col_number in range(cap-min(len(graph.Betti_numbers[row_number]),cap)):
 				this_row.append(soup.new_tag('td'))
