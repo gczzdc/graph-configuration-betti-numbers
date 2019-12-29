@@ -104,3 +104,9 @@ def run_macaulay_script(G):
 	with open(macaulay_outfile,'r') as f:
 		data = f.read()
 	return (data, timedelta)
+
+def access_macaulay_file(G):
+	macaulay_outfile = '{}_{}.txt'.format(results_file, basic_namer(G))
+	with open(macaulay_outfile,'r') as f:
+		data = f.read()
+	return data
