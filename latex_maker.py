@@ -3,17 +3,18 @@ from constants import (
 	bib_command,
 	compile_command,
 	intro_tex,
+	loud_commands,
 	outro_tex,
 	data_section_title,
 )
 
 from utility import run
 
-def compile_tex(filename):
-	run('{} {}'.format(compile_command, filename))
-	run('{} {}'.format(bib_command, filename))
-	run('{} {}'.format(compile_command, filename))
-	run('{} {}'.format(compile_command, filename))
+def compile_tex(filename, loud_commands=loud_commands):
+	run('{} {}'.format(compile_command, filename), loud_commands)
+	run('{} {}'.format(bib_command, filename), loud_commands)
+	run('{} {}'.format(compile_command, filename), loud_commands)
+	run('{} {}'.format(compile_command, filename), loud_commands)
 
 
 def format_poly_to_tex(poly, var='t'):
