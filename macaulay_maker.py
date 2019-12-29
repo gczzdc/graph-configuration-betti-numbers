@@ -7,20 +7,19 @@ from utility import run
 import time
 import os
 
-def basic_enumerator(j, graph):
-	return 'G{}'.format(str(j).rjust(graph_order_of_magnitude,'0'))
+def basic_namer(graph):
+	return 'G{}'.format(graph.safe_name)
 
 def batch_macaulay_script(graph_enumerator, 
 						results_file, 
-						prefix_function=basic_enumerator
+						prefix_function=basic_namer
 						):
 	command = '-- file to compute homology of configuration space of a list of graphs\n\n'
 	command += '"{}" << close\n\n'.format(results_file)
-	for j,graph in enumerate(graph_enumerator):
+	for graph in graph_enumerator:
 		command+= make_macaulay_script(graph,
 							results_file,
-							append=True, 
-							prefix=prefix_function(j,graph))
+							prefix=prefix_function(graph))
 	return command
 
 def format_macaulay_comment(string):
@@ -88,8 +87,8 @@ def make_macaulay_script(graph,
 		m_script+='f<<close\n\n'
 	return m_script	
 
-def run_macaulay_script(G,j):
-	macaulay_outfile = '{}_{}.txt'.format(results_file, basic_enumerator(j,G))
+def run_macaulay_script(G):
+	macaulay_outfile = '{}_{}.txt'.format(results_file, basic_namer(G))
 	with open(macaulay_scriptfile, 'w') as f: 
 		f.write(make_macaulay_script(
 			G, 
