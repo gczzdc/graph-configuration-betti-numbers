@@ -85,14 +85,26 @@ def calculate_all_Betti_numbers_and_stable_poly(G):
 	G.homological_degree=len(G.poincare_num_poly)-1
 	maxlen = G.validity + 1
 	for i in range(G.homological_degree+1):
-		full_coef_poly = convert(G.poincare_num_poly[i], G.poincare_denom_power[i])
-			#not cutting off to get stable prediction
-		G.stable_poly_normalized[i]=full_coef_poly
 		if G.poincare_denom_power[i]>0:
+			full_coef_poly = convert(G.poincare_num_poly[i], G.poincare_denom_power[i])
+			#not cutting off to get stable prediction
+			G.stable_poly_normalized[i]=full_coef_poly
 			denom_fact = factorial(G.poincare_denom_power[i]-1)
+			calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact)
 		else:
-			denom_fact = 1
-		calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact)
+			G.stable_poly_normalized[i]=[]
+			trivial_Betti_numbers_and_stability(G, i, maxlen)
+
+def trivial_Betti_numbers_and_stability(G,i, maxlen):
+	G.Betti_numbers[i]=[]
+	poly = G.poincare_num_poly[i]
+	for k in range(maxlen+1):
+		if k < len(poly):
+			G.Betti_numbers[i].append(poly[k])
+			if poly[k]:
+				G.Betti_number_is_unstable.add((i,k))
+		else:
+			G.Betti_numbers[i].append(0)
 
 def calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact):
 	G.Betti_numbers[i]=[]
