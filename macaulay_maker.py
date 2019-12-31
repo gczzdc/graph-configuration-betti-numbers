@@ -46,6 +46,8 @@ def make_macaulay_script(graph,
 		edge_vars=['e{}_{}'.format(prefix,n) for n in range(graph.edge_count)]
 		m_script+= ', '.join(edge_vars)
 		m_script+=']'
+	else:
+		raise ValueError('This utility is not implemented for graphs without edges')
 	m_script+='\n'
 	#comes in h format:
 	#total number of edges (starting from zero to e-1)
@@ -63,21 +65,16 @@ def make_macaulay_script(graph,
 		m_script +='\n'
 	else:
 		#special case when there are no essential vertices;
-		#this works for the isolated vertex and isolated edge
+		#this works for the isolated edge
 		#but would give unexpected results for a circle.
 		m_script+='C{} = chainComplex R\n'.format(prefix)
 		m_script+='C{}#0 = R^1\n'.format(prefix)
 		m_script+='"{}"<<close\n'.format(results_file)
 	for i in range(V+1):
 		m_script+= 'H{}deg{}=HH_{}(C{})\n'.format(prefix,i,i,prefix)
-		if graph.edges:
-			m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
-			m_script+= 'd{}deg{}=(denominator p{}deg{})#0#1 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
-			m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
-		else:
-			#no edges so no ordinary Hilbert Series
-			m_script+= 'd{}deg{}=0 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
-			m_script+= 'n{}deg{}=rank H{}deg{} -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
+		m_script+= 'p{}deg{}=hilbertSeries (H{}deg{}, Reduce=> true)\n'.format(prefix,i,prefix,i)
+		m_script+= 'd{}deg{}=(denominator p{}deg{})#0#1 -- reduced power of denominator\n'.format(prefix,i,prefix,i)
+		m_script+= 'n{}deg{}=(numerator p{}deg{})#0 -- format example 3T4-4T2+3T\n'.format(prefix,i,prefix,i)
 		m_script+='f = openOutAppend "{}"\n'.format(results_file)
 		m_script+= 'f<< "Data for graph "<<{}<<endl<<'.format(format_macaulay_output(graph.name))
 		m_script+='"homological degree "<<{}'.format(i)

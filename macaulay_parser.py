@@ -92,19 +92,7 @@ def calculate_all_Betti_numbers_and_stable_poly(G):
 			denom_fact = factorial(G.poincare_denom_power[i]-1)
 			calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact)
 		else:
-			G.stable_poly_normalized[i]=[]
-			trivial_Betti_numbers_and_stability(G, i, maxlen)
-
-def trivial_Betti_numbers_and_stability(G,i, maxlen):
-	G.Betti_numbers[i]=[]
-	poly = G.poincare_num_poly[i]
-	for k in range(maxlen+1):
-		if k < len(poly):
-			G.Betti_numbers[i].append(poly[k])
-			if poly[k]:
-				G.Betti_number_is_unstable.add((i,k))
-		else:
-			G.Betti_numbers[i].append(0)
+			raise ValueError('Not implemented for polynomial Hilbert series.')
 
 def calculate_Betti_numbers_and_stability(G, i, maxlen, denom_fact):
 	G.Betti_numbers[i]=[]

@@ -73,6 +73,34 @@ def make_graphs(max_edges):
 	assign_pix_to_graphs(graphs)
 	return graphs
 
+def deal_with_trivial_graphs_by_hand(graphs):
+	#deal with trivial graphs
+	for G in graphs:
+		G.build_VH()
+		if G.edge_count >0:
+			raise ValueError('Unexpected nontrivial graph')
+		if len(G.stars) != 1:
+			raise ValueError('Unexpected trivial graph')
+		else:
+			G.note='values calculated by hand'
+			G.homological_degree=0
+			G.Betti_numbers={0:[1,1,0]}
+			G.Betti_number_is_unstable={(0,0),(0,1)}
+			G.poincare_num_poly={0:[1,1]}
+			G.poincare_denom_power={0:0}
+			G.stable_poly_normalized={0:[]}
+			G.validity=1	
+
+def trivial_split(graphs):
+	trivial = []
+	nontrivial = []
+	for G in graphs:
+		G.build_VH()
+		if G.edge_count:
+			nontrivial.append(G)
+		else:
+			trivial.append(G)
+	return (trivial, nontrivial)
 
 def graph_generator(
 	graphs=[],
@@ -108,17 +136,20 @@ def graph_generator(
 				compile_image(G, loud_commands)
 			if reconvert_images:
 				convert_image(G, loud_commands)
+
+	trivial, nontrivial = trivial_split(graphs)
 	if not run_macaulay:
-		for G in graphs:
+		for G in nontrivial:
 			macaulay_results = access_macaulay_file(G)
 			incorporate_macaulay_data(G,macaulay_results)
 	else:
-		for G in graphs:
+		for G in nontrivial:
 			macaulay_results = run_macaulay_script(G)
 			total_time += macaulay_results[1]
 			incorporate_macaulay_data(G,macaulay_results[0])
 		print ('{} seconds spent on core M2 calculation for {} graphs'.format(
-			round(total_time, 2), len(graphs)))
+			round(total_time, 2), len(nontrivial)))
+	deal_with_trivial_graphs_by_hand(trivial)
 	if make_files:
 		process_files(graphs,loud_commands)
 	if compile_main:
