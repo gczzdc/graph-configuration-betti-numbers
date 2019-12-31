@@ -17,7 +17,8 @@ translator = {'\\':'\\backslash{}',\
 				'_':'\\_',\
 				'~':'\\textasciitilde{}',\
 				'<':'\\textless{}',\
-				'>':'\\textgreater{}'}
+				'>':'\\textgreater{}',\
+				'`':'\\textasciigrave{}'}
 
 def latex_escape(string):
 	for k in translator:
