@@ -10,6 +10,21 @@ from constants import (
 
 from utility import run
 
+translator = {'\\':'\\backslash{}',\
+				'^':'\\textasciicircum{}',\
+				'{':'\\{',\
+				'}':'\\}',\
+				'_':'\\_',\
+				'~':'\\textasciitilde{}',\
+				'<':'\\textless{}',\
+				'>':'\\textgreater{}'}
+
+def latex_escape(string):
+	for k in translator:
+		string = string.replace(k, translator[k])
+	return string
+
+
 def compile_tex(filename, loud_commands=loud_commands):
 	run((compile_command, filename), loud_commands)
 	run((bib_command, filename), loud_commands)
@@ -124,8 +139,8 @@ def betti_number_table(graph):
 
 def make_table_header(graph, single_file):
 	out_builder = []
-	out_builder.append('\\[\n')
-	if graph.filename:
+	out_builder.append('\\begin{gather*}\n')
+	if graph.has_image:
 		out_builder.append('\\begin{tabular}{c}\n')
 		if single_file:
 			with open(graph.filename+'.tex','r') as f:
@@ -133,13 +148,17 @@ def make_table_header(graph, single_file):
 		else:
 			out_builder.append('\\input{{{}}}\n'.format(graph.filename))
 		out_builder.append('\\end{tabular}\n\\qquad{}\n')
+	out_builder.append('\\\n')
+	out_builder.append('\\\n')	
 	out_builder.append("\\renewcommand{\\arraystretch}{1}\n")
 	out_builder.append('\\left(\\begin{{array}}{{{}}}\n'.format('c'*len(graph.get_adjacency())))
 	for row in graph.adjacency:
 		out_builder.append('&'.join((str(n) for n in row)))
 		out_builder.append('\\\\\n')
 	out_builder.append('\\end{array}\\right)\n')
-	out_builder.append('\\]\n')
+	out_builder.append('\\\\\n')
+	out_builder.append('\\text{{{}}}\n'.format(latex_escape('>>sparse6<<{}'.format(graph.sparse6))))
+	out_builder.append('\\end{gather*}\n')
 	return ''.join(out_builder)
 
 def assemble_table_for_tex(graph, single_file=False):
