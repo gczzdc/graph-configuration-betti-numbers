@@ -1,5 +1,5 @@
 #for ssh
-host='dreamhost:'
+host='drummondcole.com:'
 directory_name='graph_configuration_betti_numbers'
 remote_directory='drummondcole.com/gabriel/academic/'+directory_name+'/'
 

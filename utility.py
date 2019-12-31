@@ -7,12 +7,9 @@ def run(whatever, loud=loud_commands):
 	if loud:
 		print (whatever)
 	process = subprocess.run(' '.join(whatever), shell=True, capture_output=True)
-	output = process.stdout
-	error = process.stderr
-	if loud and output:
-		print ('output:\n',output)
-	if loud and error:
-		print ('error:\n',error)
+	if loud:
+		print(process)
+
 
 def scp(file_name, loud_commands=loud_commands):
-	run(('sftp', host + remote_directory, "<<<", "$'put " + file_name+"\nexit'"))
+	run(('sftp', host + remote_directory, "<<<", "$'put " + file_name+"\nexit'"), loud_commands)
