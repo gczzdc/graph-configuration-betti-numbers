@@ -147,8 +147,8 @@ def graph_generator(
 			macaulay_results = run_macaulay_script(G)
 			total_time += macaulay_results[1]
 			incorporate_macaulay_data(G,macaulay_results[0])
-		print ('{} seconds spent on core M2 calculation for {} graphs'.format(
-			round(total_time, 2), len(nontrivial)))
+		print ('{} seconds total, {} seconds average spent on core M2 calculation for {} graphs;'.format(
+			round(total_time, 2), round(total_time/len(nontrivial),2), len(nontrivial)))
 	deal_with_trivial_graphs_by_hand(trivial)
 	if make_files:
 		process_files(graphs,loud_commands)
