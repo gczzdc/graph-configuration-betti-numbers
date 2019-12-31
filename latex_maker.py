@@ -66,7 +66,7 @@ def format_poly_to_tex(poly, var='t'):
 		poly_tex=poly_tex[1:]
 	return poly_tex
 
-def format_macaulay_latex(num_poly, denom_power, stable_poly):
+def format_poincare_latex(num_poly, denom_power):
 	# formats an internal data representation for tabular latex display
 	#
 	# input format: 
@@ -90,15 +90,16 @@ def format_macaulay_latex(num_poly, denom_power, stable_poly):
 		else:
 			poincare_tex+= '{1-t}'				
 	else:
-		poincare_tex+=format_poly_to_tex(num_poly)		
-	answer.append(poincare_tex)
+		poincare_tex+=format_poly_to_tex(num_poly)
+	return poincare_tex
+
+def format_stable_latex(stable_poly, denom_power):
 	if denom_power>2:
 		stable_tex='\\frac{{{}}}'.format(format_poly_to_tex(stable_poly,var='k'))
 		stable_tex +='{{{}!}}'.format(denom_power-1)
 	else:
 		stable_tex=format_poly_to_tex(stable_poly,var='k')
-	answer.append(stable_tex)
-	return answer
+	return stable_tex
 
 
 def betti_number_table(graph):
@@ -130,10 +131,11 @@ def betti_number_table(graph):
 					formatted_number = this_number
 				out_builder.append(' & ${}$'.format(formatted_number))
 			out_builder.append('\n & ')
-			tex_polys = format_macaulay_latex(graph.poincare_num_poly[row_number],
-												graph.poincare_denom_power[row_number],
-												graph.stable_poly_normalized[row_number])
-			out_builder.append('${}$ & ${}$\\\\\n'.format(tex_polys[0],tex_polys[1]))
+			poincare_poly = format_poincare_latex(graph.poincare_num_poly[row_number],
+												graph.poincare_denom_power[row_number])
+			stable_poly = format_stable_latex(graph.stable_poly_normalized[row_number],
+												graph.poincare_denom_power[row_number])
+			out_builder.append('${}$ & ${}$\\\\\n'.format(poincare_poly,stable_poly))
 		out_builder.append('\\end{tabular}\n')
 		out_builder.append('\\end{center}\n')
 	return ''.join(out_builder)
