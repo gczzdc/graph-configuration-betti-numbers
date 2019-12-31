@@ -30,4 +30,5 @@ def assign_pix_to_graphs(graphs):
 			graph.image_dic = info[0]
 			graph.filename = info[1]
 			graph.has_image = True
+			graph.using_sparse6_name = False
 			
