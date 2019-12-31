@@ -5,7 +5,7 @@ directory_name='graph_configuration_betti_numbers'
 remote_directory='drummondcole.com/gabriel/academic/'+directory_name+'/'
 
 #for html
-base_html='base.html'
+headless_html='headless.html'
 css_file='graph_configs.css'
 
 #for tex
