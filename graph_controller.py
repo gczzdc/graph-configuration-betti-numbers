@@ -56,7 +56,7 @@ def process_files(graphs, loud_commands):
 	write_html(ordered_graphs, 'index.html')
 
 
-def upload_files(graphs, full_upload,loud_commands):
+def upload_files(graphs, full_upload, loud_commands):
 	scp(tex_filename+'.pdf', loud_commands)
 	scp('index.html', loud_commands)
 	if full_upload:

@@ -41,7 +41,7 @@ macaulay_scriptfile = 'temp.m2'
 results_file='m2_graph_results'
 
 #for control flow
-loud_commands=True
+loud_commands=False
 generate_graphs=True
 max_edges=6
 recompile_images=False

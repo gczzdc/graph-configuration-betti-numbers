@@ -70,6 +70,7 @@ def process_macaulay_output(macaulay_data):
 		this_num_poly=parse_macaulay_poly(macaulay_lines[j+3].split(':')[1].strip())
 		poincare_num_poly[degree] = this_num_poly 
 		this_validity = len(this_num_poly) - this_denom_power - 1
+		#is this validity correct for constant polynomials? it looks okay.
 		validity = max(validity, this_validity)
 	return (poincare_num_poly, poincare_denom_power, validity)
 
