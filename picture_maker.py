@@ -60,9 +60,8 @@ def convert_image(G, loud_commands):
 		f.write(data)
 		f.write(img_end_tex)
 
-	run((compile_command, '{}_img'.format(G.filename)))		
+	run((compile_command, '{}_img'.format(G.filename)), loud_commands)		
 	run((convert_command[0], 
 		'{}_img.{}'.format(G.filename, convert_command[1],), 
-		'{}.{}'.format(G.filename, graphics_format)))
-	run((cleanup_command[0], '{}_img.{}'.format(G.filename, cleanup_command[1])),True)
-	
+		'{}.{}'.format(G.filename, graphics_format)), loud_commands)
+	run((cleanup_command[0], '{}_img.{}'.format(G.filename, cleanup_command[1])), loud_commands)
