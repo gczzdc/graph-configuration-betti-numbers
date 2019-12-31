@@ -51,7 +51,7 @@ def format_poly_to_tex(poly, var='t'):
 	return poly_tex
 
 def format_macaulay_latex(num_poly, denom_power, stable_poly):
-	# formats an internal data representation for tabular html display
+	# formats an internal data representation for tabular latex display
 	#
 	# input format: 
 	#
@@ -189,7 +189,6 @@ def assemble_pdf(graph_dic,single_file=False):
 	return ''.join(out_builder)
 
 
-def write_pdf(graph_dic, file_base, single_file=False):
+def write_tex(graph_dic, file_base, single_file=False):
 	with open(file_base+'.tex', 'w') as f:
 		f.write(assemble_pdf(graph_dic, single_file))
-	compile_tex(file_base)

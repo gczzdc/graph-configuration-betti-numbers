@@ -27,7 +27,7 @@ from constants import (
 	tex_filename
 )
 from utility import scp, run
-from latex_maker import compile_tex, write_pdf
+from latex_maker import compile_tex, write_tex
 from html_maker import write_html
 from graph_class import Graph
 	
@@ -51,8 +51,8 @@ def graphs_by_essential_vertex(graphs):
 
 def process_files(graphs, loud_commands):
 	ordered_graphs = graphs_by_essential_vertex(graphs)
-	write_pdf(ordered_graphs, tex_filename)
-	write_pdf(ordered_graphs, tex_filename+'_single', single_file = True)
+	write_tex(ordered_graphs, tex_filename)
+	write_tex(ordered_graphs, tex_filename+'_single', single_file = True)
 	write_html(ordered_graphs, 'index.html')
 
 
@@ -153,7 +153,8 @@ def graph_generator(
 	if make_files:
 		process_files(graphs,loud_commands)
 	if compile_main:
-		compile_tex(graphs,loud_commands)
+		compile_tex(tex_filename,loud_commands)
+		compile_tex(tex_filename+'_single', loud_commands)
 	if ssh_upload:
 		upload_files(graphs, full_upload,loud_commands)
 	return graphs
