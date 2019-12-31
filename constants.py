@@ -1,6 +1,5 @@
 #for ssh
 host='dreamhost:'
-portscp=''
 directory_name='graph_configuration_betti_numbers'
 remote_directory='drummondcole.com/gabriel/academic/'+directory_name+'/'
 
@@ -22,7 +21,7 @@ img_start_tex='\\documentclass[crop,tikz]{standalone}\n\\begin{document}\n'
 img_end_tex='\\end{document}'
 graphics_format = 'svg'
 convert_command =('pdf2svg', 'pdf')
-cleanup_command = ('rm ','*')
+cleanup_command = ('rm','*')
 # for putting in multiple edges.
 # this is not a great solution, it would be better to be able to do this uniformly and automatically
 # but it is good enough for now

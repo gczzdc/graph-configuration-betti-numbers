@@ -96,7 +96,7 @@ def run_macaulay_script(G):
 	except OSError:
 		pass
 	t0 = time.time()
-	run('m2 --script {}'.format(macaulay_scriptfile))
+	run(('m2', '--script', macaulay_scriptfile))
 	timedelta = time.time()-t0
 	with open(macaulay_outfile,'r') as f:
 		data = f.read()
