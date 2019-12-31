@@ -25,11 +25,13 @@ def image_maker(node_dic, edge_dic, narrow=1, scale=1):
 															node))
 	for edge in edge_dic:
 		for j in bend_dic[edge_dic[edge]]:
-			out_builder.append(
-				'\\draw (n{}.center) to[bend right={}] (n{}.center);\n'.format(
-											edge[0],
-											j*narrow,
-											edge[1]))			
+			out_builder.append('\\draw (n{}.center) to'.format(edge[0]))
+			bend = int(j*narrow)
+			if bend > 0:
+				out_builder.append('[bend right={}]'.format(bend))
+			elif bend < 0:
+				out_builder.append('[bend left={}]'.format(-bend))
+			out_builder.append(' (n{}.center);\n'.format(edge[1]))			
 	out_builder.append("\\end{tikzpicture}\n")
 	return ''.join(out_builder)	
 
