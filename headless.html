@@ -7,13 +7,16 @@ The purpose of this document is to provide data about known Betti numbers of uno
 </div>
 <div>
 <p>
-It contains information for connected multigraphs having at most six edges which contain no loops, no bivalent vertices, and no internal (i.e., non-leaf) bridges.
+It contains information for connected multigraphs having at most nine edges which contain no loops, no bivalent vertices, and no internal (i.e., non-leaf) bridges.
 For each such graph there is a table of Betti numbers for configurations of small numbers of points along with Poincar&eacute; series which encode Betti numbers for all larger numbers of points. 
 Because the Poincar&eacute; series are rational functions, this means that for fixed i and &Gamma;, the sequence &beta;<sub>i</sub> (B<sub>k</sub>&Gamma;) of ith Betti numbers of is eventually polynomial in the number of points k in the configuration. 
 For the reader's convenience, the stable polynomial is also indicated.
 </p>
 <p>
-The enumeration of the graphs in question was done by hand and verified using Richard Mathar's preprint <a href="https://arxiv.org/abs/1709.09000">Statistics on Small Graphs</a> (Table 61). 
+The enumeration of the graphs in question was done using utilities that are part of <a href="https://doi.org/10.1016/j.jsc.2013.09.003">Nauty</a>.
+<!-- B. D. McKay and A. Piperno, Practical Graph Isomorphism, II, J. Symbolic Computation (2014) 60 94-112.
+ -->
+For graphs with fewer than seven edges, this was also verified using Richard Mathar's preprint <a href="https://arxiv.org/abs/1709.09000">Statistics on Small Graphs</a> (Table 61). 
 The core homology computation was done using <a href="http://www.math.uiuc.edu/Macaulay2/">Macaulay2</a>. 
 </p>
 </div>
@@ -40,7 +43,7 @@ Other related work includes the following.
 <p>A pdf version of this document is available <a href="https://drummondcole.com/gabriel/academic/graph_configuration_betti_numbers/graph_configuration_betti_numbers.pdf">here</a>. 
 I would like to thank Byung Hee An and Ben Knudsen for help and suggestions related to this project.
 This work was supported by IBS-R003-D1. 
-This document was last modified July 16, 2019. <!-- last.Modified doesn't always work, do this manually-->
+This document was last modified December 31, 2019. <!-- last.Modified doesn't always work, do this manually-->
 </p>
 </div>
 <h3>Examples of motivation</h3>
@@ -112,17 +115,14 @@ Betti numbers for unordered configuration spaces of graphs with internal bridges
 </p></div>
 <h3>Notes about the data</h3>
 <div><p>The graphs are organized by the number of essential (valence at least three) vertices. 
-They are presented both with images and with adjacency matrices.
+They are presented in sparse6 format, with images for small enough graphs, and with adjacency matrices.
 The number of essential vertices also gives the maximal homological degree of the unordered configuration spaces of a graph; as long as there is at least one essential vertex, this maximal degree is realized for configuration spaces of sufficiently many points (uniformly, twice the number of essential vertices is always enough to realize the maximal degree).
-The graphs are enumerated essentially at random within the grouping by number of essential vertices. 
 Unstable values are indicated in bold.
 All values not explicitly included in the tables of data are stable and are calculated by the indicated stable polynomial value.
 </p></div>
 <h3>Notes about the computation</h3>
 <div><p>
-The core computation of a presentation for the homology and all Poincar&eacute; series for 36 graphs (the isolated vertex and edge have irregular chain complexes because they have no essential vertices and therefore were computed by hand) took between four and five seconds on a late 2012 MacBook Pro. 
-Pushing the kind of calculation pursued here from graphs with six to seven, eight, or possibly even nine edges should be more or less just a problem of graph enumeration. 
-For example, the full computation for the complete graph K<sub>5</sub> with two disjoint edges removed (eight edges) takes under a minute. On the other hand, the full computation for the complete graph K<sub>5</sub> with a single edge removed (nine edges) takes seven minutes, and I did not complete the computation for K<sub>5</sub> itself (ten edges).
+The core computation of a presentation for the homology and all Poincar&eacute; series for 723 graphs (the isolated vertex has irregularities because it lacks edges and therefore was computed by hand) took about three hours and fifty minutes on a 2019 MacBook Pro. The median calculation time was between one and two seconds, while the three slowest calculations (for various multi-edged versions of the fan graph F<sub>1,3</sub>) took between 25 and 50 minutes each.
 </p></div>
 <div><p>
 Example code for the core computation looks as follows. 
