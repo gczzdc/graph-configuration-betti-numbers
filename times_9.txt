@@ -1,0 +1,1468 @@
+running script graph for 1 of 723
+0.31 seconds (0.31 total)
+running script graph for 2 of 723
+0.32 seconds (0.63 total)
+running script graph for 3 of 723
+0.33 seconds (0.96 total)
+running script graph for 4 of 723
+0.31 seconds (1.27 total)
+running script graph for 5 of 723
+0.33 seconds (1.61 total)
+running script graph for 6 of 723
+0.32 seconds (1.93 total)
+running script graph for 7 of 723
+0.32 seconds (2.25 total)
+running script graph for 8 of 723
+0.34 seconds (2.6 total)
+running script graph for 9 of 723
+0.33 seconds (2.92 total)
+running script graph for 10 of 723
+0.33 seconds (3.25 total)
+running script graph for 11 of 723
+0.33 seconds (3.58 total)
+running script graph for 12 of 723
+0.32 seconds (3.9 total)
+running script graph for 13 of 723
+0.32 seconds (4.22 total)
+running script graph for 14 of 723
+0.33 seconds (4.55 total)
+running script graph for 15 of 723
+0.32 seconds (4.87 total)
+running script graph for 16 of 723
+0.43 seconds (5.29 total)
+running script graph for 17 of 723
+0.34 seconds (5.63 total)
+running script graph for 18 of 723
+0.37 seconds (6.01 total)
+running script graph for 19 of 723
+0.38 seconds (6.39 total)
+running script graph for 20 of 723
+0.41 seconds (6.8 total)
+running script graph for 21 of 723
+0.33 seconds (7.13 total)
+running script graph for 22 of 723
+0.34 seconds (7.47 total)
+running script graph for 23 of 723
+0.33 seconds (7.8 total)
+running script graph for 24 of 723
+0.33 seconds (8.13 total)
+running script graph for 25 of 723
+0.33 seconds (8.47 total)
+running script graph for 26 of 723
+0.35 seconds (8.82 total)
+running script graph for 27 of 723
+0.35 seconds (9.16 total)
+running script graph for 28 of 723
+0.37 seconds (9.54 total)
+running script graph for 29 of 723
+0.32 seconds (9.86 total)
+running script graph for 30 of 723
+0.32 seconds (10.18 total)
+running script graph for 31 of 723
+0.33 seconds (10.51 total)
+running script graph for 32 of 723
+0.33 seconds (10.84 total)
+running script graph for 33 of 723
+0.33 seconds (11.17 total)
+running script graph for 34 of 723
+0.32 seconds (11.49 total)
+running script graph for 35 of 723
+0.32 seconds (11.82 total)
+running script graph for 36 of 723
+0.33 seconds (12.14 total)
+running script graph for 37 of 723
+0.31 seconds (12.46 total)
+running script graph for 38 of 723
+0.85 seconds (13.31 total)
+running script graph for 39 of 723
+0.55 seconds (13.86 total)
+running script graph for 40 of 723
+0.66 seconds (14.52 total)
+running script graph for 41 of 723
+1.15 seconds (15.67 total)
+running script graph for 42 of 723
+0.97 seconds (16.64 total)
+running script graph for 43 of 723
+0.89 seconds (17.53 total)
+running script graph for 44 of 723
+0.36 seconds (17.89 total)
+running script graph for 45 of 723
+0.47 seconds (18.36 total)
+running script graph for 46 of 723
+0.53 seconds (18.89 total)
+running script graph for 47 of 723
+0.42 seconds (19.3 total)
+running script graph for 48 of 723
+0.48 seconds (19.78 total)
+running script graph for 49 of 723
+0.48 seconds (20.27 total)
+running script graph for 50 of 723
+0.38 seconds (20.64 total)
+running script graph for 51 of 723
+0.5 seconds (21.15 total)
+running script graph for 52 of 723
+0.42 seconds (21.56 total)
+running script graph for 53 of 723
+0.53 seconds (22.09 total)
+running script graph for 54 of 723
+0.63 seconds (22.72 total)
+running script graph for 55 of 723
+0.59 seconds (23.31 total)
+running script graph for 56 of 723
+0.77 seconds (24.08 total)
+running script graph for 57 of 723
+0.59 seconds (24.67 total)
+running script graph for 58 of 723
+0.53 seconds (25.2 total)
+running script graph for 59 of 723
+0.8 seconds (26.0 total)
+running script graph for 60 of 723
+0.34 seconds (26.34 total)
+running script graph for 61 of 723
+0.35 seconds (26.69 total)
+running script graph for 62 of 723
+0.37 seconds (27.06 total)
+running script graph for 63 of 723
+0.36 seconds (27.42 total)
+running script graph for 64 of 723
+0.35 seconds (27.77 total)
+running script graph for 65 of 723
+0.35 seconds (28.12 total)
+running script graph for 66 of 723
+0.39 seconds (28.5 total)
+running script graph for 67 of 723
+0.36 seconds (28.87 total)
+running script graph for 68 of 723
+0.43 seconds (29.29 total)
+running script graph for 69 of 723
+0.35 seconds (29.64 total)
+running script graph for 70 of 723
+0.4 seconds (30.04 total)
+running script graph for 71 of 723
+0.42 seconds (30.46 total)
+running script graph for 72 of 723
+0.36 seconds (30.82 total)
+running script graph for 73 of 723
+0.35 seconds (31.17 total)
+running script graph for 74 of 723
+0.51 seconds (31.69 total)
+running script graph for 75 of 723
+0.51 seconds (32.19 total)
+running script graph for 76 of 723
+0.32 seconds (32.52 total)
+running script graph for 77 of 723
+0.33 seconds (32.85 total)
+running script graph for 78 of 723
+0.33 seconds (33.18 total)
+running script graph for 79 of 723
+0.34 seconds (33.52 total)
+running script graph for 80 of 723
+0.33 seconds (33.85 total)
+running script graph for 81 of 723
+0.34 seconds (34.19 total)
+running script graph for 82 of 723
+0.33 seconds (34.52 total)
+running script graph for 83 of 723
+0.34 seconds (34.87 total)
+running script graph for 84 of 723
+0.35 seconds (35.22 total)
+running script graph for 85 of 723
+0.35 seconds (35.57 total)
+running script graph for 86 of 723
+0.37 seconds (35.93 total)
+running script graph for 87 of 723
+0.32 seconds (36.25 total)
+running script graph for 88 of 723
+0.32 seconds (36.58 total)
+running script graph for 89 of 723
+0.33 seconds (36.91 total)
+running script graph for 90 of 723
+0.32 seconds (37.23 total)
+running script graph for 91 of 723
+2.55 seconds (39.78 total)
+running script graph for 92 of 723
+1.71 seconds (41.49 total)
+running script graph for 93 of 723
+1.88 seconds (43.37 total)
+running script graph for 94 of 723
+1.87 seconds (45.24 total)
+running script graph for 95 of 723
+10.08 seconds (55.32 total)
+running script graph for 96 of 723
+7.27 seconds (62.6 total)
+running script graph for 97 of 723
+6.01 seconds (68.61 total)
+running script graph for 98 of 723
+4.01 seconds (72.62 total)
+running script graph for 99 of 723
+0.68 seconds (73.3 total)
+running script graph for 100 of 723
+1.08 seconds (74.38 total)
+running script graph for 101 of 723
+1.33 seconds (75.71 total)
+running script graph for 102 of 723
+1.24 seconds (76.96 total)
+running script graph for 103 of 723
+0.88 seconds (77.84 total)
+running script graph for 104 of 723
+1.36 seconds (79.2 total)
+running script graph for 105 of 723
+1.48 seconds (80.68 total)
+running script graph for 106 of 723
+1.09 seconds (81.77 total)
+running script graph for 107 of 723
+2.07 seconds (83.84 total)
+running script graph for 108 of 723
+1.2 seconds (85.04 total)
+running script graph for 109 of 723
+0.74 seconds (85.78 total)
+running script graph for 110 of 723
+0.93 seconds (86.71 total)
+running script graph for 111 of 723
+2.77 seconds (89.48 total)
+running script graph for 112 of 723
+1.0 seconds (90.48 total)
+running script graph for 113 of 723
+1.71 seconds (92.19 total)
+running script graph for 114 of 723
+2.71 seconds (94.9 total)
+running script graph for 115 of 723
+2.48 seconds (97.37 total)
+running script graph for 116 of 723
+2.89 seconds (100.26 total)
+running script graph for 117 of 723
+2.48 seconds (102.74 total)
+running script graph for 118 of 723
+4.19 seconds (106.93 total)
+running script graph for 119 of 723
+3.66 seconds (110.59 total)
+running script graph for 120 of 723
+4.03 seconds (114.62 total)
+running script graph for 121 of 723
+4.14 seconds (118.75 total)
+running script graph for 122 of 723
+6.44 seconds (125.19 total)
+running script graph for 123 of 723
+1.62 seconds (126.81 total)
+running script graph for 124 of 723
+1.26 seconds (128.07 total)
+running script graph for 125 of 723
+3.66 seconds (131.73 total)
+running script graph for 126 of 723
+5.09 seconds (136.82 total)
+running script graph for 127 of 723
+3.52 seconds (140.34 total)
+running script graph for 128 of 723
+8.25 seconds (148.6 total)
+running script graph for 129 of 723
+6.54 seconds (155.14 total)
+running script graph for 130 of 723
+4.58 seconds (159.71 total)
+running script graph for 131 of 723
+0.4 seconds (160.11 total)
+running script graph for 132 of 723
+0.62 seconds (160.72 total)
+running script graph for 133 of 723
+0.51 seconds (161.24 total)
+running script graph for 134 of 723
+0.56 seconds (161.8 total)
+running script graph for 135 of 723
+0.78 seconds (162.58 total)
+running script graph for 136 of 723
+0.59 seconds (163.17 total)
+running script graph for 137 of 723
+0.78 seconds (163.95 total)
+running script graph for 138 of 723
+0.61 seconds (164.56 total)
+running script graph for 139 of 723
+0.42 seconds (164.98 total)
+running script graph for 140 of 723
+0.69 seconds (165.67 total)
+running script graph for 141 of 723
+0.56 seconds (166.23 total)
+running script graph for 142 of 723
+0.79 seconds (167.02 total)
+running script graph for 143 of 723
+1.04 seconds (168.06 total)
+running script graph for 144 of 723
+0.65 seconds (168.71 total)
+running script graph for 145 of 723
+0.73 seconds (169.44 total)
+running script graph for 146 of 723
+1.03 seconds (170.47 total)
+running script graph for 147 of 723
+1.68 seconds (172.15 total)
+running script graph for 148 of 723
+2.08 seconds (174.23 total)
+running script graph for 149 of 723
+0.57 seconds (174.8 total)
+running script graph for 150 of 723
+0.6 seconds (175.39 total)
+running script graph for 151 of 723
+0.69 seconds (176.09 total)
+running script graph for 152 of 723
+0.83 seconds (176.92 total)
+running script graph for 153 of 723
+0.76 seconds (177.67 total)
+running script graph for 154 of 723
+1.54 seconds (179.21 total)
+running script graph for 155 of 723
+1.33 seconds (180.54 total)
+running script graph for 156 of 723
+1.02 seconds (181.56 total)
+running script graph for 157 of 723
+0.93 seconds (182.49 total)
+running script graph for 158 of 723
+0.86 seconds (183.35 total)
+running script graph for 159 of 723
+0.71 seconds (184.07 total)
+running script graph for 160 of 723
+0.69 seconds (184.75 total)
+running script graph for 161 of 723
+0.7 seconds (185.45 total)
+running script graph for 162 of 723
+0.72 seconds (186.17 total)
+running script graph for 163 of 723
+0.52 seconds (186.69 total)
+running script graph for 164 of 723
+0.65 seconds (187.34 total)
+running script graph for 165 of 723
+0.95 seconds (188.28 total)
+running script graph for 166 of 723
+0.56 seconds (188.85 total)
+running script graph for 167 of 723
+0.98 seconds (189.82 total)
+running script graph for 168 of 723
+1.11 seconds (190.93 total)
+running script graph for 169 of 723
+1.44 seconds (192.37 total)
+running script graph for 170 of 723
+3.32 seconds (195.7 total)
+running script graph for 171 of 723
+1.62 seconds (197.32 total)
+running script graph for 172 of 723
+2.83 seconds (200.16 total)
+running script graph for 173 of 723
+1.54 seconds (201.7 total)
+running script graph for 174 of 723
+2.82 seconds (204.52 total)
+running script graph for 175 of 723
+1.8 seconds (206.32 total)
+running script graph for 176 of 723
+4.24 seconds (210.55 total)
+running script graph for 177 of 723
+7.83 seconds (218.38 total)
+running script graph for 178 of 723
+0.38 seconds (218.76 total)
+running script graph for 179 of 723
+0.36 seconds (219.11 total)
+running script graph for 180 of 723
+0.42 seconds (219.54 total)
+running script graph for 181 of 723
+0.42 seconds (219.95 total)
+running script graph for 182 of 723
+0.41 seconds (220.36 total)
+running script graph for 183 of 723
+0.4 seconds (220.76 total)
+running script graph for 184 of 723
+0.46 seconds (221.22 total)
+running script graph for 185 of 723
+0.45 seconds (221.67 total)
+running script graph for 186 of 723
+0.56 seconds (222.23 total)
+running script graph for 187 of 723
+0.42 seconds (222.65 total)
+running script graph for 188 of 723
+0.37 seconds (223.02 total)
+running script graph for 189 of 723
+0.42 seconds (223.44 total)
+running script graph for 190 of 723
+0.51 seconds (223.95 total)
+running script graph for 191 of 723
+0.41 seconds (224.36 total)
+running script graph for 192 of 723
+0.44 seconds (224.8 total)
+running script graph for 193 of 723
+0.42 seconds (225.22 total)
+running script graph for 194 of 723
+0.52 seconds (225.74 total)
+running script graph for 195 of 723
+0.54 seconds (226.28 total)
+running script graph for 196 of 723
+0.58 seconds (226.86 total)
+running script graph for 197 of 723
+0.54 seconds (227.4 total)
+running script graph for 198 of 723
+0.42 seconds (227.82 total)
+running script graph for 199 of 723
+0.37 seconds (228.19 total)
+running script graph for 200 of 723
+0.68 seconds (228.88 total)
+running script graph for 201 of 723
+0.52 seconds (229.4 total)
+running script graph for 202 of 723
+0.56 seconds (229.96 total)
+running script graph for 203 of 723
+0.77 seconds (230.72 total)
+running script graph for 204 of 723
+0.45 seconds (231.18 total)
+running script graph for 205 of 723
+0.6 seconds (231.77 total)
+running script graph for 206 of 723
+0.67 seconds (232.45 total)
+running script graph for 207 of 723
+0.51 seconds (232.95 total)
+running script graph for 208 of 723
+0.6 seconds (233.55 total)
+running script graph for 209 of 723
+0.6 seconds (234.15 total)
+running script graph for 210 of 723
+0.42 seconds (234.57 total)
+running script graph for 211 of 723
+0.46 seconds (235.03 total)
+running script graph for 212 of 723
+0.45 seconds (235.48 total)
+running script graph for 213 of 723
+0.42 seconds (235.9 total)
+running script graph for 214 of 723
+0.73 seconds (236.62 total)
+running script graph for 215 of 723
+0.7 seconds (237.32 total)
+running script graph for 216 of 723
+0.92 seconds (238.25 total)
+running script graph for 217 of 723
+0.7 seconds (238.95 total)
+running script graph for 218 of 723
+0.62 seconds (239.57 total)
+running script graph for 219 of 723
+0.91 seconds (240.48 total)
+running script graph for 220 of 723
+3.22 seconds (243.69 total)
+running script graph for 221 of 723
+0.34 seconds (244.04 total)
+running script graph for 222 of 723
+0.35 seconds (244.39 total)
+running script graph for 223 of 723
+0.34 seconds (244.72 total)
+running script graph for 224 of 723
+0.35 seconds (245.08 total)
+running script graph for 225 of 723
+0.35 seconds (245.42 total)
+running script graph for 226 of 723
+0.35 seconds (245.77 total)
+running script graph for 227 of 723
+0.35 seconds (246.12 total)
+running script graph for 228 of 723
+0.4 seconds (246.52 total)
+running script graph for 229 of 723
+0.37 seconds (246.89 total)
+running script graph for 230 of 723
+0.36 seconds (247.25 total)
+running script graph for 231 of 723
+0.41 seconds (247.66 total)
+running script graph for 232 of 723
+0.38 seconds (248.04 total)
+running script graph for 233 of 723
+0.4 seconds (248.44 total)
+running script graph for 234 of 723
+0.35 seconds (248.79 total)
+running script graph for 235 of 723
+0.45 seconds (249.24 total)
+running script graph for 236 of 723
+0.39 seconds (249.63 total)
+running script graph for 237 of 723
+0.44 seconds (250.07 total)
+running script graph for 238 of 723
+0.41 seconds (250.48 total)
+running script graph for 239 of 723
+0.32 seconds (250.8 total)
+running script graph for 240 of 723
+0.33 seconds (251.13 total)
+running script graph for 241 of 723
+0.35 seconds (251.48 total)
+running script graph for 242 of 723
+0.36 seconds (251.84 total)
+running script graph for 243 of 723
+0.35 seconds (252.19 total)
+running script graph for 244 of 723
+0.4 seconds (252.59 total)
+running script graph for 245 of 723
+0.34 seconds (252.93 total)
+running script graph for 246 of 723
+8.52 seconds (261.45 total)
+running script graph for 247 of 723
+12.81 seconds (274.26 total)
+running script graph for 248 of 723
+9.9 seconds (284.16 total)
+running script graph for 249 of 723
+6.14 seconds (290.29 total)
+running script graph for 250 of 723
+633.12 seconds (923.42 total)
+running script graph for 251 of 723
+134.22 seconds (1057.64 total)
+running script graph for 252 of 723
+42.93 seconds (1100.57 total)
+running script graph for 253 of 723
+44.35 seconds (1144.91 total)
+running script graph for 254 of 723
+36.96 seconds (1181.87 total)
+running script graph for 255 of 723
+15.57 seconds (1197.44 total)
+running script graph for 256 of 723
+1.52 seconds (1198.97 total)
+running script graph for 257 of 723
+3.68 seconds (1202.65 total)
+running script graph for 258 of 723
+2.85 seconds (1205.5 total)
+running script graph for 259 of 723
+3.62 seconds (1209.12 total)
+running script graph for 260 of 723
+4.37 seconds (1213.49 total)
+running script graph for 261 of 723
+6.5 seconds (1219.99 total)
+running script graph for 262 of 723
+4.34 seconds (1224.33 total)
+running script graph for 263 of 723
+11.82 seconds (1236.15 total)
+running script graph for 264 of 723
+8.16 seconds (1244.31 total)
+running script graph for 265 of 723
+9.34 seconds (1253.65 total)
+running script graph for 266 of 723
+6.49 seconds (1260.14 total)
+running script graph for 267 of 723
+5.0 seconds (1265.14 total)
+running script graph for 268 of 723
+9.96 seconds (1275.1 total)
+running script graph for 269 of 723
+15.66 seconds (1290.76 total)
+running script graph for 270 of 723
+4.55 seconds (1295.31 total)
+running script graph for 271 of 723
+3.48 seconds (1298.79 total)
+running script graph for 272 of 723
+14.1 seconds (1312.89 total)
+running script graph for 273 of 723
+4.61 seconds (1317.5 total)
+running script graph for 274 of 723
+30.48 seconds (1347.98 total)
+running script graph for 275 of 723
+4.92 seconds (1352.9 total)
+running script graph for 276 of 723
+16.22 seconds (1369.13 total)
+running script graph for 277 of 723
+4.75 seconds (1373.87 total)
+running script graph for 278 of 723
+9.28 seconds (1383.16 total)
+running script graph for 279 of 723
+10.3 seconds (1393.46 total)
+running script graph for 280 of 723
+26.1 seconds (1419.56 total)
+running script graph for 281 of 723
+14.37 seconds (1433.93 total)
+running script graph for 282 of 723
+16.05 seconds (1449.98 total)
+running script graph for 283 of 723
+19.44 seconds (1469.42 total)
+running script graph for 284 of 723
+20.64 seconds (1490.06 total)
+running script graph for 285 of 723
+14.8 seconds (1504.86 total)
+running script graph for 286 of 723
+10.02 seconds (1514.88 total)
+running script graph for 287 of 723
+25.01 seconds (1539.89 total)
+running script graph for 288 of 723
+54.59 seconds (1594.48 total)
+running script graph for 289 of 723
+25.79 seconds (1620.27 total)
+running script graph for 290 of 723
+54.55 seconds (1674.82 total)
+running script graph for 291 of 723
+44.69 seconds (1719.51 total)
+running script graph for 292 of 723
+32.48 seconds (1751.99 total)
+running script graph for 293 of 723
+67.04 seconds (1819.02 total)
+running script graph for 294 of 723
+7.38 seconds (1826.4 total)
+running script graph for 295 of 723
+5.53 seconds (1831.93 total)
+running script graph for 296 of 723
+30.2 seconds (1862.13 total)
+running script graph for 297 of 723
+79.64 seconds (1941.77 total)
+running script graph for 298 of 723
+22.45 seconds (1964.21 total)
+running script graph for 299 of 723
+39.32 seconds (2003.53 total)
+running script graph for 300 of 723
+15.06 seconds (2018.59 total)
+running script graph for 301 of 723
+35.37 seconds (2053.96 total)
+running script graph for 302 of 723
+28.15 seconds (2082.12 total)
+running script graph for 303 of 723
+1500.87 seconds (3582.99 total)
+running script graph for 304 of 723
+1990.43 seconds (5573.42 total)
+running script graph for 305 of 723
+2999.98 seconds (8573.4 total)
+running script graph for 306 of 723
+34.73 seconds (8608.13 total)
+running script graph for 307 of 723
+74.69 seconds (8682.81 total)
+running script graph for 308 of 723
+163.85 seconds (8846.67 total)
+running script graph for 309 of 723
+47.53 seconds (8894.2 total)
+running script graph for 310 of 723
+87.68 seconds (8981.88 total)
+running script graph for 311 of 723
+50.91 seconds (9032.79 total)
+running script graph for 312 of 723
+27.57 seconds (9060.36 total)
+running script graph for 313 of 723
+0.88 seconds (9061.25 total)
+running script graph for 314 of 723
+1.73 seconds (9062.98 total)
+running script graph for 315 of 723
+1.13 seconds (9064.12 total)
+running script graph for 316 of 723
+1.75 seconds (9065.87 total)
+running script graph for 317 of 723
+1.98 seconds (9067.86 total)
+running script graph for 318 of 723
+1.83 seconds (9069.68 total)
+running script graph for 319 of 723
+2.47 seconds (9072.15 total)
+running script graph for 320 of 723
+1.94 seconds (9074.1 total)
+running script graph for 321 of 723
+1.68 seconds (9075.77 total)
+running script graph for 322 of 723
+4.08 seconds (9079.86 total)
+running script graph for 323 of 723
+3.72 seconds (9083.58 total)
+running script graph for 324 of 723
+1.59 seconds (9085.17 total)
+running script graph for 325 of 723
+3.47 seconds (9088.64 total)
+running script graph for 326 of 723
+1.96 seconds (9090.6 total)
+running script graph for 327 of 723
+1.07 seconds (9091.67 total)
+running script graph for 328 of 723
+1.36 seconds (9093.03 total)
+running script graph for 329 of 723
+5.02 seconds (9098.06 total)
+running script graph for 330 of 723
+1.67 seconds (9099.72 total)
+running script graph for 331 of 723
+2.7 seconds (9102.43 total)
+running script graph for 332 of 723
+5.3 seconds (9107.73 total)
+running script graph for 333 of 723
+4.83 seconds (9112.56 total)
+running script graph for 334 of 723
+5.89 seconds (9118.45 total)
+running script graph for 335 of 723
+5.14 seconds (9123.59 total)
+running script graph for 336 of 723
+2.66 seconds (9126.25 total)
+running script graph for 337 of 723
+2.28 seconds (9128.53 total)
+running script graph for 338 of 723
+3.88 seconds (9132.41 total)
+running script graph for 339 of 723
+3.19 seconds (9135.6 total)
+running script graph for 340 of 723
+9.39 seconds (9145.0 total)
+running script graph for 341 of 723
+3.12 seconds (9148.12 total)
+running script graph for 342 of 723
+6.58 seconds (9154.7 total)
+running script graph for 343 of 723
+8.62 seconds (9163.32 total)
+running script graph for 344 of 723
+13.28 seconds (9176.59 total)
+running script graph for 345 of 723
+18.13 seconds (9194.72 total)
+running script graph for 346 of 723
+11.05 seconds (9205.78 total)
+running script graph for 347 of 723
+12.39 seconds (9218.17 total)
+running script graph for 348 of 723
+17.67 seconds (9235.84 total)
+running script graph for 349 of 723
+21.07 seconds (9256.9 total)
+running script graph for 350 of 723
+1.54 seconds (9258.45 total)
+running script graph for 351 of 723
+1.8 seconds (9260.24 total)
+running script graph for 352 of 723
+2.48 seconds (9262.72 total)
+running script graph for 353 of 723
+1.61 seconds (9264.34 total)
+running script graph for 354 of 723
+3.05 seconds (9267.38 total)
+running script graph for 355 of 723
+5.5 seconds (9272.88 total)
+running script graph for 356 of 723
+7.45 seconds (9280.33 total)
+running script graph for 357 of 723
+3.93 seconds (9284.27 total)
+running script graph for 358 of 723
+5.1 seconds (9289.36 total)
+running script graph for 359 of 723
+4.88 seconds (9294.24 total)
+running script graph for 360 of 723
+7.51 seconds (9301.75 total)
+running script graph for 361 of 723
+12.38 seconds (9314.13 total)
+running script graph for 362 of 723
+4.51 seconds (9318.64 total)
+running script graph for 363 of 723
+10.1 seconds (9328.74 total)
+running script graph for 364 of 723
+6.84 seconds (9335.58 total)
+running script graph for 365 of 723
+5.79 seconds (9341.37 total)
+running script graph for 366 of 723
+10.74 seconds (9352.11 total)
+running script graph for 367 of 723
+3.16 seconds (9355.27 total)
+running script graph for 368 of 723
+4.84 seconds (9360.11 total)
+running script graph for 369 of 723
+2.51 seconds (9362.62 total)
+running script graph for 370 of 723
+20.29 seconds (9382.91 total)
+running script graph for 371 of 723
+9.86 seconds (9392.77 total)
+running script graph for 372 of 723
+13.31 seconds (9406.08 total)
+running script graph for 373 of 723
+10.8 seconds (9416.88 total)
+running script graph for 374 of 723
+7.48 seconds (9424.36 total)
+running script graph for 375 of 723
+6.21 seconds (9430.56 total)
+running script graph for 376 of 723
+3.11 seconds (9433.67 total)
+running script graph for 377 of 723
+2.43 seconds (9436.11 total)
+running script graph for 378 of 723
+2.92 seconds (9439.03 total)
+running script graph for 379 of 723
+2.73 seconds (9441.76 total)
+running script graph for 380 of 723
+5.41 seconds (9447.17 total)
+running script graph for 381 of 723
+3.37 seconds (9450.54 total)
+running script graph for 382 of 723
+4.21 seconds (9454.75 total)
+running script graph for 383 of 723
+1.71 seconds (9456.45 total)
+running script graph for 384 of 723
+1.81 seconds (9458.26 total)
+running script graph for 385 of 723
+7.91 seconds (9466.17 total)
+running script graph for 386 of 723
+2.76 seconds (9468.93 total)
+running script graph for 387 of 723
+2.72 seconds (9471.65 total)
+running script graph for 388 of 723
+5.69 seconds (9477.34 total)
+running script graph for 389 of 723
+6.09 seconds (9483.43 total)
+running script graph for 390 of 723
+9.24 seconds (9492.67 total)
+running script graph for 391 of 723
+1.73 seconds (9494.4 total)
+running script graph for 392 of 723
+2.15 seconds (9496.55 total)
+running script graph for 393 of 723
+4.47 seconds (9501.01 total)
+running script graph for 394 of 723
+5.86 seconds (9506.87 total)
+running script graph for 395 of 723
+7.34 seconds (9514.21 total)
+running script graph for 396 of 723
+13.12 seconds (9527.32 total)
+running script graph for 397 of 723
+11.94 seconds (9539.26 total)
+running script graph for 398 of 723
+6.4 seconds (9545.66 total)
+running script graph for 399 of 723
+10.16 seconds (9555.82 total)
+running script graph for 400 of 723
+4.61 seconds (9560.42 total)
+running script graph for 401 of 723
+5.35 seconds (9565.78 total)
+running script graph for 402 of 723
+10.83 seconds (9576.61 total)
+running script graph for 403 of 723
+13.72 seconds (9590.33 total)
+running script graph for 404 of 723
+29.78 seconds (9620.1 total)
+running script graph for 405 of 723
+7.51 seconds (9627.62 total)
+running script graph for 406 of 723
+8.35 seconds (9635.97 total)
+running script graph for 407 of 723
+7.21 seconds (9643.18 total)
+running script graph for 408 of 723
+11.53 seconds (9654.71 total)
+running script graph for 409 of 723
+11.56 seconds (9666.27 total)
+running script graph for 410 of 723
+27.71 seconds (9693.98 total)
+running script graph for 411 of 723
+6.84 seconds (9700.82 total)
+running script graph for 412 of 723
+18.7 seconds (9719.52 total)
+running script graph for 413 of 723
+45.31 seconds (9764.84 total)
+running script graph for 414 of 723
+13.88 seconds (9778.72 total)
+running script graph for 415 of 723
+21.61 seconds (9800.33 total)
+running script graph for 416 of 723
+7.53 seconds (9807.86 total)
+running script graph for 417 of 723
+25.58 seconds (9833.44 total)
+running script graph for 418 of 723
+10.26 seconds (9843.7 total)
+running script graph for 419 of 723
+19.55 seconds (9863.25 total)
+running script graph for 420 of 723
+8.75 seconds (9872.0 total)
+running script graph for 421 of 723
+15.42 seconds (9887.42 total)
+running script graph for 422 of 723
+47.13 seconds (9934.55 total)
+running script graph for 423 of 723
+18.12 seconds (9952.67 total)
+running script graph for 424 of 723
+19.48 seconds (9972.15 total)
+running script graph for 425 of 723
+17.93 seconds (9990.08 total)
+running script graph for 426 of 723
+16.2 seconds (10006.28 total)
+running script graph for 427 of 723
+13.05 seconds (10019.33 total)
+running script graph for 428 of 723
+48.26 seconds (10067.59 total)
+running script graph for 429 of 723
+48.49 seconds (10116.07 total)
+running script graph for 430 of 723
+214.13 seconds (10330.21 total)
+running script graph for 431 of 723
+85.95 seconds (10416.16 total)
+running script graph for 432 of 723
+386.95 seconds (10803.11 total)
+running script graph for 433 of 723
+122.5 seconds (10925.61 total)
+running script graph for 434 of 723
+122.37 seconds (11047.98 total)
+running script graph for 435 of 723
+478.1 seconds (11526.08 total)
+running script graph for 436 of 723
+593.79 seconds (12119.87 total)
+running script graph for 437 of 723
+0.46 seconds (12120.33 total)
+running script graph for 438 of 723
+0.87 seconds (12121.19 total)
+running script graph for 439 of 723
+0.68 seconds (12121.88 total)
+running script graph for 440 of 723
+0.73 seconds (12122.61 total)
+running script graph for 441 of 723
+1.36 seconds (12123.97 total)
+running script graph for 442 of 723
+0.9 seconds (12124.87 total)
+running script graph for 443 of 723
+1.41 seconds (12126.28 total)
+running script graph for 444 of 723
+0.91 seconds (12127.2 total)
+running script graph for 445 of 723
+0.54 seconds (12127.73 total)
+running script graph for 446 of 723
+1.06 seconds (12128.8 total)
+running script graph for 447 of 723
+0.85 seconds (12129.64 total)
+running script graph for 448 of 723
+1.44 seconds (12131.08 total)
+running script graph for 449 of 723
+2.05 seconds (12133.13 total)
+running script graph for 450 of 723
+1.04 seconds (12134.17 total)
+running script graph for 451 of 723
+2.48 seconds (12136.65 total)
+running script graph for 452 of 723
+1.15 seconds (12137.8 total)
+running script graph for 453 of 723
+2.96 seconds (12140.76 total)
+running script graph for 454 of 723
+2.84 seconds (12143.6 total)
+running script graph for 455 of 723
+1.11 seconds (12144.72 total)
+running script graph for 456 of 723
+0.68 seconds (12145.4 total)
+running script graph for 457 of 723
+0.99 seconds (12146.38 total)
+running script graph for 458 of 723
+1.11 seconds (12147.49 total)
+running script graph for 459 of 723
+1.2 seconds (12148.69 total)
+running script graph for 460 of 723
+2.13 seconds (12150.82 total)
+running script graph for 461 of 723
+3.58 seconds (12154.4 total)
+running script graph for 462 of 723
+5.66 seconds (12160.06 total)
+running script graph for 463 of 723
+0.97 seconds (12161.04 total)
+running script graph for 464 of 723
+0.86 seconds (12161.9 total)
+running script graph for 465 of 723
+2.24 seconds (12164.14 total)
+running script graph for 466 of 723
+1.38 seconds (12165.52 total)
+running script graph for 467 of 723
+1.16 seconds (12166.68 total)
+running script graph for 468 of 723
+0.9 seconds (12167.58 total)
+running script graph for 469 of 723
+0.92 seconds (12168.5 total)
+running script graph for 470 of 723
+1.22 seconds (12169.71 total)
+running script graph for 471 of 723
+1.58 seconds (12171.29 total)
+running script graph for 472 of 723
+3.11 seconds (12174.41 total)
+running script graph for 473 of 723
+1.44 seconds (12175.85 total)
+running script graph for 474 of 723
+3.76 seconds (12179.61 total)
+running script graph for 475 of 723
+3.06 seconds (12182.66 total)
+running script graph for 476 of 723
+1.84 seconds (12184.51 total)
+running script graph for 477 of 723
+1.63 seconds (12186.14 total)
+running script graph for 478 of 723
+1.65 seconds (12187.79 total)
+running script graph for 479 of 723
+4.44 seconds (12192.23 total)
+running script graph for 480 of 723
+5.8 seconds (12198.03 total)
+running script graph for 481 of 723
+4.52 seconds (12202.55 total)
+running script graph for 482 of 723
+1.98 seconds (12204.54 total)
+running script graph for 483 of 723
+1.65 seconds (12206.19 total)
+running script graph for 484 of 723
+0.98 seconds (12207.17 total)
+running script graph for 485 of 723
+1.33 seconds (12208.5 total)
+running script graph for 486 of 723
+1.16 seconds (12209.66 total)
+running script graph for 487 of 723
+1.19 seconds (12210.85 total)
+running script graph for 488 of 723
+1.19 seconds (12212.04 total)
+running script graph for 489 of 723
+0.88 seconds (12212.92 total)
+running script graph for 490 of 723
+1.0 seconds (12213.93 total)
+running script graph for 491 of 723
+2.0 seconds (12215.93 total)
+running script graph for 492 of 723
+0.76 seconds (12216.7 total)
+running script graph for 493 of 723
+3.61 seconds (12220.3 total)
+running script graph for 494 of 723
+3.91 seconds (12224.21 total)
+running script graph for 495 of 723
+1.65 seconds (12225.86 total)
+running script graph for 496 of 723
+3.31 seconds (12229.17 total)
+running script graph for 497 of 723
+5.67 seconds (12234.84 total)
+running script graph for 498 of 723
+1.94 seconds (12236.78 total)
+running script graph for 499 of 723
+2.95 seconds (12239.73 total)
+running script graph for 500 of 723
+5.5 seconds (12245.22 total)
+running script graph for 501 of 723
+7.34 seconds (12252.56 total)
+running script graph for 502 of 723
+2.52 seconds (12255.08 total)
+running script graph for 503 of 723
+2.28 seconds (12257.36 total)
+running script graph for 504 of 723
+1.17 seconds (12258.54 total)
+running script graph for 505 of 723
+2.02 seconds (12260.55 total)
+running script graph for 506 of 723
+3.16 seconds (12263.71 total)
+running script graph for 507 of 723
+3.88 seconds (12267.59 total)
+running script graph for 508 of 723
+2.49 seconds (12270.08 total)
+running script graph for 509 of 723
+3.9 seconds (12273.98 total)
+running script graph for 510 of 723
+3.72 seconds (12277.71 total)
+running script graph for 511 of 723
+1.64 seconds (12279.35 total)
+running script graph for 512 of 723
+1.98 seconds (12281.33 total)
+running script graph for 513 of 723
+3.37 seconds (12284.71 total)
+running script graph for 514 of 723
+3.44 seconds (12288.15 total)
+running script graph for 515 of 723
+2.32 seconds (12290.47 total)
+running script graph for 516 of 723
+2.23 seconds (12292.7 total)
+running script graph for 517 of 723
+2.32 seconds (12295.02 total)
+running script graph for 518 of 723
+1.76 seconds (12296.77 total)
+running script graph for 519 of 723
+3.5 seconds (12300.28 total)
+running script graph for 520 of 723
+3.32 seconds (12303.6 total)
+running script graph for 521 of 723
+4.62 seconds (12308.22 total)
+running script graph for 522 of 723
+3.39 seconds (12311.61 total)
+running script graph for 523 of 723
+4.17 seconds (12315.77 total)
+running script graph for 524 of 723
+3.64 seconds (12319.41 total)
+running script graph for 525 of 723
+1.17 seconds (12320.58 total)
+running script graph for 526 of 723
+1.43 seconds (12322.02 total)
+running script graph for 527 of 723
+1.38 seconds (12323.4 total)
+running script graph for 528 of 723
+2.07 seconds (12325.47 total)
+running script graph for 529 of 723
+1.05 seconds (12326.51 total)
+running script graph for 530 of 723
+1.39 seconds (12327.9 total)
+running script graph for 531 of 723
+1.39 seconds (12329.29 total)
+running script graph for 532 of 723
+1.11 seconds (12330.4 total)
+running script graph for 533 of 723
+2.18 seconds (12332.58 total)
+running script graph for 534 of 723
+2.7 seconds (12335.28 total)
+running script graph for 535 of 723
+1.73 seconds (12337.02 total)
+running script graph for 536 of 723
+1.52 seconds (12338.53 total)
+running script graph for 537 of 723
+1.58 seconds (12340.11 total)
+running script graph for 538 of 723
+0.81 seconds (12340.92 total)
+running script graph for 539 of 723
+1.28 seconds (12342.2 total)
+running script graph for 540 of 723
+2.52 seconds (12344.72 total)
+running script graph for 541 of 723
+1.05 seconds (12345.77 total)
+running script graph for 542 of 723
+1.16 seconds (12346.93 total)
+running script graph for 543 of 723
+3.11 seconds (12350.04 total)
+running script graph for 544 of 723
+7.3 seconds (12357.34 total)
+running script graph for 545 of 723
+3.49 seconds (12360.82 total)
+running script graph for 546 of 723
+6.59 seconds (12367.42 total)
+running script graph for 547 of 723
+3.43 seconds (12370.85 total)
+running script graph for 548 of 723
+5.87 seconds (12376.72 total)
+running script graph for 549 of 723
+3.9 seconds (12380.62 total)
+running script graph for 550 of 723
+11.54 seconds (12392.16 total)
+running script graph for 551 of 723
+10.93 seconds (12403.09 total)
+running script graph for 552 of 723
+5.32 seconds (12408.41 total)
+running script graph for 553 of 723
+10.22 seconds (12418.63 total)
+running script graph for 554 of 723
+5.48 seconds (12424.11 total)
+running script graph for 555 of 723
+5.61 seconds (12429.71 total)
+running script graph for 556 of 723
+4.52 seconds (12434.23 total)
+running script graph for 557 of 723
+14.55 seconds (12448.78 total)
+running script graph for 558 of 723
+18.78 seconds (12467.56 total)
+running script graph for 559 of 723
+2.16 seconds (12469.72 total)
+running script graph for 560 of 723
+4.3 seconds (12474.02 total)
+running script graph for 561 of 723
+6.37 seconds (12480.39 total)
+running script graph for 562 of 723
+3.19 seconds (12483.58 total)
+running script graph for 563 of 723
+3.98 seconds (12487.56 total)
+running script graph for 564 of 723
+5.63 seconds (12493.19 total)
+running script graph for 565 of 723
+6.49 seconds (12499.67 total)
+running script graph for 566 of 723
+7.47 seconds (12507.14 total)
+running script graph for 567 of 723
+2.38 seconds (12509.53 total)
+running script graph for 568 of 723
+5.47 seconds (12514.99 total)
+running script graph for 569 of 723
+8.34 seconds (12523.33 total)
+running script graph for 570 of 723
+5.92 seconds (12529.25 total)
+running script graph for 571 of 723
+5.97 seconds (12535.22 total)
+running script graph for 572 of 723
+8.97 seconds (12544.19 total)
+running script graph for 573 of 723
+6.67 seconds (12550.86 total)
+running script graph for 574 of 723
+6.04 seconds (12556.9 total)
+running script graph for 575 of 723
+3.36 seconds (12560.26 total)
+running script graph for 576 of 723
+3.14 seconds (12563.4 total)
+running script graph for 577 of 723
+9.57 seconds (12572.97 total)
+running script graph for 578 of 723
+8.07 seconds (12581.04 total)
+running script graph for 579 of 723
+35.72 seconds (12616.76 total)
+running script graph for 580 of 723
+60.75 seconds (12677.51 total)
+running script graph for 581 of 723
+93.17 seconds (12770.68 total)
+running script graph for 582 of 723
+39.64 seconds (12810.32 total)
+running script graph for 583 of 723
+213.57 seconds (13023.89 total)
+running script graph for 584 of 723
+6.61 seconds (13030.5 total)
+running script graph for 585 of 723
+8.58 seconds (13039.08 total)
+running script graph for 586 of 723
+20.03 seconds (13059.11 total)
+running script graph for 587 of 723
+166.95 seconds (13226.06 total)
+running script graph for 588 of 723
+320.04 seconds (13546.11 total)
+running script graph for 589 of 723
+0.44 seconds (13546.54 total)
+running script graph for 590 of 723
+0.41 seconds (13546.96 total)
+running script graph for 591 of 723
+0.58 seconds (13547.53 total)
+running script graph for 592 of 723
+0.5 seconds (13548.04 total)
+running script graph for 593 of 723
+0.48 seconds (13548.52 total)
+running script graph for 594 of 723
+0.46 seconds (13548.98 total)
+running script graph for 595 of 723
+0.61 seconds (13549.59 total)
+running script graph for 596 of 723
+0.57 seconds (13550.16 total)
+running script graph for 597 of 723
+0.82 seconds (13550.98 total)
+running script graph for 598 of 723
+0.49 seconds (13551.47 total)
+running script graph for 599 of 723
+0.43 seconds (13551.9 total)
+running script graph for 600 of 723
+0.48 seconds (13552.39 total)
+running script graph for 601 of 723
+0.5 seconds (13552.88 total)
+running script graph for 602 of 723
+0.68 seconds (13553.56 total)
+running script graph for 603 of 723
+0.5 seconds (13554.07 total)
+running script graph for 604 of 723
+0.6 seconds (13554.67 total)
+running script graph for 605 of 723
+0.5 seconds (13555.16 total)
+running script graph for 606 of 723
+0.69 seconds (13555.85 total)
+running script graph for 607 of 723
+0.76 seconds (13556.61 total)
+running script graph for 608 of 723
+1.26 seconds (13557.88 total)
+running script graph for 609 of 723
+0.79 seconds (13558.66 total)
+running script graph for 610 of 723
+0.81 seconds (13559.47 total)
+running script graph for 611 of 723
+0.89 seconds (13560.36 total)
+running script graph for 612 of 723
+0.48 seconds (13560.84 total)
+running script graph for 613 of 723
+0.88 seconds (13561.73 total)
+running script graph for 614 of 723
+0.8 seconds (13562.53 total)
+running script graph for 615 of 723
+0.58 seconds (13563.12 total)
+running script graph for 616 of 723
+0.44 seconds (13563.56 total)
+running script graph for 617 of 723
+0.77 seconds (13564.33 total)
+running script graph for 618 of 723
+0.83 seconds (13565.16 total)
+running script graph for 619 of 723
+1.25 seconds (13566.41 total)
+running script graph for 620 of 723
+0.74 seconds (13567.15 total)
+running script graph for 621 of 723
+0.79 seconds (13567.95 total)
+running script graph for 622 of 723
+1.33 seconds (13569.28 total)
+running script graph for 623 of 723
+0.9 seconds (13570.18 total)
+running script graph for 624 of 723
+0.67 seconds (13570.84 total)
+running script graph for 625 of 723
+0.59 seconds (13571.43 total)
+running script graph for 626 of 723
+0.67 seconds (13572.1 total)
+running script graph for 627 of 723
+0.74 seconds (13572.84 total)
+running script graph for 628 of 723
+0.75 seconds (13573.59 total)
+running script graph for 629 of 723
+0.93 seconds (13574.52 total)
+running script graph for 630 of 723
+1.14 seconds (13575.66 total)
+running script graph for 631 of 723
+0.81 seconds (13576.47 total)
+running script graph for 632 of 723
+0.81 seconds (13577.28 total)
+running script graph for 633 of 723
+0.87 seconds (13578.15 total)
+running script graph for 634 of 723
+0.6 seconds (13578.75 total)
+running script graph for 635 of 723
+0.5 seconds (13579.25 total)
+running script graph for 636 of 723
+0.62 seconds (13579.87 total)
+running script graph for 637 of 723
+0.62 seconds (13580.49 total)
+running script graph for 638 of 723
+0.59 seconds (13581.09 total)
+running script graph for 639 of 723
+0.46 seconds (13581.55 total)
+running script graph for 640 of 723
+0.97 seconds (13582.52 total)
+running script graph for 641 of 723
+1.09 seconds (13583.61 total)
+running script graph for 642 of 723
+1.08 seconds (13584.69 total)
+running script graph for 643 of 723
+0.72 seconds (13585.41 total)
+running script graph for 644 of 723
+1.09 seconds (13586.5 total)
+running script graph for 645 of 723
+1.35 seconds (13587.86 total)
+running script graph for 646 of 723
+0.91 seconds (13588.76 total)
+running script graph for 647 of 723
+1.6 seconds (13590.36 total)
+running script graph for 648 of 723
+2.44 seconds (13592.8 total)
+running script graph for 649 of 723
+2.1 seconds (13594.91 total)
+running script graph for 650 of 723
+1.77 seconds (13596.68 total)
+running script graph for 651 of 723
+3.96 seconds (13600.63 total)
+running script graph for 652 of 723
+1.5 seconds (13602.13 total)
+running script graph for 653 of 723
+0.88 seconds (13603.01 total)
+running script graph for 654 of 723
+0.66 seconds (13603.67 total)
+running script graph for 655 of 723
+0.7 seconds (13604.37 total)
+running script graph for 656 of 723
+1.51 seconds (13605.88 total)
+running script graph for 657 of 723
+1.63 seconds (13607.51 total)
+running script graph for 658 of 723
+1.17 seconds (13608.69 total)
+running script graph for 659 of 723
+1.26 seconds (13609.95 total)
+running script graph for 660 of 723
+1.0 seconds (13610.95 total)
+running script graph for 661 of 723
+1.84 seconds (13612.8 total)
+running script graph for 662 of 723
+0.7 seconds (13613.5 total)
+running script graph for 663 of 723
+0.61 seconds (13614.11 total)
+running script graph for 664 of 723
+3.28 seconds (13617.38 total)
+running script graph for 665 of 723
+9.21 seconds (13626.59 total)
+running script graph for 666 of 723
+3.89 seconds (13630.48 total)
+running script graph for 667 of 723
+2.08 seconds (13632.57 total)
+running script graph for 668 of 723
+0.6 seconds (13633.17 total)
+running script graph for 669 of 723
+0.97 seconds (13634.13 total)
+running script graph for 670 of 723
+1.04 seconds (13635.17 total)
+running script graph for 671 of 723
+1.02 seconds (13636.19 total)
+running script graph for 672 of 723
+1.05 seconds (13637.24 total)
+running script graph for 673 of 723
+0.78 seconds (13638.02 total)
+running script graph for 674 of 723
+2.06 seconds (13640.08 total)
+running script graph for 675 of 723
+4.09 seconds (13644.17 total)
+running script graph for 676 of 723
+2.58 seconds (13646.76 total)
+running script graph for 677 of 723
+1.81 seconds (13648.57 total)
+running script graph for 678 of 723
+1.6 seconds (13650.17 total)
+running script graph for 679 of 723
+2.51 seconds (13652.68 total)
+running script graph for 680 of 723
+0.34 seconds (13653.02 total)
+running script graph for 681 of 723
+0.39 seconds (13653.41 total)
+running script graph for 682 of 723
+0.33 seconds (13653.74 total)
+running script graph for 683 of 723
+0.41 seconds (13654.15 total)
+running script graph for 684 of 723
+0.4 seconds (13654.56 total)
+running script graph for 685 of 723
+0.36 seconds (13654.91 total)
+running script graph for 686 of 723
+0.4 seconds (13655.31 total)
+running script graph for 687 of 723
+0.47 seconds (13655.78 total)
+running script graph for 688 of 723
+0.39 seconds (13656.17 total)
+running script graph for 689 of 723
+0.42 seconds (13656.6 total)
+running script graph for 690 of 723
+0.42 seconds (13657.01 total)
+running script graph for 691 of 723
+0.35 seconds (13657.36 total)
+running script graph for 692 of 723
+0.45 seconds (13657.82 total)
+running script graph for 693 of 723
+0.47 seconds (13658.29 total)
+running script graph for 694 of 723
+0.42 seconds (13658.71 total)
+running script graph for 695 of 723
+0.5 seconds (13659.21 total)
+running script graph for 696 of 723
+0.39 seconds (13659.6 total)
+running script graph for 697 of 723
+0.58 seconds (13660.18 total)
+running script graph for 698 of 723
+0.62 seconds (13660.8 total)
+running script graph for 699 of 723
+0.42 seconds (13661.22 total)
+running script graph for 700 of 723
+0.52 seconds (13661.74 total)
+running script graph for 701 of 723
+0.42 seconds (13662.15 total)
+running script graph for 702 of 723
+0.62 seconds (13662.77 total)
+running script graph for 703 of 723
+0.81 seconds (13663.58 total)
+running script graph for 704 of 723
+0.51 seconds (13664.09 total)
+running script graph for 705 of 723
+0.45 seconds (13664.54 total)
+running script graph for 706 of 723
+0.51 seconds (13665.05 total)
+running script graph for 707 of 723
+0.44 seconds (13665.5 total)
+running script graph for 708 of 723
+0.82 seconds (13666.32 total)
+running script graph for 709 of 723
+0.5 seconds (13666.81 total)
+running script graph for 710 of 723
+0.86 seconds (13667.67 total)
+running script graph for 711 of 723
+0.76 seconds (13668.42 total)
+running script graph for 712 of 723
+0.65 seconds (13669.07 total)
+running script graph for 713 of 723
+0.54 seconds (13669.61 total)
+running script graph for 714 of 723
+1.1 seconds (13670.71 total)
+running script graph for 715 of 723
+1.33 seconds (13672.04 total)
+running script graph for 716 of 723
+0.32 seconds (13672.36 total)
+running script graph for 717 of 723
+0.32 seconds (13672.68 total)
+running script graph for 718 of 723
+0.35 seconds (13673.04 total)
+running script graph for 719 of 723
+0.34 seconds (13673.38 total)
+running script graph for 720 of 723
+0.36 seconds (13673.73 total)
+running script graph for 721 of 723
+0.36 seconds (13674.09 total)
+running script graph for 722 of 723
+0.46 seconds (13674.55 total)
+running script graph for 723 of 723
+0.34 seconds (13674.88 total)
+13674.88 seconds total, 18.91 seconds average spent on core M2 calculation for 723 graphs;
+high values:
+:B_C?HN  633.12 (10.6 min) -- triangle_3_3_3
+:Co?K@I 1500.87 (25.0 min) --
+* - 3 - *
+|     / |
+2   1   1
+| /     |
+* - 2 - *
+
+:Co?H_I 1990.43 (33.2 min)
+* - 3 - *
+|     / |
+2   1   2
+| /     |
+* - 1 - *
+:Co?@`I 2999.98 (50.0 min)
+* - 4 - *
+|     / |
+1   1   1
+| /     |
+* - 2 - *
