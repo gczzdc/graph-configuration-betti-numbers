@@ -143,9 +143,13 @@ def graph_generator(
 			macaulay_results = access_macaulay_file(G)
 			incorporate_macaulay_data(G,macaulay_results)
 	else:
-		for G in nontrivial:
+		for j,G in enumerate(nontrivial):
+			if loud_commands:
+				print('running script graph for {} of {}'.format(j+1, len(nontrivial)))
 			macaulay_results = run_macaulay_script(G)
 			total_time += macaulay_results[1]
+			if loud_commands:
+				print('{} seconds ({} total)'.format(round(macaulay_results[1],2), round(total_time,2)))
 			incorporate_macaulay_data(G,macaulay_results[0])
 		print ('{} seconds total, {} seconds average spent on core M2 calculation for {} graphs;'.format(
 			round(total_time, 2), round(total_time/len(nontrivial),2), len(nontrivial)))
