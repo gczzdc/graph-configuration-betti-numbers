@@ -76,6 +76,15 @@ class Graph():
 		self.stable_poly_normalized={}
 		self.validity=-1	
 
+	def build_img(self):
+		G = nx.from_sparse6_bytes(self.sparse6.encode('ascii'))
+		try:
+			node_dic = {k:tuple(v) for k,v in nx.planar_layout(G).items()}
+		except nx.NetworkXException:
+			node_dic = {k:tuple(v) for k,v in nx.circular_layout(G).items()}
+		self.image_dic = node_dic
+		self.has_image = True
+
 	def image_filename(self):
 		return '{}.{}'.format(self.filename,graphics_format)
 
