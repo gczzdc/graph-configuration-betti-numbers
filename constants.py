@@ -40,6 +40,7 @@ bend_dic={\
 #macaulay2 io
 macaulay_scriptfile = 'temp.m2'
 results_file='m2_graph_results'
+macaulay_directory='m2'
 
 #for control flow
 loud_commands=False
