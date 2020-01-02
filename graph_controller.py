@@ -130,11 +130,15 @@ def graph_generator(
 	if generate_graphs:
 		graphs = make_graphs(max_edges)
 	
-	for G in graphs:
+	for j,G in enumerate(graphs):
 		if G.has_image:
 			if recompile_images:
+				if loud_commands:
+					print('recompiling {} of {}'.format(j+1, len(graphs)))
 				compile_image(G, loud_commands)
 			if reconvert_images:
+				if loud_commands:
+					print('reconverting {} of {}'.format(j+1, len(graphs)))
 				convert_image(G, loud_commands)
 
 	trivial, nontrivial = trivial_split(graphs)
