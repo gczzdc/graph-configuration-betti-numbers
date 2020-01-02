@@ -86,8 +86,8 @@ def make_macaulay_script(graph,
 	return m_script	
 
 def run_macaulay_script(G):
-	macaulay_outfile = '{}_{}.txt'.format(results_file, basic_namer(G))
-	with open(macaulay_scriptfile, 'w') as f: 
+	macaulay_outfile = '{}/{}_{}.txt'.format(macaulay_directory, results_file, basic_namer(G))
+	with open('{}/{}'.format(macaulay_directory, macaulay_scriptfile), 'w') as f: 
 		f.write(make_macaulay_script(
 			G, 
 			macaulay_outfile
@@ -97,14 +97,14 @@ def run_macaulay_script(G):
 	except OSError:
 		pass
 	t0 = time.time()
-	run(('m2', '--script', macaulay_scriptfile))
+	run(('m2', '--script', '{}/{}'.format(macaulay_directory, macaulay_scriptfile)))
 	timedelta = time.time()-t0
 	with open(macaulay_outfile,'r') as f:
 		data = f.read()
 	return (data, timedelta)
 
 def access_macaulay_file(G):
-	macaulay_outfile = '{}_{}.txt'.format(results_file, basic_namer(G))
+	macaulay_outfile = '{}/{}_{}.txt'.format(macaulay_directory, results_file, basic_namer(G))
 	with open(macaulay_outfile,'r') as f:
 		data = f.read()
 	return data
