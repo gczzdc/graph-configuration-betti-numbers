@@ -142,7 +142,9 @@ def make_table_header(graph, tag, line, stag, text):
 				description = '>>sparse6<<{}'.format(graph.sparse6)
 				if graph.has_image:
 					stag('img',
-						src=graph.image_filename(), 
+						src='{}/{}'.format(
+									image_directory,
+									graph.image_filename()), 
 						alt=alt_txt)
 					stag('br')
 				text(description)

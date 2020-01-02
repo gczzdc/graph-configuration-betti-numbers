@@ -191,10 +191,10 @@ def make_table_header(graph, single_file):
 	if graph.has_image:
 		out_builder.append('\\begin{tabular}{c}\n')
 		if single_file:
-			with open(graph.filename+'.tex','r') as f:
+			with open('{}/{}.tex'.format(image_directory, graph.filename),'r') as f:
 				out_builder.append(f.read()) 
 		else:
-			out_builder.append('\\input{{{}}}\n'.format(graph.filename))
+			out_builder.append('\\input{{{}/{}}}\n'.format(image_directory, graph.filename))
 		out_builder.append('\\end{tabular}\n\\qquad{}\n')
 	out_builder.append('\\\n')
 	out_builder.append('\\\n')	

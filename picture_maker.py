@@ -56,13 +56,14 @@ def convert_image(G, loud_commands):
 						edge_dic,
 						G.narrow,
 						scale=2)
-	with open(G.filename+'_img.tex','w') as f:
+	img_file_base = '{}/{}_img'.format(image_directory, G.filename)
+	with open('{}.tex'.format(img_file_base),'w') as f:
 		f.write(img_start_tex)
 		f.write(data)
 		f.write(img_end_tex)
 
-	run((compile_command, '{}_img'.format(G.filename)), loud_commands)		
+	run((compile_command, img_file_base), loud_commands)		
 	run((convert_command[0], 
 		'{}_img.{}'.format(G.filename, convert_command[1],), 
-		'{}.{}'.format(G.filename, graphics_format)), loud_commands)
+		'{}/{}.{}'.format(image_directory, G.filename, graphics_format)), loud_commands)
 	run((cleanup_command[0], '{}_img.{}'.format(G.filename, cleanup_command[1])), loud_commands)
