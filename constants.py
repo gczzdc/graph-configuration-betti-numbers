@@ -15,7 +15,6 @@ bib_command='bibtex'
 compile_command ='pdflatex'
 
 #for images
-drawn_graphs_file = 'drawn_graphs.txt'
 node_radius = '1.5pt'
 img_start_tex='\\documentclass[crop,tikz]{standalone}\n\\begin{document}\n'
 img_end_tex='\\end{document}'
@@ -23,19 +22,6 @@ graphics_format = 'svg'
 convert_command =('pdf2svg', 'pdf')
 cleanup_command = ('rm','*')
 image_directory = 'img'
-# for putting in multiple edges.
-# this is not a great solution, it would be better to be able to do this uniformly and automatically
-# but it is good enough for now
-# bend larger than +-90 starts to bend back so that 180 is straight again
-# later for some graphs we'll shrink these in order to not have overlapping edges.
-bend_dic={\
-0:[],\
-1:[0,],\
-2:[-90,90],\
-3:[-90,0,90],\
-4:[-90,-25,25,90],\
-5:[-90,-30,0,30,90],\
-6:[-90,-40,-15,15,40,90]}
 
 #macaulay2 io
 macaulay_scriptfile = 'temp.m2'

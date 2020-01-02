@@ -5,8 +5,6 @@ from picture_maker import (
 
 from isomorphism_class_generation import generate_multigraphs
 
-from drawn_graphs_reader import assign_pix_to_graphs
-
 from collections import defaultdict
 
 from macaulay_maker import run_macaulay_script, access_macaulay_file
@@ -72,8 +70,6 @@ def make_graphs(max_edges, premade_pictures = False):
 			G=Graph(sparse6)
 			G.build_img()
 			graphs.append(G)
-	if premade_pictures:
-		assign_pix_to_graphs(graphs)
 	return graphs
 
 def deal_with_trivial_graphs_by_hand(graphs):
