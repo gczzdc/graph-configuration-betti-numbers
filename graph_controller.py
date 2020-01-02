@@ -65,12 +65,15 @@ def upload_files(graphs, full_upload, loud_commands):
 			if G.has_image: 
 				scp('{}.{}'.format(G.filename,graphics_format))
 
-def make_graphs(max_edges):
+def make_graphs(max_edges, premade_pictures = False):
 	graphs=[]
 	for j in range(max_edges+1):
 		for sparse6 in generate_multigraphs(j):
-			graphs.append(Graph(sparse6))
-	assign_pix_to_graphs(graphs)
+			G=Graph(sparse6)
+			G.build_img()
+			graphs.append(G)
+	if premade_pictures:
+		assign_pix_to_graphs(graphs)
 	return graphs
 
 def deal_with_trivial_graphs_by_hand(graphs):
