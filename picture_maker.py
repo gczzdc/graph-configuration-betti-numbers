@@ -6,6 +6,7 @@ from constants import (
 	compile_command,
 	convert_command,
 	img_end_tex,
+	image_directory,
 	graphics_format,
 	img_start_tex,
 	node_radius,

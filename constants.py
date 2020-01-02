@@ -16,12 +16,13 @@ compile_command ='pdflatex'
 
 #for images
 drawn_graphs_file = 'drawn_graphs.txt'
-node_radius = '2.5pt'
+node_radius = '1.5pt'
 img_start_tex='\\documentclass[crop,tikz]{standalone}\n\\begin{document}\n'
 img_end_tex='\\end{document}'
 graphics_format = 'svg'
 convert_command =('pdf2svg', 'pdf')
 cleanup_command = ('rm','*')
+image_directory = 'img'
 # for putting in multiple edges.
 # this is not a great solution, it would be better to be able to do this uniformly and automatically
 # but it is good enough for now

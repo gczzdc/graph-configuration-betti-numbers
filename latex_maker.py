@@ -3,6 +3,7 @@ from constants import (
 	bib_command,
 	compile_command,
 	intro_tex,
+	image_directory,
 	loud_commands,
 	outro_tex,
 	data_section_title,

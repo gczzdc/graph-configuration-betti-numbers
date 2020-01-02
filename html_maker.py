@@ -5,6 +5,7 @@ from yattag import Doc
 from constants import (
 	graphics_format,
 	headless_html,
+	image_directory,
 	data_section_title,
 	Betti_row_max_length
 )

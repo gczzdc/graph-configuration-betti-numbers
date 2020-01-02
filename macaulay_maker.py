@@ -1,5 +1,6 @@
 from constants import (
 	graph_order_of_magnitude,
+	macaulay_directory,
 	macaulay_scriptfile,
 	results_file
 )
