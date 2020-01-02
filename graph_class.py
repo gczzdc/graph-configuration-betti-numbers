@@ -9,6 +9,28 @@ translator = ''.maketrans(unsafe, safe,':')
 def safe_encode(sparse6):
 	return sparse6.translate(translator)
 
+
+translator = {'?':'6E',\
+				'@':'6F',\
+				'[':'7b',\
+				'\\':'7c}',\
+				']':'7d',\
+				'^':'7e',\
+				'_':'7f',\
+				'`':'7g',\
+				'{':'4w',\
+				'|':'4x',\
+				'}':'4y',\
+				'~':'4z',\
+				':':''}
+
+def safe_encode(string):
+	for k in translator:
+		string = string.replace(k, translator[k])
+	return string
+
+
+
 class Graph():
 	def __init__(self,sparse6):
 		self.vertex_count=0
@@ -40,7 +62,7 @@ class Graph():
 		self.using_sparse6_name=True
 		self.safe_name = safe_encode(sparse6)
 		self.image_dic=None
-		self.filename = safe_encode(sparse6)
+		self.filename = 'G'+safe_encode(sparse6)
 		self.note=None
 		self.has_image = False
 
