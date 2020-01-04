@@ -103,43 +103,6 @@ def format_stable_latex(stable_poly, denom_power):
 	return stable_tex
 
 
-def betti_number_table(graph):
-	out_builder=[]
-	if graph.note:
-		out_builder.append('\nNote: {}\n\\\\\n'.format(graph.note))
-	if not graph.Betti_numbers:
-		output_builder.append('No Betti number data available\n\\\\\n')
-	else:
-		out_builder.append('Betti numbers $\\beta_i(B_k(\\Gamma))$:\n')
-		row_length = max([len(row) for row in graph.Betti_numbers.values()])
-		cap = min(row_length,Betti_row_max_length)
-		out_builder.append('\\begin{center}\n')
-		out_builder.append("\\renewcommand{\\arraystretch}{2}\n")
-		out_builder.append('\\begin{{tabular}}{{l|{}}}\n'.format('c'*(cap+2)))
-		out_builder.append('$i\\backslash k$')
-		for col_number in range(cap):
-			out_builder.append(' & ${}$'.format(col_number))
-		out_builder.append(" & Poincar\\'e series")
-		out_builder.append(' & stable polynomial value')
-		out_builder.append('\\\\\\hline\n')
-		for row_number in range(graph.homological_degree+1):
-			out_builder.append('${}$'.format(row_number))
-			for col_number in range(min(len(graph.Betti_numbers[row_number]),cap)):
-				this_number = graph.Betti_numbers[row_number][col_number]
-				if (row_number,col_number) in graph.Betti_number_is_unstable:
-					formatted_number = '\\mathbf{{{}}}'.format(this_number)
-				else:
-					formatted_number = this_number
-				out_builder.append(' & ${}$'.format(formatted_number))
-			out_builder.append('\n & ')
-			poincare_poly = format_poincare_latex(graph.poincare_num_poly[row_number],
-												graph.poincare_denom_power[row_number])
-			stable_poly = format_stable_latex(graph.stable_poly_normalized[row_number],
-												graph.poincare_denom_power[row_number])
-			out_builder.append('${}$ & ${}$\\\\\n'.format(poincare_poly,stable_poly))
-		out_builder.append('\\end{tabular}\n')
-		out_builder.append('\\end{center}\n')
-	return ''.join(out_builder)
 
 def broken_betti_number_table(graph):
 	out_builder=[]
