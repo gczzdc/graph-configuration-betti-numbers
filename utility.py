@@ -11,5 +11,13 @@ def run(whatever, loud=loud_commands):
 		print(process, end='\n\n\n')
 
 
-def scp(file_name, loud_commands=loud_commands):
-	run(('sftp', host + remote_directory, "<<<", "$'put " + file_name+"\nexit'"), loud_commands)
+def scp(file_name, loud_commands=loud_commands, subdirectory=None):
+	if subdirectory:
+		formatted_subdirectory = '/{}'.format(subdirectory)
+	else:
+		formatted_subdirectory = ''
+	run(('sftp', 
+			host + remote_directory + formatted_subdirectory, 
+			"<<<", 
+			"$'put {}\nexit'".format(file_name)), 
+		loud_commands)
