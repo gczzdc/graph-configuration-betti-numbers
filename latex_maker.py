@@ -178,10 +178,12 @@ def make_table_header(graph, single_file):
 def assemble_table_for_tex(graph, single_file=False):
 	out_builder=[]
 	out_builder.append('\\begin{absolutelynopagebreak}\n')
+	out_builder.append('\\begin{center}\n')
 	out_builder.append(make_table_header(graph, single_file))
 	out_builder.append(broken_betti_number_table(graph))
+	out_builder.append('\\end{center}\n')
 	out_builder.append('\\end{absolutelynopagebreak}')
-	out_builder.append('\\vspace{20pt}\n\n\\hrule\n\n\\vspace{20pt}\n')	
+	out_builder.append('\\newpage\n')	
 	return ''.join(out_builder)
 
 def subsec_header_maker(n):
@@ -192,7 +194,7 @@ def subsec_header_maker(n):
 		out_builder.append("\\subsection{{Data for graphs with {} essential vertices}}\n".format(n))
 	else:
 		out_builder.append("\\subsection{Data for graphs with 1 essential vertex}\n")
-	out_builder.append('\\ \n\\vspace{10pt}\n\\hrule\n\\vspace{20pt}\n')
+	out_builder.append('\\ \n\\vspace{10pt}\n\\hrule\\hrule\n\\vspace{20pt}\n')
 	return ''.join(out_builder)
 
 def build_betti_subsec(graph_list, n, single_file):
