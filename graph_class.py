@@ -48,7 +48,7 @@ class Graph():
 		self.using_sparse6_name=True
 		self.safe_name = safe_encode(sparse6)
 		self.image_dic=None
-		self.filename = 'G'+safe_encode(sparse6)
+		self.filename = 'G'+self.safe_name
 		self.note=None
 		self.has_image = False
 
