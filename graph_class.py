@@ -71,6 +71,10 @@ class Graph():
 		self.image_dic = node_dic
 		self.has_image = True
 
+	def degree_sequence(self):
+		self.build_VH()
+		return sorted([len(v) for v in self.stars], reverse=True)
+
 	def image_filename(self):
 		return '{}.{}'.format(self.filename,graphics_format)
 
