@@ -10,26 +10,12 @@ def safe_encode(sparse6):
 	return sparse6.translate(translator)
 
 
-translator = {'?':'6E',\
-				'@':'6F',\
-				'[':'7b',\
-				'\\':'7c}',\
-				']':'7d',\
-				'^':'7e',\
-				'_':'7f',\
-				'`':'7g',\
-				'{':'4w',\
-				'|':'4x',\
-				'}':'4y',\
-				'~':'4z',\
-				':':''}
+translator = {':':''}
+for j in range(63,127):
+	translator[chr(j)]=str(j-53)
 
 def safe_encode(string):
-	for k in translator:
-		string = string.replace(k, translator[k])
-	return string
-
-
+	return ''.join([translator[j] for j in string])
 
 class Graph():
 	def __init__(self,sparse6):
