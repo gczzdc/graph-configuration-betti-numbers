@@ -1,7 +1,6 @@
 from utility import run
 
 from constants import (
-	bend_dic,
 	cleanup_command,
 	compile_command,
 	convert_command,
