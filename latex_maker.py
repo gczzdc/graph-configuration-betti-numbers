@@ -114,9 +114,7 @@ def broken_betti_number_table(graph):
 		out_builder.append('Betti numbers $\\beta_i(B_k(\\Gamma))$:\n\\\\\n')
 		row_length = max([len(row) for row in graph.Betti_numbers.values()])
 		cap = min(row_length,Betti_row_max_length)
-		out_builder.append('\\begin{center}\n')
-		out_builder.append("\\renewcommand{\\arraystretch}{2}\n")
-		out_builder.append('\\begin{{tabular}}{{l|{}}}\n'.format('c'*(cap+1)))
+		out_builder.append('\\begin{{tabular}}{{Sl|{}}}\n'.format('Sc'*(cap+1)))
 		out_builder.append('$i\\backslash k$')
 		for col_number in range(cap):
 			out_builder.append(' & ${}$'.format(col_number))
@@ -137,7 +135,7 @@ def broken_betti_number_table(graph):
 			out_builder.append('${}$ \\\\\n'.format(poincare_poly))
 		out_builder.append('\\end{tabular}\n')
 
-		out_builder.append('\\begin{tabular}{l|c}\n')
+		out_builder.append('\\begin{tabular}{Sl|Sc}\n')
 		out_builder.append('$i$ & stable polynomial value\n\\\\\\hline\n')
 		for row_number in range(graph.homological_degree+1):
 			out_builder.append('${}$ & '.format(row_number))
@@ -145,12 +143,26 @@ def broken_betti_number_table(graph):
 												graph.poincare_denom_power[row_number])
 			out_builder.append('${}$ \\\\\n'.format(stable_poly))
 		out_builder.append('\\end{tabular}\n')	
-		out_builder.append('\\end{center}\n')
 	return ''.join(out_builder)
 
 def make_table_header(graph, single_file):
 	out_builder = []
-	out_builder.append('\\begin{gather*}\n')
+	out_builder.append('\\begin{tabular}{ScSc}\n')
+	out_builder.append('sparse6 name & degree sequence\n')
+	out_builder.append('\\\\\\hline\n')
+	out_builder.append('\\text{{{}}}\n'.format(latex_escape(graph.sparse6)))
+	out_builder.append('&\n')
+	out_builder.append('{}\n'.format(graph.degree_sequence()))
+
+	out_builder.append('\\\\[20pt]\n')
+	out_builder.append('adjacency matrix & image\n')
+	out_builder.append('\\\\\\hline\n')
+	out_builder.append('$\\left(\\begin{{array}}{{{}}}\n'.format('c'*len(graph.get_adjacency())))
+	for row in graph.adjacency:
+		out_builder.append('&'.join((str(n) for n in row)))
+		out_builder.append('\\\\\n')
+	out_builder.append('\\end{array}\\right)$\n')
+	out_builder.append('&')
 	if graph.has_image:
 		out_builder.append('\\begin{tabular}{c}\n')
 		if single_file:
@@ -158,18 +170,9 @@ def make_table_header(graph, single_file):
 				out_builder.append(f.read()) 
 		else:
 			out_builder.append('\\input{{{}/{}}}\n'.format(image_directory, graph.filename))
-		out_builder.append('\\end{tabular}\n\\qquad{}\n')
-	out_builder.append('\\\n')
-	out_builder.append('\\\n')	
-	out_builder.append("\\renewcommand{\\arraystretch}{1}\n")
-	out_builder.append('\\left(\\begin{{array}}{{{}}}\n'.format('c'*len(graph.get_adjacency())))
-	for row in graph.adjacency:
-		out_builder.append('&'.join((str(n) for n in row)))
-		out_builder.append('\\\\\n')
-	out_builder.append('\\end{array}\\right)\n')
+		out_builder.append('\\end{tabular}')
+	out_builder.append('\\end{tabular}\n')
 	out_builder.append('\\\\\n')
-	out_builder.append('\\text{{{}}}\n'.format(latex_escape('>>sparse6<<{}'.format(graph.sparse6))))
-	out_builder.append('\\end{gather*}\n')
 	return ''.join(out_builder)
 
 def assemble_table_for_tex(graph, single_file=False):
