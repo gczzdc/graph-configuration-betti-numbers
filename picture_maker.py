@@ -17,8 +17,7 @@ def midpoint(c1, c2):
 def image_maker(node_dic, edge_dic, narrow=1, scale=1):
 	out_builder = []
 	out_builder.append("\\begin{tikzpicture}")
-	if scale !=1:
-		out_builder.append('[scale ={}]'.format(scale))
+	out_builder.append('[scale ={}, baseline]'.format(scale))
 	out_builder.append('\n')
 	for node in node_dic:
 		out_builder.append(
@@ -41,8 +40,7 @@ def image_maker(node_dic, edge_dic, narrow=1, scale=1):
 def weighted_image_maker(node_dic, edge_dic, scale=1):
 	out_builder = []
 	out_builder.append("\\begin{tikzpicture}")
-	if scale !=1:
-		out_builder.append('[scale ={}]'.format(scale))
+	out_builder.append('[scale ={}, baseline]'.format(scale))
 	out_builder.append('\n')
 	for node in node_dic:
 		out_builder.append(
