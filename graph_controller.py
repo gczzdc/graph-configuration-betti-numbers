@@ -62,9 +62,9 @@ def upload_files(graphs, full_upload, loud_commands):
 	scp('index.html', loud_commands)
 	if full_upload:
 		scp(css_file, loud_commands)
-		for G in graphs:
-			if G.has_image: 
-				scp('{}.{}'.format(G.filename,graphics_format))
+		scp('{}/*.{}'.format(image_directory, graphics_format),
+			subdirectory=image_directory,
+			loud_commands=loud_commands)
 
 def make_graphs(min_edges, max_edges):
 	graphs=[]
