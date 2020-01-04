@@ -70,8 +70,8 @@ def compile_image(G, loud_commands):
 	edge_dic = G.get_edges()
 	data = weighted_image_maker(G.image_dic,
 						edge_dic,
-						scale=1)
-	with open(G.filename+'.tex','w') as f:
+						scale=3)
+	with open('{}/{}.tex'.format(image_directory, G.filename),'w') as f:
 		f.write(data)
 
 def convert_image(G, loud_commands):
@@ -81,7 +81,7 @@ def convert_image(G, loud_commands):
 	edge_dic = G.get_edges()
 	data = weighted_image_maker(G.image_dic,
 						edge_dic,
-						scale=2)
+						scale=3)
 	img_file_base = '{}/{}_img'.format(image_directory, G.filename)
 	with open('{}.tex'.format(img_file_base),'w') as f:
 		f.write(img_start_tex)
