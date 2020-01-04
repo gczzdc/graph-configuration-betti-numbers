@@ -121,9 +121,9 @@ def graph_generator(
 	):
 	if interactive:
 		generate_graphs=yesno('generate graphs programmatically?', generate_graphs)
+		run_macaulay=yesno('manually rerun macaulay scripts to determine homology',run_macaulay)
 		recompile_images=yesno('generate and recompile tex files for images',recompile_images)
 		reconvert_images=yesno('reconvert images for web', reconvert_images)
-		run_macaulay=yesno('run macaulay scripts to determine homology',run_macaulay)
 		make_files=yesno('make master tex and html files',make_files)
 		compile_main=yesno('make master pdf',compile_main)
 		ssh_upload=yesno('upload files to remote server',ssh_upload)
