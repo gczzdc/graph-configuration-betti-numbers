@@ -67,7 +67,7 @@ class Graph():
 		try:
 			node_dic = {k:tuple(v) for k,v in nx.planar_layout(G).items()}
 		except nx.NetworkXException:
-			node_dic = {k:tuple(v) for k,v in nx.circular_layout(G).items()}
+			node_dic = {k:tuple(v) for k,v in nx.circular_layout(G, scale=0.6).items()}
 		self.image_dic = node_dic
 		self.has_image = True
 
