@@ -12,7 +12,10 @@ from macaulay_maker import run_macaulay_script, access_macaulay_file
 from macaulay_parser import incorporate_macaulay_data
 
 from constants import (
+	css_file,
 	generate_graphs,
+	graphics_format,
+	image_directory,
 	max_edges,
 	recompile_images,
 	reconvert_images,
