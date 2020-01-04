@@ -133,6 +133,31 @@ def graph_generator(
 	if generate_graphs:
 		graphs = make_graphs(min_edges, max_edges)
 	
+	trivial, nontrivial = trivial_split(graphs)
+	if run_macaulay:
+		for j,G in enumerate(nontrivial):
+			if loud_commands:
+				print('running script graph for {} of {}'.format(j+1, len(nontrivial)))
+
+			macaulay_results = run_macaulay_script(G)
+			total_time += macaulay_results[1]
+			if loud_commands:
+				print('{} seconds ({} total)'.format(round(macaulay_results[1],2), round(total_time,2)))
+			incorporate_macaulay_data(G,macaulay_results[0])
+		print ('{} seconds total, {} seconds average spent on core M2 calculation for {} graphs;'.format(
+			round(total_time, 2), round(total_time/len(nontrivial),2), len(nontrivial)))
+
+	if not run_macaulay:
+		for j,G in enumerate(nontrivial):
+			try:
+				macaulay_results = access_macaulay_file(G)
+			except FileNotFoundError:
+				print('File not found for {}'.format(G.sparse6))
+				macaulay_results=run_macaulay_script(G)[0]
+			incorporate_macaulay_data(G,macaulay_results)
+	
+	deal_with_trivial_graphs_by_hand(trivial)
+
 	for j,G in enumerate(graphs):
 		if G.has_image:
 			if recompile_images:
@@ -143,24 +168,7 @@ def graph_generator(
 				if loud_commands:
 					print('reconverting {} of {}'.format(j+1, len(graphs)))
 				convert_image(G, loud_commands)
-
-	trivial, nontrivial = trivial_split(graphs)
-	if not run_macaulay:
-		for G in nontrivial:
-			macaulay_results = access_macaulay_file(G)
-			incorporate_macaulay_data(G,macaulay_results)
-	else:
-		for j,G in enumerate(nontrivial):
-			if loud_commands:
-				print('running script graph for {} of {}'.format(j+1, len(nontrivial)))
-			macaulay_results = run_macaulay_script(G)
-			total_time += macaulay_results[1]
-			if loud_commands:
-				print('{} seconds ({} total)'.format(round(macaulay_results[1],2), round(total_time,2)))
-			incorporate_macaulay_data(G,macaulay_results[0])
-		print ('{} seconds total, {} seconds average spent on core M2 calculation for {} graphs;'.format(
-			round(total_time, 2), round(total_time/len(nontrivial),2), len(nontrivial)))
-	deal_with_trivial_graphs_by_hand(trivial)
+	
 	if make_files:
 		process_files(graphs,loud_commands)
 	if compile_main:
