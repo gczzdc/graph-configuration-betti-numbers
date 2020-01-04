@@ -135,28 +135,30 @@ def betti_number_table(graph, tag, line, stag, text, asis, attr):
 
 
 def make_table_header(graph, tag, line, stag, text):
-	with tag('div', klass='row'):
-		with tag('div', klass='colleft'):
-			with tag('p', klass='centered', style='margin-right:20px'):
-				alt_txt = 'picture of the graph {}'.format(graph.sparse6)
-				description = '>>sparse6<<{}'.format(graph.sparse6)
-				if graph.has_image:
-					stag('img',
-						src='{}/{}'.format(
+	with tag('p', klass='centered'):
+		with tag('table', klass='centered'):
+			with tag('tr'):
+				line('td', 'sparse6 name', klass='centered')
+				line('td', 'image', klass='centered')
+				line('td', 'adjacency matrix', klass='centered')
+				line('td', 'degree sequence', klass='centered')
+			with tag('tr'):
+				line('td', graph.sparse6, klass='centered')
+				with tag('td', klass='centered'):
+					alt_txt = 'picture of the graph {}'.format(graph.sparse6)
+					if graph.has_image:
+						stag('img',
+							src='{}/{}'.format(
 									image_directory,
 									graph.image_filename()), 
-						alt=alt_txt)
-					stag('br')
-				text(description)
-		with tag('div', klass='colright'):
-			with tag('table', 
-					klass='matrix',
-					style='display:inline-block;margin-left:20px'):
-				for row in graph.get_adjacency():
-					with tag('tr'):
-						for entry in row:
-							line('td', str(entry), klass='matrixcell')
-
+							alt=alt_txt)
+				with tag('td', klass='centered'):
+					with tag('table', klass='matrix'):
+						for row in graph.get_adjacency():
+							with tag('tr'):
+								for entry in row:
+									line('td', str(entry), klass='matrixcell')
+				line('td', str(graph.degree_sequence()), klass='centered')
 
 def assemble_table_for_html(graph, tag, line, stag, text, asis, attr):
 	with tag('div'):
