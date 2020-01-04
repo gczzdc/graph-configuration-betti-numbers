@@ -63,9 +63,9 @@ def upload_files(graphs, full_upload, loud_commands):
 			if G.has_image: 
 				scp('{}.{}'.format(G.filename,graphics_format))
 
-def make_graphs(max_edges, premade_pictures = False):
+def make_graphs(min_edges, max_edges):
 	graphs=[]
-	for j in range(max_edges+1):
+	for j in range(min_edges, max_edges+1):
 		for sparse6 in generate_multigraphs(j):
 			G=Graph(sparse6)
 			G.build_img()
@@ -105,6 +105,7 @@ def graph_generator(
 	graphs=[],
 	interactive=False,
 	generate_graphs=generate_graphs, 
+	min_edges=0,
 	max_edges=max_edges,
 	recompile_images=recompile_images,
 	reconvert_images=reconvert_images,
@@ -127,7 +128,7 @@ def graph_generator(
 			full_upload=yesno('upload infrequently changed files',full_upload)
 	total_time=0
 	if generate_graphs:
-		graphs = make_graphs(max_edges)
+		graphs = make_graphs(min_edges, max_edges)
 	
 	for j,G in enumerate(graphs):
 		if G.has_image:
