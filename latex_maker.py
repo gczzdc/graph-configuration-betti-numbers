@@ -109,7 +109,7 @@ def broken_betti_number_table(graph):
 	if graph.note:
 		out_builder.append('\nNote: {}\n\\\\\n'.format(graph.note))
 	if not graph.Betti_numbers:
-		output_builder.append('No Betti number data available\n\\\\\n')
+		out_builder.append('No Betti number data available\n\\\\\n')
 	else:
 		out_builder.append('Betti numbers $\\beta_i(B_k(\\Gamma))$:\n\\\\\n')
 		row_length = max([len(row) for row in graph.Betti_numbers.values()])
